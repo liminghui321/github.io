@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://liminghui321.github.io/2019/06/22/day25框架基础加强/image29.png">
 <meta property="og:image" content="http://liminghui321.github.io/2019/06/22/day25框架基础加强/image30.png">
 <meta property="og:image" content="http://liminghui321.github.io/2019/06/22/day25框架基础加强/image31.png">
-<meta property="og:updated_time" content="2019-06-25T06:38:24.792Z">
+<meta property="og:updated_time" content="2019-06-25T06:43:28.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javaweb基础加强-反射">
 <meta name="twitter:description" content="反射介绍反射，一种计算机处理方式。是程序可以访问、检测和修改它本身状态或行为的一种能力。 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。 Java反射常用API {width=”5.770833333333333in” height=”0.763">
@@ -538,6 +538,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.annotation2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> JdbcProperty &#123;</span><br><span class="line">	<span class="function">String <span class="title">driverClass</span><span class="params">()</span></span>;<span class="comment">//注解属性</span></span><br><span class="line"></span><br><span class="line">	<span class="function">String <span class="title">url</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function">String <span class="title">user</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function">String <span class="title">password</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><a href="https://liminghui321.github.io/"></a></p>
 
         
       </div>
