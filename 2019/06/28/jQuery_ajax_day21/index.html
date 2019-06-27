@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery_ajax,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="XMLHttpRequest对象详解获取XMLHttpRequest 对象对于大部分浏览器可以直接通过 new XMLHttpRequest(); 对于IE5 IE6 new ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;) XMLHttpRequest常用属性 onreadystatechange 它是用于绑定回调函数，当服务器响应数据回来后，我们可以在指">
+<meta name="keywords" content="jQuery_ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery_ajax_day21">
+<meta property="og:url" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/index.html">
+<meta property="og:site_name" content="liminghui&#39;blog">
+<meta property="og:description" content="XMLHttpRequest对象详解获取XMLHttpRequest 对象对于大部分浏览器可以直接通过 new XMLHttpRequest(); 对于IE5 IE6 new ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;) XMLHttpRequest常用属性 onreadystatechange 它是用于绑定回调函数，当服务器响应数据回来后，我们可以在指">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image1.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image2.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image3.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image4.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image5.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image6.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image7.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image8.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image9.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image10.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image11.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image12.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image13.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image14.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image15.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image16.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image17.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image18.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image19.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image20.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image21.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image22.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image23.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image24.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image25.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image26.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image27.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image28.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image29.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image30.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image31.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image32.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image33.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image34.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image35.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image36.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image37.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image38.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image39.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image40.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image41.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image42.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image43.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image44.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image45.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image46.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image47.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image48.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image49.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image50.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image51.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image52.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image53.png">
+<meta property="og:updated_time" content="2019-06-27T16:21:08.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery_ajax_day21">
+<meta name="twitter:description" content="XMLHttpRequest对象详解获取XMLHttpRequest 对象对于大部分浏览器可以直接通过 new XMLHttpRequest(); 对于IE5 IE6 new ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;) XMLHttpRequest常用属性 onreadystatechange 它是用于绑定回调函数，当服务器响应数据回来后，我们可以在指">
+<meta name="twitter:image" content="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/image1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liminghui321.github.io/2019/06/28/jQuery_ajax_day21/">
+
+
+
+
+
+  <title>jQuery_ajax_day21 | liminghui'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liminghui'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有志者，事竟成，破釜沉舟，百二秦关终属楚。 苦心人，天不负，卧薪尝胆，三千越甲可吞吴。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">jQuery_ajax_day21</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h2 id="XMLHttpRequest对象详解"><a href="#XMLHttpRequest对象详解" class="headerlink" title="XMLHttpRequest对象详解"></a>XMLHttpRequest对象详解</h2><h3 id="获取XMLHttpRequest-对象"><a href="#获取XMLHttpRequest-对象" class="headerlink" title="获取XMLHttpRequest 对象"></a>获取XMLHttpRequest 对象</h3><p>对于大部分浏览器可以直接通过 new XMLHttpRequest();</p>
+<p>对于IE5 IE6 new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)</p>
+<h3 id="XMLHttpRequest常用属性"><a href="#XMLHttpRequest常用属性" class="headerlink" title="XMLHttpRequest常用属性"></a>XMLHttpRequest常用属性</h3><ol>
+<li><p>onreadystatechange 它是用于绑定回调函数，当服务器响应数据回来后，我们可以在指定的回调函数中进行数据处理。</p>
+</li>
+<li><p>readyState 它描述的http请求的状态</p>
+</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image1.png" alt>{width=”5.768055555555556in” height=”1.9073304899387578in”}</p>
+</blockquote>
+<ol start="3">
+<li><p>status 它描述的http状态码 200 404 405 500…</p>
+</li>
+<li><p>获取服务器响应数据</p>
+</li>
+</ol>
+<p>responesText或responseXML来获取</p>
+<h3 id="XMLHttpRequest常用方法"><a href="#XMLHttpRequest常用方法" class="headerlink" title="XMLHttpRequest常用方法"></a>XMLHttpRequest常用方法</h3><ol>
+<li>open它是用于设置请求方式，url及是否异步</li>
+</ol>
+<blockquote>
+<p>参数1：HTTP 请求方式 POST/GET。</p>
+<p>参数2:url路径</p>
+<p>参数3:true/false 代表是否异步</p>
+</blockquote>
+<ol start="2">
+<li>send它是真正向服务器发送请求</li>
+</ol>
+<blockquote>
+<p>如果请求方式是get，那么我们使用send(null) 原因:get请求方式是没有http请求体</p>
+<p>只有post请求方式时，才有请求体,所以send的参数只是在post请求时使用例如</p>
+<p>Xmlhttp.send(“username=xxx&amp;password=xxx”);</p>
+</blockquote>
+<ol start="3">
+<li>setRequestHeader</li>
+</ol>
+<blockquote>
+<p>注意：如果请求方式是POST,那么我们在使用时，必须设置一个请求头，就需要使用setRequestHeader方法来完成</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image2.png" alt>{width=”5.768055555555556in” height=”0.30442475940507435in”}</p>
+</blockquote>
+<h1 id="AJAX案例"><a href="#AJAX案例" class="headerlink" title="AJAX案例"></a>AJAX案例</h1><h2 id="案例1-验证用户名是否可以使用"><a href="#案例1-验证用户名是否可以使用" class="headerlink" title="案例1-验证用户名是否可以使用"></a>案例1-验证用户名是否可以使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">scr</span>=<span class="string">"js/jquery-1.8.3.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/my.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">	function changeUsername() &#123;</span><br><span class="line">		//验证登录的用户名是否可用</span><br><span class="line">		//1.得到文本框的信息</span><br><span class="line">		var usernameValue = document.getElementById("d1").value;</span><br><span class="line">		//alert(usernameValue);</span><br><span class="line">		//2.使用ajax向服务器发送请求</span><br><span class="line">		//2.1获取XMLHttpRequest对象</span><br><span class="line">		var xmlHttp = getXMLHttpRequest();</span><br><span class="line">		//2.2设置回调函数</span><br><span class="line">		xmlHttp.onreadystatechange = function() &#123;</span><br><span class="line">			if (xmlHttp.readyState == 4) &#123;// 4 = "loaded"</span><br><span class="line">				if (xmlHttp.status == 200) &#123;// 200 = OK</span><br><span class="line">					//2.5响应成功</span><br><span class="line">					//3.处理服务器返回的数据,显示页面</span><br><span class="line">					var msg = xmlHttp.responseText;</span><br><span class="line">					document.getElementById("d2").innerHTML = msg;</span><br><span class="line">				&#125; else &#123;</span><br><span class="line">					//响应失败</span><br><span class="line">					alert("响应失败");</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		//2.3 open设置请求路径</span><br><span class="line">		xmlHttp.open("POST", "/jquery_ajax1/UserServlet");</span><br><span class="line">		//2.4发送请求</span><br><span class="line">		xmlHttp.setRequestHeader("content-type",</span><br><span class="line">				"application/x-www-form-urlencoded");</span><br><span class="line">		xmlHttp.send("username=" + usernameValue);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	用户名</span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"d1"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">onblur</span>=<span class="string">"changeUsername()"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"d2"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 1.接受用户名参数</span></span><br><span class="line">		String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">		<span class="comment">// 2.判断是否是TOM</span></span><br><span class="line">		String msg = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="string">"tom"</span>.equals(username)) &#123;</span><br><span class="line">			msg = <span class="string">"&lt;font color='red'&gt;用户名已被占用&lt;/font&gt;"</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			msg = <span class="string">"&lt;font color='blue'&gt;用户名可以使用&lt;/font&gt;"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 3.通过response写回浏览</span></span><br><span class="line">		response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		response.getWriter().write(msg);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第一步-创建一个页面demo2-html"><a href="#第一步-创建一个页面demo2-html" class="headerlink" title="第一步:创建一个页面demo2.html"></a>第一步:创建一个页面demo2.html</h3><p><img src="/2019/06/28/jQuery_ajax_day21/image3.png" alt>{width=”5.768055555555556in” height=”3.2792465004374454in”}</p>
+<h3 id="第二步-完成浏览器向服务器发送ajax请求操作"><a href="#第二步-完成浏览器向服务器发送ajax请求操作" class="headerlink" title="第二步:完成浏览器向服务器发送ajax请求操作"></a>第二步:完成浏览器向服务器发送ajax请求操作</h3><ol>
+<li>得到文本框中录入信息</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image4.png" alt>{width=”5.768055555555556in” height=”0.4372769028871391in”}</p>
+</blockquote>
+<ol start="2">
+<li>使用ajax来完成向服务器发送请求操作</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image5.png" alt>{width=”5.768055555555556in” height=”4.43953302712161in”}</p>
+</blockquote>
+<h3 id="第三步-完成服务器端操作"><a href="#第三步-完成服务器端操作" class="headerlink" title="第三步:完成服务器端操作"></a>第三步:完成服务器端操作</h3><p><img src="/2019/06/28/jQuery_ajax_day21/image6.png" alt>{width=”5.645833333333333in” height=”2.875in”}</p>
+<h3 id="第四步-在浏览器端展示数据"><a href="#第四步-在浏览器端展示数据" class="headerlink" title="第四步:在浏览器端展示数据"></a>第四步:在浏览器端展示数据</h3><ol>
+<li>在浏览器展示</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image7.png" alt>{width=”5.768055555555556in” height=”0.6388921697287839in”}</p>
+</blockquote>
+<ol start="2">
+<li>修改服务器端响应数据</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image8.png" alt>{width=”5.09375in” height=”1.0416666666666667in”}</p>
+</blockquote>
+<h2 id="案例2-省市二级联动"><a href="#案例2-省市二级联动" class="headerlink" title="案例2-省市二级联动"></a>案例2-省市二级联动</h2><h3 id="第一步-创建demo3-html页面"><a href="#第一步-创建demo3-html页面" class="headerlink" title="第一步:创建demo3.html页面"></a>第一步:创建demo3.html页面</h3><p><img src="/2019/06/28/jQuery_ajax_day21/image9.png" alt>{width=”5.768055555555556in” height=”4.338058836395451in”}</p>
+<h3 id="第二步-在服务器端创建一个工具类CityUtil它可以获取省份与城市信息"><a href="#第二步-在服务器端创建一个工具类CityUtil它可以获取省份与城市信息" class="headerlink" title="第二步:在服务器端创建一个工具类CityUtil它可以获取省份与城市信息"></a>第二步:在服务器端创建一个工具类CityUtil它可以获取省份与城市信息</h3><p><img src="/2019/06/28/jQuery_ajax_day21/image10.png" alt>{width=”5.768055555555556in” height=”3.1884525371828523in”}</p>
+<p>创建ProvinceServlet</p>
+<p>创建CityServlet</p>
+<h3 id="第三步-向服务器发送请求获取省份信息填充到省份下拉框"><a href="#第三步-向服务器发送请求获取省份信息填充到省份下拉框" class="headerlink" title="第三步:向服务器发送请求获取省份信息填充到省份下拉框"></a>第三步:向服务器发送请求获取省份信息填充到省份下拉框</h3><ol>
+<li>在demo3.html页面上向服务器发送ajax请求</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image11.png" alt>{width=”5.072916666666667in” height=”4.177083333333333in”}</p>
+</blockquote>
+<ol start="2">
+<li>服务器响应省份信息</li>
+</ol>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image12.png" alt>{width=”4.364583333333333in” height=”1.25in”}</p>
+<ol start="3">
+<li>在浏览器端处理服务器响应的数据，显示在省份下拉框</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image13.png" alt>{width=”5.59375in” height=”2.28125in”}</p>
+</blockquote>
+<h3 id="第四步-选择省份信息，向服务器发送请求获取城市信息填充到城市下拉框"><a href="#第四步-选择省份信息，向服务器发送请求获取城市信息填充到城市下拉框" class="headerlink" title="第四步:选择省份信息，向服务器发送请求获取城市信息填充到城市下拉框"></a>第四步:选择省份信息，向服务器发送请求获取城市信息填充到城市下拉框</h3><p>1.获取省份名称</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image14.png" alt>{width=”5.768055555555556in” height=”1.0741666666666667in”}</p>
+<p>2.向服务器发送请求，将省份名称做为参数传递到服务器，服务器根据省份名称查询对应的城市信息</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image15.png" alt>{width=”5.291666666666667in” height=”2.5625in”}</p>
+<p>3.在浏览器端处理数据填充到城市下拉框中</p>
+<p>注意:在向城市下拉框中添加信息前要先进行一次清空操作</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image16.png" alt>{width=”5.768055555555556in” height=”2.1142858705161856in”}</p>
+<h1 id="jQueryAjax编程"><a href="#jQueryAjax编程" class="headerlink" title="jQueryAjax编程"></a>jQueryAjax编程</h1><h2 id="jquery-ajax开发介绍"><a href="#jquery-ajax开发介绍" class="headerlink" title="jquery ajax开发介绍"></a>jquery ajax开发介绍</h2><p><img src="/2019/06/28/jQuery_ajax_day21/image17.png" alt>{width=”2.0833333333333335in” height=”1.1770833333333333in”}</p>
+<p>1.$.ajax()它是jquery提供的最基本的ajax编程方式。它的功能比较强大，但是使用比较麻烦，一般不使用，它是将远程数据加载到XMLHttpRequest对象中。</p>
+<p>2.load get post 它们简化了$.ajax操作，get post针对get与post请求的，它们是开发中使用的比较多。</p>
+<p>3.getScript getJSON 它们是用于解决ajax跨域问题的。</p>
+<h2 id="load使用-了解"><a href="#load使用-了解" class="headerlink" title="load使用(了解)"></a>load使用(了解)</h2><p>载入远程 HTML 文件代码并插入至 DOM 中.</p>
+<p>实现一个用户名验证是否可以使用案例</p>
+<h3 id="浏览器端"><a href="#浏览器端" class="headerlink" title="浏览器端"></a>浏览器端</h3><p><img src="/2019/06/28/jQuery_ajax_day21/image18.png" alt>{width=”5.768055555555556in” height=”2.9007174103237094in”}</p>
+<p>注意事项:</p>
+<ol>
+<li><p>load方法是将服务器响应的数据直接插入到指定的dom元素中。</p>
+</li>
+<li><p>jquery中的load方法它的请求方式是什么?</p>
+<p>a.  如果有参数请求方式是post</p>
+<p>b.  如果没有参数请求方式是get</p>
+</li>
+</ol>
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><p><img src="/2019/06/28/jQuery_ajax_day21/image19.png" alt>{width=”5.768055555555556in” height=”2.4794630358705163in”}</p>
+<h2 id="ajax介绍（了解）"><a href="#ajax介绍（了解）" class="headerlink" title="$.ajax介绍（了解）"></a>$.ajax介绍（了解）</h2><p>$.ajax它是jquery中最基本的ajax操作，load get post都简化了$.ajax操作.</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image20.png" alt>{width=”5.572916666666667in” height=”2.9791666666666665in”}</p>
+<h2 id="post与-get介绍（重要）"><a href="#post与-get介绍（重要）" class="headerlink" title="$.post与$.get介绍（重要）"></a>$.post与$.get介绍（重要）</h2><p>$.get与$.post它们针对于get与post请求</p>
+<p>格式</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image21.png" alt>{width=”4.270833333333333in” height=”1.0625in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image22.png" alt>{width=”5.489583333333333in” height=”2.40625in”}</p>
+<h2 id="jQuery-ajax开发基于json-重点"><a href="#jQuery-ajax开发基于json-重点" class="headerlink" title="jQuery ajax开发基于json(重点)"></a>jQuery ajax开发基于json(重点)</h2><h3 id="json介绍"><a href="#json介绍" class="headerlink" title="json介绍"></a>json介绍</h3><p><a href="http://baike.baidu.com/view/136475.htm" target="_blank" rel="noopener">[JSON]{.underline}</a>(<a href="http://baike.baidu.com/view/16168.htm" target="_blank" rel="noopener">[JavaScript]{.underline}</a> Object Notation) 是一种轻量级的数据交换格式.</p>
+<p>json简单说就是javascript中的对象和数组.</p>
+<p>对象: {key：value,key：value,...}</p>
+<p>数组: [&quot;java&quot;,&quot;javascript&quot;,&quot;vb&quot;,...]</p>
+<p>注意:在json中它的两种结构可以互相嵌套</p>
+<p>{key:[value1,value2],key:value}</p>
+<p>[{name:xxx},{key:value},{key:value}]</p>
+<h3 id="Fastjson介绍"><a href="#Fastjson介绍" class="headerlink" title="Fastjson介绍"></a>Fastjson介绍</h3><p>将java的对象转换成json数据,也可以将一个json转换成java对象(不常用).</p>
+<p>Fastjson是阿里提供的一个开源json插件.</p>
+<p>对于json处理的插件 fastjson jsonlib flexjson Jackson.</p>
+<p>Fastjson使用介绍</p>
+<ol>
+<li>导入相应的jar包</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image23.png" alt>{width=”1.9375in” height=”0.25in”}</p>
+</blockquote>
+<ol start="2">
+<li>演示fastjson将java对象转换成json数据</li>
+</ol>
+<blockquote>
+<p>String json=JSONObject.toJsonString(java对象);</p>
+</blockquote>
+<p>问题:将java对象转换成json时，名称是否可以自己来指定?</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image24.png" alt>{width=”2.9270833333333335in” height=”0.4479166666666667in”}</p>
+<p>问题:如果java对象中存在日期类型属性java.util.Date,是否可以用指定的格式来转换成json。</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image25.png" alt>{width=”3.4895833333333335in” height=”0.4583333333333333in”}</p>
+<p>问题:如果java类中的某些属性不想生成json中？</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image26.png" alt>{width=”5.768055555555556in” height=”1.7284142607174102in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image27.png" alt>{width=”5.768055555555556in” height=”0.293076334208224in”}</p>
+<p>问题:关于fastjson将java对象转换成json时的循环引用问题?</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image28.png" alt>{width=”5.0in” height=”1.4583333333333333in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image29.png" alt>{width=”5.768055555555556in” height=”0.469990157480315in”}</p>
+<p>通过以下设置可以取消循环引用</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image30.png" alt>{width=”5.768055555555556in” height=”0.48067147856517933in”}</p>
+<h3 id="案例1-显示商品信息"><a href="#案例1-显示商品信息" class="headerlink" title="案例1-显示商品信息"></a>案例1-显示商品信息</h3><p>步骤 :</p>
+<ol>
+<li><p>创建一个html页面，页面上有一个”显示商品”连接</p>
+</li>
+<li><p>当我们点击页面上的连接时，向服务器发送ajax请求，获取商品信息.</p>
+</li>
+<li><p>服务器得到商品信息List&lt;Product&gt;,将集合信息转换成json响应到浏览器端。</p>
+</li>
+<li><p>在页面上来处理服务器响应回来的数据。</p>
+</li>
+</ol>
+<p>代码完成:</p>
+<ol>
+<li>向服务器发送请求操作</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image31.png" alt>{width=”3.1041666666666665in” height=”0.625in”}</p>
+</blockquote>
+<ol start="2">
+<li>在服务器端获取商品信息，并响应到浏览器</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image32.png" alt>{width=”5.768055555555556in” height=”3.200470253718285in”}</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Product;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接受商品信息展示的Servlet</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 设置缓存响应中文乱码</span></span><br><span class="line">		<span class="comment">// request.setCharacterEncoding("UTF-8");</span></span><br><span class="line"></span><br><span class="line">		response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		Product p1 = <span class="keyword">new</span> Product();</span><br><span class="line">		p1.setId(<span class="number">1</span>);</span><br><span class="line">		p1.setCount(<span class="number">100</span>);</span><br><span class="line">		p1.setName(<span class="string">"电视机"</span>);</span><br><span class="line">		p1.setPrice(<span class="number">1000</span>);</span><br><span class="line">		p1.setpDate(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">		Product p2 = <span class="keyword">new</span> Product();</span><br><span class="line">		p2.setId(<span class="number">2</span>);</span><br><span class="line">		p2.setCount(<span class="number">200</span>);</span><br><span class="line">		p2.setName(<span class="string">"洗衣机"</span>);</span><br><span class="line">		p2.setPrice(<span class="number">2000</span>);</span><br><span class="line">		p2.setpDate(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">		List&lt;Product&gt; list = <span class="keyword">new</span> ArrayList&lt;Product&gt;();</span><br><span class="line">		list.add(p1);</span><br><span class="line">		list.add(p2);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 告诉浏览器打开方式为utf-8</span></span><br><span class="line">		response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">		<span class="comment">// 将商品信息集合对象转换为json并响应给浏览器</span></span><br><span class="line">		String json = JSONObject.toJSONString(list);</span><br><span class="line">		response.getWriter().write(json);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在浏览器端来处理服务器响应的数据展示出来</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image33.png" alt>{width=”5.768055555555556in” height=”1.844575678040245in”}</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/jquery_ajax1/js/jquery-1.8.3.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">&gt; 	$(function() &#123;</span><br><span class="line">&gt; 		//隐藏表格</span><br><span class="line">&gt; 		$("#content").hide();</span><br><span class="line">&gt; 		$("#a").toggle(function() &#123;</span><br><span class="line">&gt; 			//显示表格</span><br><span class="line">&gt; 			var url = "/jquery_ajax1/ProductServlet";</span><br><span class="line">&gt; 			$.post(url, function(data) &#123;</span><br><span class="line">&gt; 				var jsonObj=eval(data);</span><br><span class="line">&gt; 				//[&#123;"count":100,"id":1,"name":"电视机","price":1000&#125;,&#123;"count":200,"id":2,"name":"洗衣机","price":2000&#125;]</span><br><span class="line"><span class="xml">&gt; 			var tab=$("<span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">'1'</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>编号<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>数量<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>价格<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>生产日期<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span>");</span></span><br><span class="line">&gt; 			for (var i = 0; i &lt; jsonObj.length; i++) &#123;</span><br><span class="line">&gt; 			  var obj=jsonObj[i];</span><br><span class="line"><span class="xml">&gt; 			  var tr=$("<span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>"+obj.编号+"<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>"+obj.name+"<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>"+obj.count+"<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>"+obj.price+"<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>"+obj.pDate+"<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span>");</span></span><br><span class="line">&gt; 				//内部插入</span><br><span class="line">&gt; 				tab.append(tr);</span><br><span class="line">&gt; 			&#125;</span><br><span class="line">&gt; 			//内部插入</span><br><span class="line">&gt; 			$("#content").append(tab);</span><br><span class="line">&gt; 			&#125;, "json");</span><br><span class="line">&gt; 			//显示表格</span><br><span class="line">&gt; 			$("#content").fadeIn(1500);</span><br><span class="line">&gt; </span><br><span class="line">&gt; 		&#125;, function() &#123;</span><br><span class="line">&gt; 			//隐藏表格</span><br><span class="line">&gt; 			$("#content").html("");</span><br><span class="line">&gt; 			$("#content").fadeOut(1500);</span><br><span class="line">&gt; 		&#125;);</span><br><span class="line">&gt; 	&#125;);</span><br><span class="line">&gt; <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&gt; 	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0)"</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span>商品信息展示<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&gt; 	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<h3 id="案例2-省市二级联动-1"><a href="#案例2-省市二级联动-1" class="headerlink" title="案例2-省市二级联动"></a>案例2-省市二级联动</h3><h4 id="分析"><a href="#分析" class="headerlink" title="分析:"></a>分析:</h4><ol>
+<li>会向服务器发送两次请求，第一次是页面加载完成后，获取省份信息</li>
+</ol>
+<blockquote>
+<p>选择省份后，向服务器发送请求来获取相关的城市信息。</p>
+</blockquote>
+<ol start="2">
+<li>省份与城市信息</li>
+</ol>
+<blockquote>
+<p>Province对应省份信息类</p>
+<p>City对应城市信息类</p>
+<p>我们自定义相关的信息</p>
+<p>Map&lt;Province,List&lt;City&gt;&gt;用来存储省份与城市信息。</p>
+</blockquote>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>1.完成服务器端操作</p>
+<blockquote>
+<p>a.创建Province与City类</p>
+<p>b.创建Map集合来封装数据</p>
+<p>c.创建一个Servlet来处理浏览器端的请求。</p>
+</blockquote>
+<p>2.关于浏览器端操作</p>
+<p>a.页面加载完成后，要向服务器发送请求，来获取省份信息，添加到省份下拉框中。</p>
+<p>b.当选择某一个省份后,chang事件触发，根据选择的省份，向服务器发送请求来获取对应的城市信息添加到城市的下拉框中。</p>
+<p>问题:我们是通过一个CityServlet来处理这两次请求？</p>
+<p>我们可以在请求中添加一个参数来判断这次请求操作要完成什么功能。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>案例--省市二级联动<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/jquery_ajax1/js/jquery-1.8.3.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">	$(function() &#123;</span><br><span class="line">		//页面加载完后向服务器发送请求,获取省份信息--不带参数</span><br><span class="line">		url = "/jquery_ajax1/CityServlet";</span><br><span class="line">		$.post(url + "?method=pro", function(data) &#123;</span><br><span class="line">			var jsonObj = eval(data);</span><br><span class="line">			//遍历得到省份名称</span><br><span class="line">			$(jsonObj).each(function() &#123;</span><br><span class="line">				//得到省份名称</span><br><span class="line">				var pname = this.name;</span><br><span class="line">				//内部添加到省份下拉列表</span><br><span class="line"><span class="xml">				$("#province").append($("<span class="tag">&lt;<span class="name">option</span>&gt;</span>" + pname + "<span class="tag">&lt;/<span class="name">option</span>&gt;</span>"));</span></span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;, "json");</span><br><span class="line"></span><br><span class="line">		//当选择省份,向服务器发送请求,获取城市信息--带参数</span><br><span class="line">		$("#province").change(function() &#123;</span><br><span class="line">			//清空城市下拉列表</span><br><span class="line"><span class="xml">			$("#city").html("<span class="tag">&lt;<span class="name">option</span>&gt;</span>--选择城市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span>");</span></span><br><span class="line">			//获取省份名称</span><br><span class="line">			var pname = $(this).val();</span><br><span class="line">			$.post(url + "?method=city", &#123;"pname" : pname&#125;, function(data) &#123;</span><br><span class="line">				//获取服务器端响应的citys信息</span><br><span class="line">				var json = eval(data);</span><br><span class="line">				//遍历得到城市,并添加到城市下拉列表</span><br><span class="line">				$(json).each(function() &#123;</span><br><span class="line">					var cityName = this.name;</span><br><span class="line"><span class="xml">					$("#city").append($("<span class="tag">&lt;<span class="name">option</span>&gt;</span>" + cityName + "<span class="tag">&lt;/<span class="name">option</span>&gt;</span>"));</span></span><br><span class="line">				&#125;);</span><br><span class="line"></span><br><span class="line">			&#125;, "json");</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"province"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">option</span>&gt;</span>--选择省份--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span>省</span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"city"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">option</span>&gt;</span>--选择城市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span>市</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.City;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Province;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CityServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Map&lt;Province, List&lt;City&gt;&gt; map;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		map = <span class="keyword">new</span> HashMap&lt;Province, List&lt;City&gt;&gt;();</span><br><span class="line">		<span class="comment">// 创建省份并加入集合</span></span><br><span class="line">		Province p1 = <span class="keyword">new</span> Province();</span><br><span class="line">		p1.setId(<span class="number">1</span>);</span><br><span class="line">		p1.setName(<span class="string">"黑龙江"</span>);</span><br><span class="line">		<span class="comment">// 获取城市</span></span><br><span class="line">		City c11 = <span class="keyword">new</span> City();</span><br><span class="line">		c11.setId(<span class="number">1</span>);</span><br><span class="line">		c11.setName(<span class="string">"哈尔滨"</span>);</span><br><span class="line">		City c12 = <span class="keyword">new</span> City();</span><br><span class="line">		c12.setId(<span class="number">2</span>);</span><br><span class="line">		c12.setName(<span class="string">"大庆"</span>);</span><br><span class="line">		List&lt;City&gt; l1 = <span class="keyword">new</span> ArrayList&lt;City&gt;();</span><br><span class="line">		l1.add(c11);</span><br><span class="line">		l1.add(c12);</span><br><span class="line">		<span class="comment">// 放入map集合</span></span><br><span class="line">		map.put(p1, l1);</span><br><span class="line"></span><br><span class="line">		Province p2 = <span class="keyword">new</span> Province();</span><br><span class="line">		p2.setId(<span class="number">2</span>);</span><br><span class="line">		p2.setName(<span class="string">"吉林"</span>);</span><br><span class="line">		<span class="comment">// 获取城市</span></span><br><span class="line">		City c21 = <span class="keyword">new</span> City();</span><br><span class="line">		c21.setId(<span class="number">1</span>);</span><br><span class="line">		c21.setName(<span class="string">"长春"</span>);</span><br><span class="line">		City c22 = <span class="keyword">new</span> City();</span><br><span class="line">		c22.setId(<span class="number">2</span>);</span><br><span class="line">		c22.setName(<span class="string">"吉林"</span>);</span><br><span class="line">		List&lt;City&gt; l2 = <span class="keyword">new</span> ArrayList&lt;City&gt;();</span><br><span class="line">		l2.add(c21);</span><br><span class="line">		l2.add(c22);</span><br><span class="line">		<span class="comment">// 放入map集合</span></span><br><span class="line">		map.put(p2, l2);</span><br><span class="line"></span><br><span class="line">		Province p3 = <span class="keyword">new</span> Province();</span><br><span class="line">		p3.setId(<span class="number">3</span>);</span><br><span class="line">		p3.setName(<span class="string">"辽宁"</span>);</span><br><span class="line">		<span class="comment">// 获取城市</span></span><br><span class="line">		City c31 = <span class="keyword">new</span> City();</span><br><span class="line">		c31.setId(<span class="number">1</span>);</span><br><span class="line">		c31.setName(<span class="string">"沈阳"</span>);</span><br><span class="line">		City c32 = <span class="keyword">new</span> City();</span><br><span class="line">		c32.setId(<span class="number">2</span>);</span><br><span class="line">		c32.setName(<span class="string">"大连"</span>);</span><br><span class="line">		List&lt;City&gt; l3 = <span class="keyword">new</span> ArrayList&lt;City&gt;();</span><br><span class="line">		l3.add(c31);</span><br><span class="line">		l3.add(c32);</span><br><span class="line">		<span class="comment">// 放入map集合</span></span><br><span class="line">		map.put(p3, l3);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 处理中文乱码问题</span></span><br><span class="line">		response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"UTF-8"</span>);<span class="comment">// 处理请求中文乱码,只对post有效</span></span><br><span class="line"></span><br><span class="line">		String method = request.getParameter(<span class="string">"method"</span>);</span><br><span class="line">		<span class="comment">// 判断是省份还是城市的参数</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="string">"pro"</span>.equals(method)) &#123;</span><br><span class="line">			<span class="comment">// 获取所有省份信息</span></span><br><span class="line">			Set&lt;Province&gt; set = map.keySet();</span><br><span class="line">			<span class="comment">// 转换为json对象</span></span><br><span class="line">			String json = JSONObject.toJSONString(set);</span><br><span class="line">			<span class="comment">// 响应到浏览</span></span><br><span class="line">			response.getWriter().write(json);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 判断是城市</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="string">"city"</span>.equals(method)) &#123;</span><br><span class="line">			String pname = request.getParameter(<span class="string">"pname"</span>);</span><br><span class="line">			<span class="comment">// 遍历map,找到省份</span></span><br><span class="line">			<span class="keyword">for</span> (Province p : map.keySet()) &#123;</span><br><span class="line">				<span class="keyword">if</span> (pname.equals(p.getName())) &#123;</span><br><span class="line">					<span class="comment">// 获取省份的城市</span></span><br><span class="line">					List&lt;City&gt; citys = map.get(p);</span><br><span class="line">					<span class="comment">// 转换为json对象,并响应到浏览器</span></span><br><span class="line">					String json = JSONObject.toJSONString(citys);</span><br><span class="line">					response.getWriter().write(json);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/06/28/jQuery_ajax_day21/image34.png" alt>{width=”4.020833333333333in” height=”0.5625in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image35.png" alt>{width=”2.5104166666666665in” height=”0.2604166666666667in”}</p>
+<p>1.向服务器发送请求来获也能省份信息添加到省份下拉框</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image36.png" alt>{width=”5.768055555555556in” height=”2.0355096237970254in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image37.png" alt>{width=”4.885416666666667in” height=”2.3854166666666665in”}</p>
+<p>2.当选择了省份信息后，要根据省份名称来向服务器发送请求获取对应的城市信息添加到城市的下拉框中。</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image38.png" alt>{width=”5.768055555555556in” height=”3.3713746719160107in”} <img src="/2019/06/28/jQuery_ajax_day21/image39.png" alt>{width=”5.768055555555556in” height=”3.737050524934383in”}</p>
+<h2 id="jQuery-ajax开发基于xml-了解"><a href="#jQuery-ajax开发基于xml-了解" class="headerlink" title="jQuery ajax开发基于xml(了解)"></a>jQuery ajax开发基于xml(了解)</h2><h3 id="XStream介绍"><a href="#XStream介绍" class="headerlink" title="XStream介绍"></a>XStream介绍</h3><p>可以使用XStream工具来完成xml与java对象之间的转换。它也可以完成java对象与json之间的转换。</p>
+<p>问题:XStream使用时需要导入哪些jar包？</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image40.png" alt>{width=”1.4895833333333333in” height=”0.25in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image41.png" alt>{width=”1.7916666666666667in” height=”0.3125in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image42.png" alt>{width=”1.5416666666666667in” height=”0.2604166666666667in”}</p>
+<p>问题:XStream怎样将java对象转换成xml?</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image43.png" alt>{width=”3.3645833333333335in” height=”0.4270833333333333in”}</p>
+<h4 id="关于XStream相关的常用方法"><a href="#关于XStream相关的常用方法" class="headerlink" title="关于XStream相关的常用方法"></a>关于XStream相关的常用方法</h4><p>1.设置别名</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image44.png" alt>{width=”4.46875in” height=”0.25in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image45.png" alt>{width=”5.09375in” height=”0.25in”}</p>
+<p>2.忽略属性</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image46.png" alt>{width=”4.09375in” height=”0.4791666666666667in”}</p>
+<p>3.将类的属性设置成xml中字段的属性</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image47.png" alt>{width=”4.479166666666667in” height=”0.5833333333333334in”}</p>
+<h4 id="注解使用"><a href="#注解使用" class="headerlink" title="注解使用"></a>注解使用</h4><p>要想使用XStream的注解，必须开启注解扫描.</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image48.png" alt>{width=”4.010416666666667in” height=”0.5208333333333334in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image49.png" alt>{width=”3.96875in” height=”1.3020833333333333in”}</p>
+<h3 id="案例-返回xml完成省市二级联动操作"><a href="#案例-返回xml完成省市二级联动操作" class="headerlink" title="案例-返回xml完成省市二级联动操作"></a>案例-返回xml完成省市二级联动操作</h3><h4 id="服务器端操作"><a href="#服务器端操作" class="headerlink" title="服务器端操作"></a>服务器端操作</h4><p>返回的是xml数据</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image50.png" alt>{width=”4.364583333333333in” height=”1.3333333333333333in”}</p>
+<h4 id="浏览器端操作"><a href="#浏览器端操作" class="headerlink" title="浏览器端操作"></a>浏览器端操作</h4><p>创建html页面</p>
+<p>注意:发送请求后，服务器返回的xml数据中已经包含了省份与城市信息。不需要在发送第二次请求。</p>
+<p>问题:怎样在返回的xml中获取省份名称?</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image51.png" alt>{width=”5.768055555555556in” height=”1.7778160542432195in”}</p>
+<p>问题:选择省份后如何将对应的城市信息添加到城市下拉框中?</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image52.png" alt>{width=”5.768055555555556in” height=”3.596356080489939in”}</p>
+<p><img src="/2019/06/28/jQuery_ajax_day21/image53.png" alt>{width=”5.768055555555556in” height=”3.17042760279965in”}</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liminghui</p>
+              <p class="site-description motion-element" itemprop="description">网页描述</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liminghui321.github.io/" title="Title" target="_blank">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest对象详解"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest对象详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取XMLHttpRequest-对象"><span class="nav-number">1.1.</span> <span class="nav-text">获取XMLHttpRequest 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XMLHttpRequest常用属性"><span class="nav-number">1.2.</span> <span class="nav-text">XMLHttpRequest常用属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XMLHttpRequest常用方法"><span class="nav-number">1.3.</span> <span class="nav-text">XMLHttpRequest常用方法</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX案例"><span class="nav-number"></span> <span class="nav-text">AJAX案例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#案例1-验证用户名是否可以使用"><span class="nav-number">1.</span> <span class="nav-text">案例1-验证用户名是否可以使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步-创建一个页面demo2-html"><span class="nav-number">1.1.</span> <span class="nav-text">第一步:创建一个页面demo2.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-完成浏览器向服务器发送ajax请求操作"><span class="nav-number">1.2.</span> <span class="nav-text">第二步:完成浏览器向服务器发送ajax请求操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步-完成服务器端操作"><span class="nav-number">1.3.</span> <span class="nav-text">第三步:完成服务器端操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步-在浏览器端展示数据"><span class="nav-number">1.4.</span> <span class="nav-text">第四步:在浏览器端展示数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例2-省市二级联动"><span class="nav-number">2.</span> <span class="nav-text">案例2-省市二级联动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步-创建demo3-html页面"><span class="nav-number">2.1.</span> <span class="nav-text">第一步:创建demo3.html页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-在服务器端创建一个工具类CityUtil它可以获取省份与城市信息"><span class="nav-number">2.2.</span> <span class="nav-text">第二步:在服务器端创建一个工具类CityUtil它可以获取省份与城市信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步-向服务器发送请求获取省份信息填充到省份下拉框"><span class="nav-number">2.3.</span> <span class="nav-text">第三步:向服务器发送请求获取省份信息填充到省份下拉框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步-选择省份信息，向服务器发送请求获取城市信息填充到城市下拉框"><span class="nav-number">2.4.</span> <span class="nav-text">第四步:选择省份信息，向服务器发送请求获取城市信息填充到城市下拉框</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQueryAjax编程"><span class="nav-number"></span> <span class="nav-text">jQueryAjax编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jquery-ajax开发介绍"><span class="nav-number">1.</span> <span class="nav-text">jquery ajax开发介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#load使用-了解"><span class="nav-number">2.</span> <span class="nav-text">load使用(了解)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器端"><span class="nav-number">2.1.</span> <span class="nav-text">浏览器端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器端"><span class="nav-number">2.2.</span> <span class="nav-text">服务器端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax介绍（了解）"><span class="nav-number">3.</span> <span class="nav-text">$.ajax介绍（了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post与-get介绍（重要）"><span class="nav-number">4.</span> <span class="nav-text">$.post与$.get介绍（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-ajax开发基于json-重点"><span class="nav-number">5.</span> <span class="nav-text">jQuery ajax开发基于json(重点)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#json介绍"><span class="nav-number">5.1.</span> <span class="nav-text">json介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fastjson介绍"><span class="nav-number">5.2.</span> <span class="nav-text">Fastjson介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例1-显示商品信息"><span class="nav-number">5.3.</span> <span class="nav-text">案例1-显示商品信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例2-省市二级联动-1"><span class="nav-number">5.4.</span> <span class="nav-text">案例2-省市二级联动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-number">5.4.1.</span> <span class="nav-text">分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">5.4.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-ajax开发基于xml-了解"><span class="nav-number">6.</span> <span class="nav-text">jQuery ajax开发基于xml(了解)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XStream介绍"><span class="nav-number">6.1.</span> <span class="nav-text">XStream介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于XStream相关的常用方法"><span class="nav-number">6.1.1.</span> <span class="nav-text">关于XStream相关的常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注解使用"><span class="nav-number">6.1.2.</span> <span class="nav-text">注解使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例-返回xml完成省市二级联动操作"><span class="nav-number">6.2.</span> <span class="nav-text">案例-返回xml完成省市二级联动操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器端操作"><span class="nav-number">6.2.1.</span> <span class="nav-text">服务器端操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器端操作"><span class="nav-number">6.2.2.</span> <span class="nav-text">浏览器端操作</span></a></li></ol></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liminghui</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
