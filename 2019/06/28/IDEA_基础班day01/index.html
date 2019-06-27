@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IDEA,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="课程计划 IDEA安装  IDEA工具栏介绍(了解)  IDEA创建普通项目  配置JDK  IDEA面板介绍  IDEA配置Tomcat  JSP修改后重启才能生效问题解决  IDEA快捷键总结  IDEA自定义快捷键  IDEA创建模板  解决每次打开最后创建的一个项目问题  导包问题解决(Maven[主流])  文件夹和能创建的文件之间的关系  表单提交工具  IDEA同时打开多个项目  实">
+<meta name="keywords" content="IDEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDEA基础">
+<meta property="og:url" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/index.html">
+<meta property="og:site_name" content="liminghui&#39;blog">
+<meta property="og:description" content="课程计划 IDEA安装  IDEA工具栏介绍(了解)  IDEA创建普通项目  配置JDK  IDEA面板介绍  IDEA配置Tomcat  JSP修改后重启才能生效问题解决  IDEA快捷键总结  IDEA自定义快捷键  IDEA创建模板  解决每次打开最后创建的一个项目问题  导包问题解决(Maven[主流])  文件夹和能创建的文件之间的关系  表单提交工具  IDEA同时打开多个项目  实">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image1.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image2.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image3.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image4.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image5.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image6.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image7.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image8.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image9.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image10.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image11.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image12.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image13.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image14.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image15.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image16.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image17.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image18.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image19.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image20.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image21.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image22.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image23.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image24.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image25.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image26.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image27.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image28.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image29.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image30.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image31.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image32.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image33.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image34.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image35.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image36.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image37.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image38.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image39.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image40.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image41.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image42.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image43.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image44.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image45.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image46.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image47.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image48.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image49.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image50.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image51.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image52.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image53.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image54.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image55.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image56.png">
+<meta property="og:updated_time" content="2019-06-27T16:11:16.252Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IDEA基础">
+<meta name="twitter:description" content="课程计划 IDEA安装  IDEA工具栏介绍(了解)  IDEA创建普通项目  配置JDK  IDEA面板介绍  IDEA配置Tomcat  JSP修改后重启才能生效问题解决  IDEA快捷键总结  IDEA自定义快捷键  IDEA创建模板  解决每次打开最后创建的一个项目问题  导包问题解决(Maven[主流])  文件夹和能创建的文件之间的关系  表单提交工具  IDEA同时打开多个项目  实">
+<meta name="twitter:image" content="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/image1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liminghui321.github.io/2019/06/28/IDEA_基础班day01/">
+
+
+
+
+
+  <title>IDEA基础 | liminghui'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liminghui'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有志者，事竟成，破釜沉舟，百二秦关终属楚。 苦心人，天不负，卧薪尝胆，三千越甲可吞吴。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">IDEA基础</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="课程计划"><a href="#课程计划" class="headerlink" title="课程计划"></a>课程计划</h1><ol>
+<li><p>IDEA安装</p>
+</li>
+<li><p>IDEA工具栏介绍(了解)</p>
+</li>
+<li><p>IDEA创建普通项目</p>
+</li>
+<li><p>配置JDK</p>
+</li>
+<li><p>IDEA面板介绍</p>
+</li>
+<li><p>IDEA配置Tomcat</p>
+</li>
+<li><p>JSP修改后重启才能生效问题解决</p>
+</li>
+<li><p>IDEA快捷键总结</p>
+</li>
+<li><p>IDEA自定义快捷键</p>
+</li>
+<li><p>IDEA创建模板</p>
+</li>
+<li><p>解决每次打开最后创建的一个项目问题</p>
+</li>
+<li><p>导包问题解决(Maven[主流])</p>
+</li>
+<li><p>文件夹和能创建的文件之间的关系</p>
+</li>
+<li><p>表单提交工具</p>
+</li>
+<li><p>IDEA同时打开多个项目</p>
+</li>
+<li><p>实战应用</p>
+</li>
+</ol>
+<h1 id="IDEA安装"><a href="#IDEA安装" class="headerlink" title="IDEA安装"></a>IDEA安装</h1><p>下载地址：[<a href="http://www.jetbrains.com/idea/download/\#section=windows]{.underline}" target="_blank" rel="noopener">http://www.jetbrains.com/idea/download/\#section=windows]{.underline}</a></p>
+<p>选择Exe文件下载，当然也可以选择Zip文件，Zip为绿色文件，可直接双击使用，而Exe文件需要安装。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image1.png" alt>{width=”5.75625in” height=”3.3666666666666667in”}</p>
+<p>由于安装步骤除了Next还是Next，我就不介绍了。</p>
+<h1 id="工具栏介绍（了解）"><a href="#工具栏介绍（了解）" class="headerlink" title="工具栏介绍（了解）"></a>工具栏介绍（了解）</h1><p>打开IDEA后能看到顶部有对应的工具栏，我们对其中一些重要的工具栏做个介绍和了解。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image2.png" alt>{width=”5.7625in” height=”0.24722222222222223in”}</p>
+<h2 id="File"><a href="#File" class="headerlink" title="File"></a>File</h2><h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ul>
+<li>创建工程</li>
+</ul>
+<p>IDEA支持的语言比较多，所以我们创建项目的时候，除了可以创建java项目还可以创建Android工程、Kotlin工程等。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image3.png" alt>{width=”5.763888888888889in” height=”5.565972222222222in”}</p>
+<ul>
+<li>创建对文件</li>
+</ul>
+<p>new功能还能创建很多别的文件，例如html、xml等，如果找不到对应的类型，直接new File，后缀写对应文件后缀名就可以了。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image4.png" alt>{width=”2.6458333333333335in” height=”6.395138888888889in”}</p>
+<h3 id="Open-Open-URL-Open-Recent-Close-Project"><a href="#Open-Open-URL-Open-Recent-Close-Project" class="headerlink" title="Open/Open URL/Open Recent/Close Project"></a>Open/Open URL/Open Recent/Close Project</h3><ul>
+<li>open</li>
+</ul>
+<p>打开某个工程或者目录</p>
+<ul>
+<li>Open URL</li>
+</ul>
+<p>打开某个网络地址，例如<a href="http://www.haoso.com" target="_blank" rel="noopener">http://www.haoso.com</a></p>
+<ul>
+<li>Open Recent</li>
+</ul>
+<p>打开最近使用的工程</p>
+<ul>
+<li>Close Proje</li>
+</ul>
+<p>关闭当前工程</p>
+<h3 id="Settings-Default-settings-理解"><a href="#Settings-Default-settings-理解" class="headerlink" title="Settings/Default settings(理解)"></a>Settings/Default settings(理解)</h3><p>Settings用来设置当前工程IDEA相关属性，而Default settings则设置IDEA默认属性，下面列举了部分：</p>
+<p>1、Appearance &amp; Behavior 外观和行为</p>
+<p>2、Keymap 快捷键</p>
+<p>3、Editor 编辑器</p>
+<p>4、Plugins 插件</p>
+<p>5、Version Control 版本控制</p>
+<p>6、Build,Execution,Deployment 构建，执行，部署</p>
+<p>7、Languages &amp; Frameworks 语言和框架</p>
+<p>8、Tools 工具集</p>
+<h2 id="Edit"><a href="#Edit" class="headerlink" title="Edit"></a>Edit</h2><p>1、Cut 剪切</p>
+<p>2、Copy 拷贝</p>
+<p>3、Copy Path 拷贝路径</p>
+<p>4、Copy Relative Path 拷贝相对路径</p>
+<p>5、Paste 粘贴</p>
+<p>6、Paste from History 从历史记录中粘贴</p>
+<p>7、Paste Simple 粘贴剪切板上的内容</p>
+<p>8、Delete 删除选中文件</p>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><ol>
+<li><p>Tool Windows 面板功能切换</p>
+</li>
+<li><p>Compare with 和其他文件对比</p>
+</li>
+<li><p>Compare with Clipboard 和剪切板内容对比</p>
+</li>
+<li><p>Toolbar 是否显示顶部工具栏</p>
+</li>
+<li><p>Tool Buttons 是否显示工具栏按钮</p>
+</li>
+<li><p>Status Bar 是否显示状态工具</p>
+</li>
+<li><p>Navigation Bar 是否显示导航栏</p>
+</li>
+</ol>
+<h2 id="Navigate"><a href="#Navigate" class="headerlink" title="Navigate"></a>Navigate</h2><p>它主要实现了各种快捷查找和跳转功能。</p>
+<ol>
+<li><p>Class 快速定位一个java文件</p>
+</li>
+<li><p>File 快速定位一个文件</p>
+</li>
+<li><p>Line/Column 快速定位某一行</p>
+</li>
+<li><p>Back 标签页向左移动</p>
+</li>
+<li><p>Forward 标签页向右移动</p>
+</li>
+<li><p>Last Edit Location 最后编辑的文件</p>
+</li>
+</ol>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>该工具栏主要是对源码类进行操作。</p>
+<ol>
+<li><p>Override Methods 重写父类相关方法</p>
+</li>
+<li><p>Generate 创建常用方法，例如get、set、toString或者构造函数等</p>
+</li>
+<li><p>Surround With 相关流程控制，或者捕获异常等，如图：</p>
+</li>
+</ol>
+<p><img src="/2019/06/28/IDEA_基础班day01/image5.png" alt>{width=”2.8118055555555554in” height=”4.520138888888889in”}</p>
+<ol start="4">
+<li><p>Move Line Down 当前行向下移动</p>
+</li>
+<li><p>Move Line Up 当前行向上移动</p>
+</li>
+</ol>
+<h2 id="Refactor"><a href="#Refactor" class="headerlink" title="Refactor"></a>Refactor</h2><ol>
+<li><p>Rename 更改文件名以及相关引用的更改</p>
+</li>
+<li><p>Rename File 仅只更改文件名</p>
+</li>
+<li><p>Extract-&gt;Variable 抽取一个变量(可以选中一段字符，抽取成方法的一个变量)</p>
+</li>
+<li><p>Extract-&gt;Field 抽取一个成员变量(可以选中一段字符，抽取成类的一个变量)</p>
+</li>
+<li><p>Extract-&gt;Parameter 抽取一个入参(可以选中一段字符，抽取成方法的入参)</p>
+</li>
+<li><p>Extract-&gt;Method 抽取一个方法</p>
+</li>
+</ol>
+<h2 id="Build-Run-Tools"><a href="#Build-Run-Tools" class="headerlink" title="Build/Run/Tools"></a>Build/Run/Tools</h2><p>Build该功能主要用于构建当前工程。</p>
+<p>Run用于开发环境测试对应的工程。</p>
+<p>Tools集成的一些工具列表。</p>
+<h1 id="IDEA创建普通java项目"><a href="#IDEA创建普通java项目" class="headerlink" title="IDEA创建普通java项目"></a>IDEA创建普通java项目</h1><p>创建普通java项目，步骤很简单</p>
+<p>选择：File&gt;New&gt;Project&gt;Java&gt;javaEE(如果是javaweb项目，需要勾选Web Application)</p>
+<p>Project SDK选择当前环境中的JDK配置。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image6.png" alt>{width=”5.761111111111111in” height=”2.442361111111111in”}</p>
+<p>这里可以选择根据下面对应的模板创建当前项目，也可以直接选择下一步创建一个普通项目。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image7.png" alt>{width=”5.763194444444444in” height=”4.4527777777777775in”}</p>
+<p>输入项目名字和项目存储目录，选择Finish创建普通项目完毕。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image8.png" alt>{width=”5.7625in” height=”4.4944444444444445in”}</p>
+<h1 id="设置默认的JDK环境变量"><a href="#设置默认的JDK环境变量" class="headerlink" title="设置默认的JDK环境变量"></a>设置默认的JDK环境变量</h1><p><img src="/2019/06/28/IDEA_基础班day01/image9.png" alt>{width=”5.761111111111111in” height=”7.822916666666667in”}</p>
+<h1 id="项目导包和文件类型定义"><a href="#项目导包和文件类型定义" class="headerlink" title="项目导包和文件类型定义"></a>项目导包和文件类型定义</h1><h2 id="项目导包"><a href="#项目导包" class="headerlink" title="项目导包"></a>项目导包</h2><p>IDEA对包的要求比较严格，并不是导入了包后就一定能使用。如下图：</p>
+<p>选中项目：点击File&gt;Project Structure&gt;选中Modules&gt;点击绿色+号&gt;Jars or directors&gt;选中要加入的包&gt;勾选包&gt;应用。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image10.png" alt>{width=”2.832638888888889in” height=”5.457638888888889in”}</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image11.png" alt>{width=”5.758333333333334in” height=”4.75in”}</p>
+<h2 id="文件类型定义"><a href="#文件类型定义" class="headerlink" title="文件类型定义"></a>文件类型定义</h2><p>项目创建后，我们会发现一个包下不能创建自己要的东西，这个时候怎么办？因为我们IDEA对项目包和文件夹敏感，给每个文件夹指定了类型，例如java源码包、classpath资源包、测试源码包、测试资源包、文件夹等，在包下可以创建java类而在文件夹下不可以创建java类。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image12.png" alt>{width=”5.7625in” height=”4.435416666666667in”}</p>
+<p>解决方案：</p>
+<p>选中项目：File&gt;Project Structure&gt;Modules&gt;Sources</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image13.png" alt>{width=”2.832638888888889in” height=”5.655555555555556in”}</p>
+<p>此时会出现如下图：</p>
+<p>如果你想让当前某个文件夹变成java源码包，直接选中文件夹，再点击对应的文件类型设定即可。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image14.png" alt>{width=”5.759722222222222in” height=”2.688888888888889in”}</p>
+<h1 id="面板介绍"><a href="#面板介绍" class="headerlink" title="面板介绍"></a>面板介绍</h1><h2 id="项目信息展示面板"><a href="#项目信息展示面板" class="headerlink" title="项目信息展示面板"></a>项目信息展示面板</h2><p>项目信息面板展示了项目结构和项目所有详细内容，可以通过它来对项目进行各种操作。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image15.png" alt>{width=”3.5618055555555554in” height=”5.093055555555556in”}</p>
+<h2 id="项目结构面板"><a href="#项目结构面板" class="headerlink" title="项目结构面板"></a>项目结构面板</h2><p>项目结构面板主要展示了对应的结构。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image16.png" alt>{width=”3.9368055555555554in” height=”4.290972222222222in”}</p>
+<h2 id="命令面板"><a href="#命令面板" class="headerlink" title="命令面板"></a>命令面板</h2><p>我们常常会输入一些常用的命令，入maven命令，IDEA提供了命令面板。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image17.png" alt>{width=”5.763888888888889in” height=”1.7208333333333334in”}</p>
+<h2 id="数据库链接配置面板"><a href="#数据库链接配置面板" class="headerlink" title="数据库链接配置面板"></a>数据库链接配置面板</h2><p>为了方便对数据库操作，IDEA集成了数据库操作工具，通过它可以轻松连上对应的数据库。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image18.png" alt>{width=”4.947222222222222in” height=”5.134722222222222in”}</p>
+<h3 id="链接数据库配置"><a href="#链接数据库配置" class="headerlink" title="链接数据库配置"></a>链接数据库配置</h3><p>数据库链接面板支持链接多种数据库，我们这里选择MySQL。操作流程：</p>
+<p>选择：+号&gt;Data Source&gt;MySQL</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image19.png" alt>{width=”4.968055555555556in” height=”5.165972222222222in”}</p>
+<p>在数据库面板数据库链接信息配置这里输入链接信息，点击Test Connection.</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image20.png" alt>{width=”5.7625in” height=”3.673611111111111in”}</p>
+<p>这时候右边就能直接链接我们数据了。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image21.png" alt>{width=”5.7625in” height=”2.588888888888889in”}</p>
+<p>当然，还可以在控制台输入SQL语句进行数据查询。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image22.png" alt>{width=”5.768055555555556in” height=”2.1798611111111112in”}</p>
+<h1 id="IDEA配置Tomcat（掌握）"><a href="#IDEA配置Tomcat（掌握）" class="headerlink" title="IDEA配置Tomcat（掌握）"></a>IDEA配置Tomcat（掌握）</h1><h2 id="第一步：进入编辑面板"><a href="#第一步：进入编辑面板" class="headerlink" title="第一步：进入编辑面板"></a>第一步：进入编辑面板</h2><p>如图，选择Edit Configurations</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image23.png" alt>{width=”5.7625in” height=”1.2236111111111112in”}</p>
+<h2 id="第二步：配置tomcat"><a href="#第二步：配置tomcat" class="headerlink" title="第二步：配置tomcat"></a>第二步：配置tomcat</h2><p>选择Defaults&gt;Tomcat Server&gt;Local</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image24.png" alt>{width=”5.540972222222222in” height=”7.259722222222222in”}</p>
+<p>配置后tomcat编辑面板如图：</p>
+<p>这里三个端口可自己任意修改，和以前tomcat的conf目录的server.xml一致，不过当前tomcat只是配置tomcat所在地。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image25.png" alt>{width=”5.7625in” height=”3.665277777777778in”}</p>
+<h2 id="发布项目"><a href="#发布项目" class="headerlink" title="发布项目"></a>发布项目</h2><p>配置完成后，会多出一个tomcat的配置，如下图：</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image26.png" alt>{width=”3.0097222222222224in” height=”2.5833333333333335in”}</p>
+<p>发布项目时，选择当前Tomcat Server&gt;Deployment进行项目配置</p>
+<p>点击中间部分绿色+号，选择要发布的项目。右边Application content配置一般是你项目名字，不过建议设置成/，这样访问项目的时候不需要加项目名字了。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image27.png" alt>{width=”5.763194444444444in” height=”1.8444444444444446in”}</p>
+<h2 id="tomcat日志配置"><a href="#tomcat日志配置" class="headerlink" title="tomcat日志配置"></a>tomcat日志配置</h2><p>为了方便查看日志，可以选择Logs配置日志，左边的复选框双击就能选中，选中后tomcat运行将能查看多种日志，更方便你分析项目问题。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image28.png" alt>{width=”5.763888888888889in” height=”2.0215277777777776in”}</p>
+<h2 id="启动tomcat"><a href="#启动tomcat" class="headerlink" title="启动tomcat"></a>启动tomcat</h2><p>tomcat配置完成后，在之前的基础上会多出一个运行小按钮和debug小按钮。点击任何一个小按钮都能启动tomcat。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image29.png" alt>{width=”5.763194444444444in” height=”1.7548611111111112in”}</p>
+<p>启动tomcat后，IDEA下方会多出几个控制台日志窗口，之前你配置日志的时候，选中了哪些，下面就会多出对应的窗口，这里我们一般需要查看Tomcat Catalina Log就可以了，如果需要查看多种日志，点击不同标签页切换即可。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image30.png" alt>{width=”5.7625in” height=”2.1395833333333334in”}</p>
+<h1 id="Jsp文件修改后重启生效问题"><a href="#Jsp文件修改后重启生效问题" class="headerlink" title="Jsp文件修改后重启生效问题"></a>Jsp文件修改后重启生效问题</h1><p>IDEA用Tomcat发布项目后，如果修改了某个jsp，需要重启tomcat，这样就造成了开发速度问题，如何解决？</p>
+<p>修改tomcat配置即可，edit configurations</p>
+<p>设置On ‘Update’ action为Redeploy。</p>
+<p>设置On frame deactivation为Update resourcees。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image31.png" alt>{width=”4.363888888888889in” height=”1.5416666666666667in”}</p>
+<h1 id="IDEA快捷键总结"><a href="#IDEA快捷键总结" class="headerlink" title="IDEA快捷键总结"></a>IDEA快捷键总结</h1><p>+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+<br>| 1. -----------自动代码--------\                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| 常用的有fori/sout/psvm+Tab即可生成循环、System.out、main方法等boilerplate样板代码\                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| 例如要输入for(User user : users)只需输入user.for+Tab                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| 再比如，要输入Date birthday = user.getBirthday();只需输入user.getBirthday().var+Tab即可。代码标签输入完成后，按Tab，生成代码。                                                                                                                                                                                                                                                                                                                                                                                             |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| Ctrl+Alt+O 优化导入的类和包\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |<br>| Alt+Insert 生成代码(如get,set方法,构造函数等)   或者右键（Generate）\                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| fori/sout/psvm + Tab \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |<br>| Ctrl+Alt+T  生成try catch  或者 Alt+enter\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| CTRL+ALT+T  把选中的代码放在 TRY{} IF{} ELSE{} 里\                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| Ctrl + O 重写方法 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |<br>| Ctrl + I 实现方法\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| Ctr+shift+U 大小写转化 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |<br>| ALT+回车    导入包,自动修正 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| ALT+/       代码提示\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| CTRL+J      自动代码 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |<br>| Ctrl+Shift+J，整合两行为一行\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| CTRL+空格   代码提示 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |<br>| CTRL+SHIFT+SPACE 自动补全代码 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| CTRL+ALT+L  格式化代码 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |<br>| CTRL+ALT+I  自动缩进 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |<br>| CTRL+ALT+O  优化导入的类和包 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| ALT+INSERT  生成代码(如GET,SET方法,构造函数等) \                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| CTRL+E      最近更改的代码 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |<br>| CTRL+ALT+SPACE  类名或接口名提示 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| CTRL+P   方法参数提示 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |<br>| CTRL+Q，可以看到当前方法的声明  \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| Shift+F6  重构-重命名 (包、类、方法、变量、甚至注释等)\                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |<br>| Ctrl+Alt+V 提取变量\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| 2. -----------查询快捷键--------\                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| Ctrl＋Shift＋Backspace可以跳转到上次编辑的地\                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| CTRL+ALT+ left/right 前后导航编辑过的地方\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| ALT+7  靠左窗口显示当前文件的结构\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| Ctrl+F12 浮动显示当前文件的结构\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| ALT+F7 找到你的函数或者变量或者类的所有引用到的地方\                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| CTRL+ALT+F7  找到你的函数或者变量或者类的所有引用到的地方\                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ctrl+Shift+Alt+N 查找类中的方法或变量\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |<br>| 双击SHIFT 在项目的所有目录查找文件\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |<br>| Ctrl+N   查找类\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| Ctrl+Shift+N 查找文件\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |<br>| CTRL+G   定位行 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| CTRL+F   在当前窗口查找文本 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| CTRL+SHIFT+F  在指定窗口查找文本 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| CTRL+R   在 当前窗口替换文本 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| CTRL+SHIFT+R  在指定窗口替换文本 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| ALT+SHIFT+C  查找修改的文件 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| CTRL+E   最近打开的文件 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| F3   向下查找关键字出现位置 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| SHIFT+F3  向上一个关键字出现位置 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| 选中文本，按Alt+F3 ，高亮相同文本，F3逐个往下查找相同文本\                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| F4   查找变量来源 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |<br>| CTRL+SHIFT+O  弹出显示查找内容\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| Ctrl+W 选中代码，连续按会有其他效果\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| F2 或Shift+F2 高亮错误或警告快速定位\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| Ctrl+Up/Down 光标跳转到第一行或最后一行下\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ctrl+B 快速打开光标处的类或方法 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| CTRL+ALT+B  找所有的子类 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| CTRL+SHIFT+B  找变量的类 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ctrl+Shift+上下键  上下移动代码\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| Ctrl+Alt+ left/right 返回至上次浏览的位置\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ctrl+X 删除行\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| Ctrl+D 复制行\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| Ctrl+/ 或 Ctrl+Shift+/  注释（// 或者/*...*/ ）\                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |<br>| Ctrl+H 显示类结构图\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| Ctrl+Q 显示注释文档\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| Alt+F1 查找代码所在位置\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |<br>| Alt+1 快速打开或隐藏工程面板\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| Alt+ left/right 切换代码视图\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| ALT+ ↑/↓  在方法间快速移动定位 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| CTRL+ALT+ left/right 前后导航编辑过的地方\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ctrl＋Shift＋Backspace可以跳转到上次编辑的地\                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| Alt+6    查找TODO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| 3.---------------------其他快捷键-------------------\                                                                                                                                                                                                                                                                                                                                                                                                                                |<br>| SHIFT+ENTER 另起一行\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| CTRL+Z   倒退(撤销)\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| CTRL+SHIFT+Z  向前(取消撤销)\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| CTRL+ALT+F12  资源管理器打开文件夹 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| ALT+F1   查找文件所在目录位置 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| SHIFT+ALT+INSERT 竖编辑模式 \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| CTRL+F4  关闭当前窗口\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |<br>| Ctrl+Alt+V，可以引入变量。例如：new String(); 自动导入变量定义\                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| Ctrl+~，快速切换方案（界面外观、代码风格、快捷键映射等菜单）\                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| 4.--------------svn快捷键---------------\                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| ctrl+k 提交代码到SVN\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| ctrl+t 更新代码                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| 5.--------------调试快捷键---------------                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| 其实常用的 就是F8 F7 F9 最值得一提的 就是Drop Frame  可以让运行过的代码从头再来                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| alt+F8          debug时选中查看值\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| Alt+Shift+F9，选择 Debug\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| Alt+Shift+F10，选择 Run\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |<br>| Ctrl+Shift+F9，编译\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| Ctrl+Shift+F8，查看断点\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |<br>| F7，步入\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| Shift+F7，智能步入\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |<br>| Alt+Shift+F7，强制步入\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |<br>| F8，步过\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| Shift+F8，步出\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| Alt+Shift+F8，强制步过\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |<br>| Alt+F9，运行至光标处\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| Ctrl+Alt+F9，强制运行至光标处\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| F9，恢复程序\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| Alt+F10，定位到断点\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |<br>| 6.--------------重构---------------\                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| Ctrl+Alt+Shift+T，弹出重构菜单\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| Shift+F6，重命名\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| F6，移动\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| F5，复制\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| Alt+Delete，安全删除\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| Ctrl+Alt+N，内联\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| ============================================================\                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>|  十大Intellij IDEA快捷键\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| 1 智能提示:\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |<br>| Intellij首当其冲的当然就是Intelligence智能！基本的代码提示用Ctrl+Space，还有更智能地按类型信息提示Ctrl+Shift+Space，但因为Intellij总是随着我们敲击而自动提示，所以很多时候都不会手动敲这两个快捷键(除非提示框消失了)。用F2/ Shift+F2移动到有错误的代码，Alt+Enter快速修复(即Eclipse中的Quick Fix功能)。当智能提示为我们自动补全方法名时，我们通常要自己补上行尾的反括号和分号，当括号嵌套很多层时会很麻烦，这时我们只需敲Ctrl+Shift+Enter就能自动补全末尾的字符。而且不只是括号，例如敲完if/for时也可以自动补上{}花括号。\ |<br>| 最后要说一点，Intellij能够智能感知Spring、Hibernate等主流框架的配置文件和类，以静制动，在看似”静态”的外表下，智能地扫描理解你的项目是如何构造和配置的。\                                                                                                                                                                                                                                                                                                                                                                   |<br>| \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| 2 重构:\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |<br>| Intellij重构是另一完爆Eclipse的功能，其智能程度令人瞠目结舌，比如提取变量时自动检查到所有匹配同时提取成一个变量等。尤其看过《重构-改善既有代码设计》之后，有了Intellij的配合简直是令人大呼过瘾！也正是强大的智能和重构功能，使Intellij下的TDD开发非常顺畅。\                                                                                                                                                                                                                                                               |<br>| 切入正题，先说一个无敌的重构功能大汇总快捷键Ctrl+Shift+Alt+T，叫做Refactor This。按法有点复杂，但也符合Intellij的风格，很多快捷键都要双手完成，而不像Eclipse不少最有用的快捷键可以潇洒地单手完成(不知道算不算Eclipse的一大优点)，但各位用过Emacs的话就会觉得也没什么了(非Emacs黑)。此外，还有些最常用的重构技巧，因为太常用了，若每次都在Refactor This菜单里选的话效率有些低。比如Shift+F6直接就是改名，Ctrl+Alt+V则是提取变量。                                                                                           |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| 3 代码生成：\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| 这一点类似Eclipse，虽不是独到之处，但因为日常使用频率极高，所以还是罗列在榜单前面。常用的有fori/sout/psvm+Tab即可生成循环、System.out、main方法等boilerplate样板代码，用Ctrl+J可以查看所有模板。后面”辅助”一节中将会讲到Alt+Insert，在编辑窗口中点击可以生成构造函数、toString、getter/setter、重写父类方法等。这两个技巧实在太常用了，几乎每天都要生成一堆main、System.out和getter/setter。\                                                                                                                              |<br>| 另外，Intellij IDEA 13中加入了后缀自动补全功能(Postfix Completion)，比模板生成更加灵活和强大。例如要输入for(User user : users)只需输入user.for+Tab。再比如，要输入Date birthday = user.getBirthday();只需输入user.getBirthday().var+Tab即可。\                                                                                                                                                                                                                                                                             |<br>| \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| 4 编辑：\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| 编辑中不得不说的一大神键就是能够自动按语法选中代码的Ctrl+W以及反向的Ctrl+Shift+W了。此外，Ctrl+Left/Right移动光标到前/后单词，Ctrl+[/]移动到前/后代码块，这些类Vim风格的光标移动也是一大亮点。以上Ctrl+Left/Right/[]加上Shift的话就能选中跳跃范围内的代码。Alt+Forward/Backward移动到前/后方法。还有些非常普通的像Ctrl+Y删除行、Ctrl+D复制行、Ctrl+&lt;/&gt;折叠代码就不多说了。\                                                                                                                                          |<br>| 关于光标移动再多扩展一点，除了Intellij本身已提供的功能外，我们还可以安装ideaVim或者emacsIDEAs享受到Vim的快速移动和Emacs的AceJump功能(超爽！)。另外，Intellij的书签功能也是不错的，用Ctrl+Shift+Num定义1-10书签(再次按这组快捷键则是删除书签)，然后通过Ctrl+Num跳转。这避免了多次使用前/下一编辑位置Ctrl+Left/Right来回跳转的麻烦，而且此快捷键默认与Windows热键冲突(默认多了Alt，与Windows改变显示器显示方向冲突，一不小心显示器就变成倒着显式的了，冏啊)。\                                                               |<br>| \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| 5 查找打开：\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| 类似Eclipse，Intellij的Ctrl+N/Ctrl+Shift+N可以打开类或资源，但Intellij更加智能一些，我们输入的任何字符都将看作模糊匹配，省却了Eclipse中还有输入*的麻烦。最新版本的IDEA还加入了Search Everywhere功能，只需按Shift+Shift即可在一个弹出框中搜索任何东西，包括类、资源、配置项、方法等等。\                                                                                                                                                                                                                                   |<br>| 类的继承关系则可用Ctrl+H打开类层次窗口，在继承层次上跳转则用Ctrl+B/Ctrl+Alt+B分别对应父类或父方法定义和子类或子方法实现，查看当前类的所有方法用Ctrl+F12。\                                                                                                                                                                                                                                                                                                                                                                 |<br>| 要找类或方法的使用也很简单，Alt+F7。要查找文本的出现位置就用Ctrl+F/Ctrl+Shift+F在当前窗口或全工程中查找，再配合F3/Shift+F3前后移动到下一匹配处。\                                                                                                                                                                                                                                                                                                                                                                          |<br>| Intellij更加智能的又一佐证是在任意菜单或显示窗口，都可以直接输入你要找的单词，Intellij就会自动为你过滤。                                                                                                                                                                                                                                                                                                                                                                                                                   |<br>|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| 6 其他辅助：\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |<br>| 以上这些神键配上一些辅助快捷键，即可让你的双手90%以上的时间摆脱鼠标，专注于键盘仿佛在进行钢琴表演。这些不起眼却是至关重要的最后一块拼图有：\                                                                                                                                                                                                                                                                                                                                                                               |<br>| Ø  命令：Ctrl+Shift+A可以查找所有Intellij的命令，并且每个命令后面还有其快捷键。所以它不仅是一大神键，也是查找学习快捷键的工具。\                                                                                                                                                                                                                                                                                                                                                                                           |<br>| Ø  新建：Alt+Insert可以新建类、方法等任何东西。\                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| Ø  格式化代码：格式化import列表Ctrl+Alt+O，格式化代码Ctrl+Alt+L。\                                                                                                                                                                                                                                                                                                                                                                                                                                                         |<br>| Ø  切换窗口：Alt+Num，常用的有1-项目结构，3-搜索结果，4/5-运行调试。Ctrl+Tab切换标签页，Ctrl+E/Ctrl+Shift+E打开最近打开过的或编辑过的文件。\                                                                                                                                                                                                                                                                                                                                                                               |<br>| Ø  单元测试：Ctrl+Alt+T创建单元测试用例。\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ø  运行：Alt+Shift+F10运行程序，Shift+F9启动调试，Ctrl+F2停止。\                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| Ø  调试：F7/F8/F9分别对应Step into，Step over，Continue。\                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| 此外还有些我自定义的，例如水平分屏Ctrl+|等，和一些神奇的小功能Ctrl+Shift+V粘贴很早以前拷贝过的，Alt+Shift+Insert进入到列模式进行按列选中。\                                                                                                                                                                                                                                                                                                                                                                               |<br>| Ø  Top #10切来切去：Ctrl+Tab\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| Ø  Top #9选你所想：Ctrl+W\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |<br>| Ø  Top #8代码生成：Template/Postfix +Tab\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ø  Top #7发号施令：Ctrl+Shift+A\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |<br>| Ø  Top #6无处藏身：Shift+Shift\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |<br>| Ø  Top #5自动完成：Ctrl+Shift+Enter\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| Ø  Top #4创造万物：Alt+Insert\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<br>| 太难割舍，前三名并列吧！\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |<br>| Ø  Top #1智能补全：Ctrl+Shift+Space\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| Ø  Top #1自我修复：Alt+Enter\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |<br>| Ø  Top #1重构一切：Ctrl+Shift+Alt+T\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |<br>| CTRL+ALT+ left/right 前后导航编辑过的地方\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |<br>| Ctrl＋Shift＋Backspace可以跳转到上次编辑的地                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |<br>+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">常用快捷键</span><br><span class="line"></span><br><span class="line">+-----------------------------------------+</span><br><span class="line">| */\*\*\*\*\*\                           |</span><br><span class="line">| \* alt+鼠标下拽: 多行同时输入相同字符\  |*</span><br><span class="line"></span><br><span class="line">| \*alt+insert:Generate(生成)\            |</span><br><span class="line">| \* 生成get+set*                         |                                    |</span><br><span class="line">| *\* toString\                           |</span><br><span class="line">| \* 构造函数\                            |</span><br><span class="line">| \* 重写父类方法\                        |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+alt+B :查看接口的实现类\        |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* alt+enter :快速补全修复\             |</span><br><span class="line">| \* 创建一个变量接受当前函数返回的数据\  |</span><br><span class="line">| \* 快速创建一个方法\                    |</span><br><span class="line">| \* 快速实现一个接口对应的方法\          |</span><br><span class="line">| \* 快速捕获异常\                        |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+alt+L :代码格式化\              |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \*ctrl+shift+↑↓:当前行向上或者向下挪动\ |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+c :选中当前行\                  |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+x :剪切选中行\                  |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+y :删除一行\                    |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+D :复制选中行\                  |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+alt+T:\[万能键\]\               |</span><br><span class="line">| \* 流程控制: <span class="keyword">if</span> <span class="keyword">else</span> <span class="keyword">while</span>\             |</span><br><span class="line">| \* 手动捕获异常\                        |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+F12 :查看当前类的成员对象\      |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* 双击Shift：查找文件\                 |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* Ctrl+Shift+N：快速定位文件\          |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* Ctrl+E:查看最近打开的文件\           |</span><br><span class="line">| \*\                                     |</span><br><span class="line">| \* ctrl+G :行定位\                      |</span><br><span class="line">| \* \*<span class="comment">/*                                 |</span></span><br><span class="line"><span class="comment">+-----------------------------------------+</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="IDEA快捷键设置"><a href="#IDEA快捷键设置" class="headerlink" title="IDEA快捷键设置"></a>IDEA快捷键设置</h1><p>例如某个快捷键不怎么熟悉，想切换成以前熟悉的，怎么设置快捷方式呢？</p>
+<p>操作:File&gt;Settings&gt;keymap</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image32.png" alt>{width=”2.832638888888889in” height=”5.603472222222222in”}</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image33.png" alt>{width=”5.7652777777777775in” height=”4.082638888888889in”}</p>
+<p>在搜索框里输入需要设置快捷键的操作,然后选择对应的操作，右键创建快捷键操作。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image34.png" alt>{width=”5.766666666666667in” height=”2.9131944444444446in”}</p>
+<h1 id="IDEA创建模板快捷操作"><a href="#IDEA创建模板快捷操作" class="headerlink" title="IDEA创建模板快捷操作"></a>IDEA创建模板快捷操作</h1><p>在平时工作中，存在很多繁琐而工作量又大且容易出错的一些配置，使用IDEA，能够只配置一次而下次就可以快捷键直接把它呼唤出来使用，具体配置如下。</p>
+<h2 id="创建模板分组"><a href="#创建模板分组" class="headerlink" title="创建模板分组"></a>创建模板分组</h2><p>步骤如下图：</p>
+<p>选择File&gt;Settings&gt;+&gt;Template Groups&gt;Create New Group</p>
+<p>这时候就能创建一个模板分组</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image35.png" alt>{width=”5.761111111111111in” height=”2.6881944444444446in”}</p>
+<p>创建完毕后，左边菜单会多一个创建的模板组，可以在这里定义所有你要的模板。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image36.png" alt>{width=”3.2284722222222224in” height=”3.3430555555555554in”}</p>
+<h2 id="创建模板"><a href="#创建模板" class="headerlink" title="创建模板"></a>创建模板</h2><p>选择:+号&gt;Live Template&gt;配置模板呼出字符+模板内容+描述&gt;Define&gt;选择需要使用该模板调出的配置文件类型。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image37.png" alt>{width=”5.763888888888889in” height=”3.1395833333333334in”}</p>
+<h2 id="调出模板操作"><a href="#调出模板操作" class="headerlink" title="调出模板操作"></a>调出模板操作</h2><p>在任意一个xml文件中输入ssmpom,再选中提示。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image38.png" alt>{width=”6.458333333333333in” height=”3.0909722222222222in”}</p>
+<h1 id="IDEA每次打开最后创建的项目问题"><a href="#IDEA每次打开最后创建的项目问题" class="headerlink" title="IDEA每次打开最后创建的项目问题"></a>IDEA每次打开最后创建的项目问题</h1><p>使用IDEA，每次打开IDEA的时候都是加载了最后创建的一个项目，这时候只需要选择File&gt;Settings&gt;System Settings，然后将右侧 Reopen last project on startup的勾去掉就可以了。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image39.png" alt>{width=”5.761805555555555in” height=”3.8201388888888888in”}</p>
+<h1 id="注释配置"><a href="#注释配置" class="headerlink" title="注释配置"></a>注释配置</h1><p>在现实开发中，我们经常需要知道每个类用来做什么的，每个类是谁写的等操作，但很多注释内容都是重复的，而只有少部分需要变更，这时候我们可以考虑定义一个注释模板。</p>
+<p>选择：Settings&gt;File and code template&gt;File Header,然后进行配置即可。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image40.png" alt>{width=”5.761805555555555in” height=”3.8090277777777777in”}</p>
+<h1 id="表单提交工具"><a href="#表单提交工具" class="headerlink" title="表单提交工具"></a>表单提交工具</h1><p>很多时候，模拟表单请求，需要自己写表单，这时候可以直接用IDEA集成的RESTful工具测试。如图：</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image41.png" alt>{width=”2.21875in” height=”4.197222222222222in”}</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image42.png" alt>{width=”5.761111111111111in” height=”2.99375in”}</p>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h2 id="编辑区和文件区切换"><a href="#编辑区和文件区切换" class="headerlink" title="编辑区和文件区切换"></a>编辑区和文件区切换</h2><p>如下图，如果想实现编辑区和文件区的跳转，这个可以直接用快捷键实现，比如像跳转到文件区project1面板，按alt+1,想从文件区切换到编辑区，按esc即可。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image43.png" alt>{width=”5.7659722222222225in” height=”2.078472222222222in”}</p>
+<h2 id="搜索定位"><a href="#搜索定位" class="headerlink" title="搜索定位"></a>搜索定位</h2><h3 id="类搜索"><a href="#类搜索" class="headerlink" title="类搜索"></a>类搜索</h3><p>Ctrl+N 快速定位一个类</p>
+<p>Ctrl+N+N 如果搜索范围包含Jar包里的文件，则按Ctrl+N再按一次N就可以实现Jar包搜索</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image44.png" alt>{width=”5.766666666666667in” height=”1.5104166666666667in”}</p>
+<h3 id="文件搜索"><a href="#文件搜索" class="headerlink" title="文件搜索"></a>文件搜索</h3><p>Ctrl+Shift+N 搜索文件</p>
+<p>Ctrl+Shift+N+N 如果搜索包含jar包中的文件，则按两次N</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image45.png" alt>{width=”5.301388888888889in” height=”1.4375in”}</p>
+<h3 id="字符搜索"><a href="#字符搜索" class="headerlink" title="字符搜索"></a>字符搜索</h3><p>Ctrl+Shift+Alt+N 比如我们想搜索一个user()方法， 这时候可以通过这个指令实现搜索。</p>
+<p>Ctrl+Shift+Alt+N+N 可以实现jar包文件方法搜索。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image46.png" alt>{width=”5.509722222222222in” height=”1.7083333333333333in”}</p>
+<h3 id="字符串搜索"><a href="#字符串搜索" class="headerlink" title="字符串搜索"></a>字符串搜索</h3><p>Ctrl+Shift+F 实现文件搜索</p>
+<p>Match case：是否匹配大小写</p>
+<p>Words：是否将搜索的内容作为一个完整的词搜索</p>
+<p>Regex：是否使用正则搜索</p>
+<p>File mask：搜索文件类型匹配</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image47.png" alt>{width=”5.763888888888889in” height=”2.307638888888889in”}</p>
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="列操作"><a href="#列操作" class="headerlink" title="列操作"></a>列操作</h3><p>列入现在从数据库中复制表对应的列，需要创建一个实体Bean，我们用IDEA实现方便多了。</p>
+<p>Alt+鼠标右键+拖拽</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image48.png" alt>{width=”3.3430555555555554in” height=”1.7604166666666667in”}</p>
+<h3 id="Return的用法"><a href="#Return的用法" class="headerlink" title="Return的用法"></a>Return的用法</h3><p>直接用对象.re就能提示return；</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image49.png" alt>{width=”5.468055555555556in” height=”1.8854166666666667in”}</p>
+<h2 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h2><h3 id="批量修改变量名字"><a href="#批量修改变量名字" class="headerlink" title="批量修改变量名字"></a>批量修改变量名字</h3><p>按住shift+F6</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image50.png" alt>{width=”4.363888888888889in” height=”2.8743055555555554in”}</p>
+<h3 id="重构方法"><a href="#重构方法" class="headerlink" title="重构方法"></a>重构方法</h3><p>选中要重构的代码，按ctrl+alt+M</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image51.png" alt>{width=”5.7659722222222225in” height=”3.0006944444444446in”}</p>
+<h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><h3 id="断点快捷键"><a href="#断点快捷键" class="headerlink" title="断点快捷键"></a>断点快捷键</h3><p>添加断点：Ctrl+F8</p>
+<p>F8 单步执行</p>
+<p>F9 跳过当前单步调试</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image52.png" alt>{width=”5.761805555555555in” height=”2.0368055555555555in”}</p>
+<h3 id="断点操作"><a href="#断点操作" class="headerlink" title="断点操作"></a>断点操作</h3><p><img src="/2019/06/28/IDEA_基础班day01/image53.png" alt>{width=”2.7083333333333335in” height=”3.1555555555555554in”}</p>
+<h3 id="条件断点"><a href="#条件断点" class="headerlink" title="条件断点"></a>条件断点</h3><p>在断点上右键，可以添加条件判断，当服务对应条件判断时，断点才生效。</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image54.png" alt>{width=”4.436805555555556in” height=”1.15625in”}</p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>文件复制：F5</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image55.png" alt>{width=”4.707638888888889in” height=”2.5625in”}</p>
+<p>文件移动：F6</p>
+<p><img src="/2019/06/28/IDEA_基础班day01/image56.png" alt>{width=”4.613888888888889in” height=”2.5416666666666665in”}</p>
+<p>重点总结：</p>
+<p>1)  面板介绍中的Database</p>
+<p>2)  Tomcat配置</p>
+<p>3)  常用快捷键</p>
+<p>4)  断点调试</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">Show comments from Gitment</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liminghui</p>
+              <p class="site-description motion-element" itemprop="description">网页描述</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liminghui321.github.io/" title="Title" target="_blank">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程计划"><span class="nav-number">1.</span> <span class="nav-text">课程计划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA安装"><span class="nav-number">2.</span> <span class="nav-text">IDEA安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具栏介绍（了解）"><span class="nav-number">3.</span> <span class="nav-text">工具栏介绍（了解）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#File"><span class="nav-number">3.1.</span> <span class="nav-text">File</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#New"><span class="nav-number">3.1.1.</span> <span class="nav-text">New</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-Open-URL-Open-Recent-Close-Project"><span class="nav-number">3.1.2.</span> <span class="nav-text">Open/Open URL/Open Recent/Close Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Settings-Default-settings-理解"><span class="nav-number">3.1.3.</span> <span class="nav-text">Settings/Default settings(理解)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Edit"><span class="nav-number">3.2.</span> <span class="nav-text">Edit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">3.3.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigate"><span class="nav-number">3.4.</span> <span class="nav-text">Navigate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.5.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refactor"><span class="nav-number">3.6.</span> <span class="nav-text">Refactor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Run-Tools"><span class="nav-number">3.7.</span> <span class="nav-text">Build/Run/Tools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA创建普通java项目"><span class="nav-number">4.</span> <span class="nav-text">IDEA创建普通java项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置默认的JDK环境变量"><span class="nav-number">5.</span> <span class="nav-text">设置默认的JDK环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目导包和文件类型定义"><span class="nav-number">6.</span> <span class="nav-text">项目导包和文件类型定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目导包"><span class="nav-number">6.1.</span> <span class="nav-text">项目导包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件类型定义"><span class="nav-number">6.2.</span> <span class="nav-text">文件类型定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面板介绍"><span class="nav-number">7.</span> <span class="nav-text">面板介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目信息展示面板"><span class="nav-number">7.1.</span> <span class="nav-text">项目信息展示面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构面板"><span class="nav-number">7.2.</span> <span class="nav-text">项目结构面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令面板"><span class="nav-number">7.3.</span> <span class="nav-text">命令面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库链接配置面板"><span class="nav-number">7.4.</span> <span class="nav-text">数据库链接配置面板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链接数据库配置"><span class="nav-number">7.4.1.</span> <span class="nav-text">链接数据库配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA配置Tomcat（掌握）"><span class="nav-number">8.</span> <span class="nav-text">IDEA配置Tomcat（掌握）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：进入编辑面板"><span class="nav-number">8.1.</span> <span class="nav-text">第一步：进入编辑面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：配置tomcat"><span class="nav-number">8.2.</span> <span class="nav-text">第二步：配置tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布项目"><span class="nav-number">8.3.</span> <span class="nav-text">发布项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tomcat日志配置"><span class="nav-number">8.4.</span> <span class="nav-text">tomcat日志配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动tomcat"><span class="nav-number">8.5.</span> <span class="nav-text">启动tomcat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jsp文件修改后重启生效问题"><span class="nav-number">9.</span> <span class="nav-text">Jsp文件修改后重启生效问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA快捷键总结"><span class="nav-number">10.</span> <span class="nav-text">IDEA快捷键总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA快捷键设置"><span class="nav-number">11.</span> <span class="nav-text">IDEA快捷键设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA创建模板快捷操作"><span class="nav-number">12.</span> <span class="nav-text">IDEA创建模板快捷操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建模板分组"><span class="nav-number">12.1.</span> <span class="nav-text">创建模板分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建模板"><span class="nav-number">12.2.</span> <span class="nav-text">创建模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调出模板操作"><span class="nav-number">12.3.</span> <span class="nav-text">调出模板操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA每次打开最后创建的项目问题"><span class="nav-number">13.</span> <span class="nav-text">IDEA每次打开最后创建的项目问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注释配置"><span class="nav-number">14.</span> <span class="nav-text">注释配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单提交工具"><span class="nav-number">15.</span> <span class="nav-text">表单提交工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战"><span class="nav-number">16.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑区和文件区切换"><span class="nav-number">16.1.</span> <span class="nav-text">编辑区和文件区切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索定位"><span class="nav-number">16.2.</span> <span class="nav-text">搜索定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类搜索"><span class="nav-number">16.2.1.</span> <span class="nav-text">类搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件搜索"><span class="nav-number">16.2.2.</span> <span class="nav-text">文件搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符搜索"><span class="nav-number">16.2.3.</span> <span class="nav-text">字符搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串搜索"><span class="nav-number">16.2.4.</span> <span class="nav-text">字符串搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用操作"><span class="nav-number">16.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#列操作"><span class="nav-number">16.3.1.</span> <span class="nav-text">列操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Return的用法"><span class="nav-number">16.3.2.</span> <span class="nav-text">Return的用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重构"><span class="nav-number">16.4.</span> <span class="nav-text">重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批量修改变量名字"><span class="nav-number">16.4.1.</span> <span class="nav-text">批量修改变量名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重构方法"><span class="nav-number">16.4.2.</span> <span class="nav-text">重构方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断点调试"><span class="nav-number">16.5.</span> <span class="nav-text">断点调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#断点快捷键"><span class="nav-number">16.5.1.</span> <span class="nav-text">断点快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#断点操作"><span class="nav-number">16.5.2.</span> <span class="nav-text">断点操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件断点"><span class="nav-number">16.5.3.</span> <span class="nav-text">条件断点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">16.6.</span> <span class="nav-text">文件操作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liminghui</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'liminghui321',
+            repo: 'git@github.com:liminghui321/liminghui321.github.io.git',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'b3a2103c65d1c03fd31ece98ca9ec49b0b4460b7',
+            
+                client_id: 'c0d5316251b4d044152e'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
