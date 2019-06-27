@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Ajax跨域问题跨域介绍什么是跨域跨域它是不同的域名(服务器)之间的相互的资源的访问。 当协议，域名，端口号任意一个不相同，它们就是不同的域。 正常情况下，因为浏览器安全问题，不同域的资源是不可以访问的。 {width=”5.768055555555556in” height=”0.358500656167979in”} 跨域解决方案什么情况下会使用到跨域？ 一般情况是在自己的内部的工程中会出现跨">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery(day22)">
+<meta property="og:url" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/index.html">
+<meta property="og:site_name" content="liminghui&#39;blog">
+<meta property="og:description" content="Ajax跨域问题跨域介绍什么是跨域跨域它是不同的域名(服务器)之间的相互的资源的访问。 当协议，域名，端口号任意一个不相同，它们就是不同的域。 正常情况下，因为浏览器安全问题，不同域的资源是不可以访问的。 {width=”5.768055555555556in” height=”0.358500656167979in”} 跨域解决方案什么情况下会使用到跨域？ 一般情况是在自己的内部的工程中会出现跨">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image1.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image2.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image3.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image4.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image5.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image6.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image7.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image8.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image9.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image10.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image11.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image12.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image13.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image14.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image15.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image16.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image17.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image18.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image19.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image20.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image21.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image22.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image23.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image24.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image25.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image26.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image27.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image28.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image29.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image30.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image31.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image32.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image33.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image34.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image35.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image36.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image37.png">
+<meta property="og:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/1560666741390.png">
+<meta property="og:updated_time" content="2019-06-27T16:23:03.618Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery(day22)">
+<meta name="twitter:description" content="Ajax跨域问题跨域介绍什么是跨域跨域它是不同的域名(服务器)之间的相互的资源的访问。 当协议，域名，端口号任意一个不相同，它们就是不同的域。 正常情况下，因为浏览器安全问题，不同域的资源是不可以访问的。 {width=”5.768055555555556in” height=”0.358500656167979in”} 跨域解决方案什么情况下会使用到跨域？ 一般情况是在自己的内部的工程中会出现跨">
+<meta name="twitter:image" content="http://liminghui321.github.io/2019/06/28/jQuery(day22)/image1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liminghui321.github.io/2019/06/28/jQuery(day22)/">
+
+
+
+
+
+  <title>jQuery(day22) | liminghui'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liminghui'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有志者，事竟成，破釜沉舟，百二秦关终属楚。 苦心人，天不负，卧薪尝胆，三千越甲可吞吴。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">jQuery(day22)</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="Ajax跨域问题"><a href="#Ajax跨域问题" class="headerlink" title="Ajax跨域问题"></a>Ajax跨域问题</h1><h2 id="跨域介绍"><a href="#跨域介绍" class="headerlink" title="跨域介绍"></a>跨域介绍</h2><h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><p>跨域它是不同的域名(服务器)之间的相互的资源的访问。</p>
+<p>当协议，域名，端口号任意一个不相同，它们就是不同的域。</p>
+<p>正常情况下，因为浏览器安全问题，不同域的资源是不可以访问的。</p>
+<p><img src="/2019/06/28/jQuery(day22)/image1.png" alt>{width=”5.768055555555556in” height=”0.358500656167979in”}</p>
+<h3 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h3><p>什么情况下会使用到跨域？</p>
+<p>一般情况是在自己的内部的工程中会出现跨域情况。</p>
+<p>有三种解决方案:</p>
+<blockquote>
+<p>1.代理方案 前端页面访问本地的服务器，本地服务器访问其它域的资源，它是服务器端的跨域问题解决。<br>2.jsonp JSONP(JSON with Padding)是[JSON]{.underline}的一种”使用模式”，可用于解决主流浏览器的跨域数据访问的问题。由于同源策略，一般来说位于 server1.example.com 的网页无法与不是 server1.example.com的服务器沟通，而 HTML 的&lt;script&gt; 元素是一个例外。利用 &lt;script&gt; 元素的这个开放策略，网页可以得到从其他来源动态产生的 JSON 资料，而这种使用模式就是所谓的 JSONP。用 JSONP 抓到的资料并不是 JSON，而是任意的JavaScript，用 JavaScript 直译器执行而不是用 JSON 解析器解析。</p>
+<p>3.XHR2全称XMLHttpRequest Level2它是HTML5提供的方法，一般是在移动开发中使用。</p>
+</blockquote>
+<h2 id="jQuery解决跨域操作"><a href="#jQuery解决跨域操作" class="headerlink" title="jQuery解决跨域操作"></a>jQuery解决跨域操作</h2><p>在jquery中我们可以使用$.ajax,$.getJSON,$.getScript来解跨域问题。</p>
+<h3 id="ajax解决跨域问题"><a href="#ajax解决跨域问题" class="headerlink" title="$.ajax解决跨域问题"></a>$.ajax解决跨域问题</h3><p><img src="/2019/06/28/jQuery(day22)/image2.png" alt>{width=”5.768055555555556in” height=”0.8251520122484689in”}</p>
+<p>关于json与jsonp格式的区别</p>
+<p>Json格式 :[value1,value],{name:value}</p>
+<p>Jsonp格式: callback(json)</p>
+<p><img src="/2019/06/28/jQuery(day22)/image3.png" alt>{width=”5.768055555555556in” height=”0.8311603237095363in”}</p>
+<p><img src="/2019/06/28/jQuery(day22)/image4.png" alt>{width=”5.768055555555556in” height=”1.498759842519685in”}</p>
+<h3 id="Jquery中如何使用jsonp完成跨域问题"><a href="#Jquery中如何使用jsonp完成跨域问题" class="headerlink" title="Jquery中如何使用jsonp完成跨域问题"></a>Jquery中如何使用jsonp完成跨域问题</h3><p><img src="/2019/06/28/jQuery(day22)/image5.png" alt>{width=”5.768055555555556in” height=”3.4781911636045493in”}</p>
+<h3 id="getJSON解决跨域问题"><a href="#getJSON解决跨域问题" class="headerlink" title="$.getJSON解决跨域问题"></a>$.getJSON解决跨域问题</h3><p>$.getJSON它就是$.ajax解决跨域问题的简化操作。</p>
+<p><img src="/2019/06/28/jQuery(day22)/image6.png" alt>{width=”5.768055555555556in” height=”0.9533311461067366in”}</p>
+<p><img src="/2019/06/28/jQuery(day22)/image7.png" alt>{width=”5.768055555555556in” height=”0.9613429571303587in”}</p>
+<h1 id="jQuery案例-分页操作"><a href="#jQuery案例-分页操作" class="headerlink" title="jQuery案例-分页操作"></a>jQuery案例-分页操作</h1><p>涉及到的技术点:</p>
+<p>1.前端使用bootstrap的分页组件来完成数据分页显示。</p>
+<p>2.服务器端使用javaee经典三层架构</p>
+<p>3.使用c3p0连接池，dbutils来完成数据库操作。</p>
+<h3 id="分页介绍"><a href="#分页介绍" class="headerlink" title="分页介绍"></a>分页介绍</h3><p>问题:为什么分页?</p>
+<blockquote>
+<p>因为数据量比较大，为了用户有更好的体验。一般情况下，数据在展示时都会进行分页操作。</p>
+</blockquote>
+<h4 id="分页的种类"><a href="#分页的种类" class="headerlink" title="分页的种类"></a>分页的种类</h4><p>分页有两种:</p>
+<blockquote>
+<p>1.物理分页 :使用数据库本身提供的分页操作来完成数据查询，查询到的就是当前页的信息。例如mysql可以使用limit oracle数据库可以使用rownum来宛成。这种方案的优点是性能比较好，但是它存在不通用问题。</p>
+<p>页码:</p>
+<p>1 1-10 (1-1)*10+1</p>
+<p>2 11-20 (2-1)*10+1</p>
+<p>3 21-30 (3-1)*10+1</p>
+<p>页码 (页码-1)*每页显示的总条数 + 1</p>
+</blockquote>
+<ol>
+<li><p>0—9 (1-1)*10</p>
+</li>
+<li><p>10-19 (2-1)*10</p>
+</li>
+<li><p>20-29 (3-1)*10</p>
+</li>
+</ol>
+<blockquote>
+<p>页码 (页码-1)*每页的总条数</p>
+<p>Select * from user limit 1,10;</p>
+<p>Select * from user limit 11,10;</p>
+<p>2.逻辑分页 ：它是利用数据库的游标来操作 （将数据库所有数据都查询出来，存储在内存中），性能比较低，但是它通用。</p>
+</blockquote>
+<p>现在开发中一般使用的比较多的是物理分页。</p>
+<h4 id="分页基本原理"><a href="#分页基本原理" class="headerlink" title="分页基本原理"></a>分页基本原理</h4><p>分页实现可以使用ajax分页，也可以使用服务器端分页，它们原理是一样的。</p>
+<p>Mysql中的limit如何完成分页数据查询操作</p>
+<p>Select * from 表名 limit num1,num2;</p>
+<p>Num1代表的是从第几行开始查询，起始值是0.</p>
+<p>Num2代表的是要查询几条记录。</p>
+<p>例如查询第二页数据(每页显示5条)</p>
+<p>Select * from product limit (页码-1)*每页条数,(每页条数);</p>
+<p>完成分页操作必备条件:</p>
+<ol>
+<li><p>页码pageNo 默认是1 会根据上一页，下一页，首页尾页选择变化，我们通过js来控制。</p>
+</li>
+<li><p>每页显示条数pageSize 人为设置。</p>
+</li>
+<li><p>总条数</p>
+</li>
+<li><p>总页数=总条数/每页显示条数 (要取整)</p>
+</li>
+<li><p>封装的当前页的数据。</p>
+</li>
+</ol>
+<h3 id="JAVAEE三层架构"><a href="#JAVAEE三层架构" class="headerlink" title="JAVAEE三层架构"></a>JAVAEE三层架构</h3><p><img src="/2019/06/28/jQuery(day22)/image8.png" alt>{width=”5.768055555555556in” height=”2.26249343832021in”}</p>
+<p>采用三层架构优点:利用开发与复用 结构清晰，利用标准化。</p>
+<p>三层:</p>
+<p>Web层：它主要包含的关于javaweb相关操作，例如request,response,session对象操作，它调用业务层来实现具体的功能。</p>
+<p>业务层(service层):它主要是业务逻辑操作，它不包含web常用对象，它只是java代码。</p>
+<p>数据访问层(dao层):它主要是与数据库进行交互，完成crud操作。</p>
+<p>缺点:开发难度加大，性能得到一定的消耗。</p>
+<h3 id="Bootstrap分布组件使用介绍"><a href="#Bootstrap分布组件使用介绍" class="headerlink" title="Bootstrap分布组件使用介绍"></a>Bootstrap分布组件使用介绍</h3><p>注意：在使用bootstrap的分页组件时，需要导入相关的css文件与js文件，并且bootstrap它依赖于jquery,在导入bootstrap的js文件前要导入jquery的js文件，并且它的版本要求必须是1.9.1以上版本.</p>
+<p><img src="/2019/06/28/jQuery(day22)/image9.png" alt>{width=”5.768055555555556in” height=”1.6770089676290463in”}</p>
+<p><img src="/2019/06/28/jQuery(day22)/image10.png" alt>{width=”5.768055555555556in” height=”1.4753937007874016in”}</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h4 id="完成前期准备工作"><a href="#完成前期准备工作" class="headerlink" title="完成前期准备工作"></a>完成前期准备工作</h4><h5 id="相关的jar包的导入"><a href="#相关的jar包的导入" class="headerlink" title="相关的jar包的导入"></a>相关的jar包的导入</h5><p>C3p0连接池jar</p>
+<p>Dbutils</p>
+<p>json处理的相关jar包</p>
+<p>mysql的驱动jar</p>
+<p><img src="/2019/06/28/jQuery(day22)/image11.png" alt>{width=”2.5625in” height=”0.9166666666666666in”}</p>
+<h5 id="创建服务器端的结构"><a href="#创建服务器端的结构" class="headerlink" title="创建服务器端的结构"></a>创建服务器端的结构</h5><p><img src="/2019/06/28/jQuery(day22)/image12.png" alt>{width=”1.9270833333333333in” height=”1.1041666666666667in”}</p>
+<h5 id="创建实体类Product"><a href="#创建实体类Product" class="headerlink" title="创建实体类Product"></a>创建实体类Product</h5><p><img src="/2019/06/28/jQuery(day22)/image13.png" alt>{width=”2.7604166666666665in” height=”1.2395833333333333in”}</p>
+<h5 id="需要c3p0连接池"><a href="#需要c3p0连接池" class="headerlink" title="需要c3p0连接池"></a>需要c3p0连接池</h5><p>我们创建一个JdbcUtils 工具类，在使用dbutils的QueryRunner时需要Connection对象或DataSource对象</p>
+<p><img src="/2019/06/28/jQuery(day22)/image14.png" alt>{width=”5.768055555555556in” height=”2.14165791776028in”}</p>
+<h3 id="完成所有产品的查询操作"><a href="#完成所有产品的查询操作" class="headerlink" title="完成所有产品的查询操作"></a>完成所有产品的查询操作</h3><h4 id="第一步：创建产品页面，向服务器发送请求（获取所有产品信息）"><a href="#第一步：创建产品页面，向服务器发送请求（获取所有产品信息）" class="headerlink" title="第一步：创建产品页面，向服务器发送请求（获取所有产品信息）"></a>第一步：创建产品页面，向服务器发送请求（获取所有产品信息）</h4><p><img src="/2019/06/28/jQuery(day22)/image15.png" alt>{width=”5.768055555555556in” height=”3.1390507436570427in”}</p>
+<h4 id="第二步-创建一个servlet来接收请求，获取所有的产品信息"><a href="#第二步-创建一个servlet来接收请求，获取所有的产品信息" class="headerlink" title="第二步:创建一个servlet来接收请求，获取所有的产品信息"></a>第二步:创建一个servlet来接收请求，获取所有的产品信息</h4><p><img src="/2019/06/28/jQuery(day22)/image16.png" alt>{width=”5.364583333333333in” height=”3.2395833333333335in”}</p>
+<h4 id="第三步-创建业务层ProductService"><a href="#第三步-创建业务层ProductService" class="headerlink" title="第三步:创建业务层ProductService"></a>第三步:创建业务层ProductService</h4><p><img src="/2019/06/28/jQuery(day22)/image17.png" alt>{width=”5.239583333333333in” height=”1.0104166666666667in”}</p>
+<h4 id="第四步：创建持久化层ProductDAO"><a href="#第四步：创建持久化层ProductDAO" class="headerlink" title="第四步：创建持久化层ProductDAO"></a>第四步：创建持久化层ProductDAO</h4><p><img src="/2019/06/28/jQuery(day22)/image18.png" alt>{width=”5.768055555555556in” height=”0.9072670603674541in”}</p>
+<h3 id="完成产品的分页显示"><a href="#完成产品的分页显示" class="headerlink" title="完成产品的分页显示"></a>完成产品的分页显示</h3><h4 id="第一步-在浏览器端提供pageNo与pageSize-将它们做为参数传递到服务器"><a href="#第一步-在浏览器端提供pageNo与pageSize-将它们做为参数传递到服务器" class="headerlink" title="第一步:在浏览器端提供pageNo与pageSize,将它们做为参数传递到服务器"></a>第一步:在浏览器端提供pageNo与pageSize,将它们做为参数传递到服务器</h4><p><img src="/2019/06/28/jQuery(day22)/image19.png" alt>{width=”5.768055555555556in” height=”0.962678258967629in”}</p>
+<h4 id="第二步-服务器来处理分页"><a href="#第二步-服务器来处理分页" class="headerlink" title="第二步:服务器来处理分页"></a>第二步:服务器来处理分页</h4><p>Web</p>
+<p><img src="/2019/06/28/jQuery(day22)/image20.png" alt>{width=”5.768055555555556in” height=”1.3331955380577427in”}</p>
+<p>Service</p>
+<p><img src="/2019/06/28/jQuery(day22)/image21.png" alt>{width=”5.768055555555556in” height=”0.9326356080489939in”}</p>
+<p>Dao</p>
+<p><img src="/2019/06/28/jQuery(day22)/image22.png" alt>{width=”5.768055555555556in” height=”1.1108847331583551in”}</p>
+<p>问题:怎样在浏览器端展示分页条?</p>
+<p>在分页条中需要总页数据，也就是说，总页数我们需要在服务器端查询获得到，需要服务器端返回它,我们可以定义一个PageBean这样一个对象，在这个PageBean中我们封装分页需要的数据，将它在服务器端生成，服务器端就不需要直接返回List&lt;Product&gt;,.面是返回一个PageBean的json数据。</p>
+<p><img src="/2019/06/28/jQuery(day22)/image23.png" alt>{width=”4.34375in” height=”1.8020833333333333in”}</p>
+<p>我们可以在service中来对PageBean进行数据封装，servlet最终是将PageBean转换成json响应到浏览器。</p>
+<p><img src="/2019/06/28/jQuery(day22)/image24.png" alt>{width=”5.768055555555556in” height=”2.9648075240594927in”}</p>
+<p>响应到浏览器的json数据</p>
+<p>{&quot;content&quot;:[{&quot;count&quot;:100,&quot;id&quot;:1,&quot;name&quot;:&quot;电视机&quot;,&quot;price&quot;:2000},{&quot;count&quot;:200,&quot;id&quot;:2,&quot;name&quot;:&quot;洗衣机&quot;,&quot;price&quot;:1000},{&quot;count&quot;:300,&quot;id&quot;:3,&quot;name&quot;:&quot;空调&quot;,&quot;price&quot;:3000},{&quot;count&quot;:50,&quot;id&quot;:4,&quot;name&quot;:&quot;投影仪&quot;,&quot;price&quot;:2000},{&quot;count&quot;:100,&quot;id&quot;:5,&quot;name&quot;:&quot;HP电脑&quot;,&quot;price&quot;:4000}],&quot;pageNo&quot;:1,&quot;pageSize&quot;:5,&quot;totalCount&quot;:11,&quot;totalPage&quot;:3}</p>
+<h4 id="第三步-在浏览器端展示分页信息"><a href="#第三步-在浏览器端展示分页信息" class="headerlink" title="第三步 在浏览器端展示分页信息"></a>第三步 在浏览器端展示分页信息</h4><h5 id="关于数据展示"><a href="#关于数据展示" class="headerlink" title="关于数据展示"></a>关于数据展示</h5><p><img src="/2019/06/28/jQuery(day22)/image25.png" alt>{width=”3.7083333333333335in” height=”0.40625in”}</p>
+<h5 id="关于分页条码"><a href="#关于分页条码" class="headerlink" title="关于分页条码"></a>关于分页条码</h5><p>它是一个动态生成的数据，我们需要拼接html代码来完成</p>
+<h6 id="a-处理当前页高亮显示"><a href="#a-处理当前页高亮显示" class="headerlink" title="a.处理当前页高亮显示"></a>a.处理当前页高亮显示</h6><p><img src="/2019/06/28/jQuery(day22)/image26.png" alt>{width=”5.768055555555556in” height=”1.7764807524059492in”}</p>
+<h6 id="b-跳转到指定的页"><a href="#b-跳转到指定的页" class="headerlink" title="b.跳转到指定的页"></a>b.跳转到指定的页</h6><p>修复操作:</p>
+<p>1.在真正生成数据与分页条前将数据清空并恢复成原始状态</p>
+<p><img src="/2019/06/28/jQuery(day22)/image27.png" alt>{width=”5.768055555555556in” height=”0.38787510936132985in”}</p>
+<p>2.处理参数pageNum</p>
+<p><img src="/2019/06/28/jQuery(day22)/image28.png" alt>{width=”3.2916666666666665in” height=”0.5in”}</p>
+<h6 id="c-处理上一页操作"><a href="#c-处理上一页操作" class="headerlink" title="c.处理上一页操作"></a>c.处理上一页操作</h6><p><img src="/2019/06/28/jQuery(day22)/image29.png" alt>{width=”5.768055555555556in” height=”1.679679571303587in”}</p>
+<h6 id="d-处理下一页操作"><a href="#d-处理下一页操作" class="headerlink" title="d.处理下一页操作"></a>d.处理下一页操作</h6><p><img src="/2019/06/28/jQuery(day22)/image30.png" alt>{width=”5.768055555555556in” height=”1.1696336395450568in”}</p>
+<h1 id="jQuery扩展-了解"><a href="#jQuery扩展-了解" class="headerlink" title="jQuery扩展(了解)"></a>jQuery扩展(了解)</h1><h2 id="serialize与serializeArray"><a href="#serialize与serializeArray" class="headerlink" title="serialize与serializeArray"></a>serialize与serializeArray</h2><p>serialize:它的作用是将表单的数据序列化</p>
+<p><img src="/2019/06/28/jQuery(day22)/image31.png" alt>{width=”5.768055555555556in” height=”2.024828302712161in”}</p>
+<p>serializeArray:将表单序列化，返回的是json数据格式</p>
+<p><img src="/2019/06/28/jQuery(day22)/image32.png" alt>{width=”5.768055555555556in” height=”1.9186800087489064in”}</p>
+<h2 id="插件机制与自定义插件"><a href="#插件机制与自定义插件" class="headerlink" title="插件机制与自定义插件"></a>插件机制与自定义插件</h2><p><img src="/2019/06/28/jQuery(day22)/image33.png" alt>{width=”1.7708333333333333in” height=”0.5208333333333334in”}</p>
+<p>在开发中使用jquery,除了它本身提供的API,我们更多的还会使用jquery的插件。</p>
+<p>例如jquery easyui….</p>
+<h3 id="jQuery-extend"><a href="#jQuery-extend" class="headerlink" title="jQuery.extend();"></a>jQuery.extend();</h3><p>上面这个是扩展jquery全局对象本身 $.post $.ajax $.get</p>
+<p><img src="/2019/06/28/jQuery(day22)/image34.png" alt>{width=”3.8020833333333335in” height=”2.9791666666666665in”}</p>
+<h3 id="jQuery-fn-extend"><a href="#jQuery-fn-extend" class="headerlink" title="jQuery.fn.extend();"></a>jQuery.fn.extend();</h3><p>上面这个是扩展jquery对象 $(“#f”).find() $(“abc”).val()</p>
+<p>通过创建一个插件完成表单数据转换成json操作</p>
+<p><img src="/2019/06/28/jQuery(day22)/image35.png" alt>{width=”5.768055555555556in” height=”2.1523392388451446in”}</p>
+<p>如果表单中出现一个名称对应多个值的元素，怎样处理?</p>
+<p><img src="/2019/06/28/jQuery(day22)/image36.png" alt>{width=”5.768055555555556in” height=”1.610249343832021in”}</p>
+<p><img src="/2019/06/28/jQuery(day22)/image37.png" alt>{width=”5.768055555555556in” height=”3.17042760279965in”}</p>
+<h1 id="分页展示数据—最终版代码"><a href="#分页展示数据—最终版代码" class="headerlink" title="分页展示数据—最终版代码"></a>分页展示数据—最终版代码</h1><h3 id="product-html代码"><a href="#product-html代码" class="headerlink" title="product.html代码"></a>product.html代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>bootstrap分页组件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新 Bootstrap 核心 CSS 文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">href</span>=<span class="string">"/jquery_exam1/bootstrap/css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- jQuery文件。务必在bootstrap.min.js 之前引入 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/jquery_exam1/js/jquery-1.11.3.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 最新的 Bootstrap 核心 JavaScript 文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/jquery_exam1/bootstrap/js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">	var pageNo=1;//默认第一页页码</span><br><span class="line">	var pageSize=5;//每页条数</span><br><span class="line">	var totalPage;//总页数</span><br><span class="line">	var totalCount;//总条数</span><br><span class="line">	</span><br><span class="line">	//当页面加载完后需要向服务器发送请求,获取商品信息,展示到表格</span><br><span class="line">	$(function() &#123;</span><br><span class="line">			skipPage(pageNo);</span><br><span class="line">		&#125;);</span><br><span class="line">	</span><br><span class="line">//处理页码跳转问题</span><br><span class="line"> function skipPage(pageNum)&#123;</span><br><span class="line">	pageNo=pageNum;</span><br><span class="line">	url = "/jquery_exam1/ProductServlet";</span><br><span class="line">	$.post(url,&#123;"pageNo":pageNo,"pageSize":pageSize&#125;, function(data) &#123;</span><br><span class="line">		var json = eval(data);</span><br><span class="line">		var jsonObj=json.content;//得到分页条数据</span><br><span class="line">		pageNo=json.pageNo;</span><br><span class="line">		pageSize=json.pageSize;</span><br><span class="line">		totalPage=json.totalPage;</span><br><span class="line">		totalCount=json.totalCount;</span><br><span class="line">		</span><br><span class="line">		//将json数据遍历转换为对应的html代码并插入到table</span><br><span class="line">		var html = "";</span><br><span class="line">		for (var i = 0; i &lt; jsonObj.length; i++) &#123;</span><br><span class="line"><span class="xml">			html += "<span class="tag">&lt;<span class="name">tr</span>&gt;</span>";</span></span><br><span class="line"><span class="xml">			html += "<span class="tag">&lt;<span class="name">td</span>&gt;</span>" + jsonObj[i].id + "<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>" + jsonObj[i].name+ "<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>" + jsonObj[i].count + "<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>"+ jsonObj[i].price + "<span class="tag">&lt;/<span class="name">td</span>&gt;</span>";</span></span><br><span class="line"><span class="xml">			html += "<span class="tag">&lt;/<span class="name">tr</span>&gt;</span>";</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		//展示分页条数据</span><br><span class="line"><span class="xml">		var pageMsg="<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">'pagination pagination-sm'</span>&gt;</span>";</span></span><br><span class="line">		</span><br><span class="line">		//处理上一页跳转</span><br><span class="line">		if(pageNo==1)&#123;</span><br><span class="line">			//上一页不可点击</span><br><span class="line"><span class="xml">			pageMsg+="<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">'disabled'</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'#'</span>&gt;</span>&amp;laquo;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>";</span></span><br><span class="line">		&#125;else&#123;</span><br><span class="line"><span class="xml">			pageMsg+="<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'javascript:void(0)'</span> <span class="attr">onclick</span>=<span class="string">'skipPage("+(pageNo-1)+")'</span>&gt;</span>&amp;laquo;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>";</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for (var i = 0; i &lt;totalPage; i++) &#123;</span><br><span class="line">			//判断是当前页需要高亮</span><br><span class="line">			if(pageNo==(i+1))&#123;</span><br><span class="line"><span class="xml">				pageMsg+="<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">'active'</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'javascript:void(0)'</span> <span class="attr">onclick</span>=<span class="string">'skipPage("+(i+1)+")'</span>&gt;</span>"+(i+1)+"<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">'sr-only'</span>&gt;</span>(current)<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>";</span></span><br><span class="line">			&#125;else&#123;</span><br><span class="line"><span class="xml">				pageMsg+="<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'javascript:void(0)'</span> <span class="attr">onclick</span>=<span class="string">'skipPage("+(i+1)+")'</span>&gt;</span>"+(i+1)+"<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>"</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//处理下一页请求</span><br><span class="line">		if(pageNo==totalPage)&#123;</span><br><span class="line">			//下一页不可点击</span><br><span class="line"><span class="xml">			pageMsg+="<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">'disabled'</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'#'</span>&gt;</span>&amp;raquo;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span>";</span></span><br><span class="line">		&#125;else&#123;</span><br><span class="line"><span class="xml">			pageMsg+="<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'javascript:void(0)'</span> <span class="attr">onclick</span>=<span class="string">'skipPage("+(pageNo+1)+")'</span>&gt;</span>&amp;raquo;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>";</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//清空表格内容</span><br><span class="line"><span class="xml">		$("#tab").html("<span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>数量<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>价格<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">'4'</span>&gt;</span><span class="tag">&lt;<span class="name">nav</span> <span class="attr">id</span>=<span class="string">'n'</span>&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span>");</span></span><br><span class="line">		$("#n").append(pageMsg);</span><br><span class="line">		$("#tab tr:nth-child(1)").after(html);</span><br><span class="line">		</span><br><span class="line">	&#125;, "json")</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">	div&#123;</span><br><span class="line">		width:70%;</span><br><span class="line">		margin-left: 200px;</span><br><span class="line">		margin-top: 100px;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-bordered"</span> <span class="attr">id</span>=<span class="string">"tab"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span>&gt;</span>名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span>&gt;</span>数量<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span>&gt;</span>价格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">nav</span> <span class="attr">id</span>=<span class="string">"n"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ProductServlet-java代码-web层"><a href="#ProductServlet-java代码-web层" class="headerlink" title="ProductServlet.java代码(web层)"></a>ProductServlet.java代码(web层)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.PageBean;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Product;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.ProductService;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * web层</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 解决响应中文乱码</span></span><br><span class="line">		response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 接受页码参数</span></span><br><span class="line">		<span class="keyword">int</span> pageNo = Integer.parseInt(request.getParameter(<span class="string">"pageNo"</span>));</span><br><span class="line">		<span class="keyword">int</span> pageSize=Integer.parseInt(request.getParameter(<span class="string">"pageSize"</span>));</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 查询到产品的所有信息,List&lt;Product&gt;,转换为json响应到浏览器</span></span><br><span class="line">		ProductService productService = <span class="keyword">new</span> ProductService();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 转换为json格式返回浏览器</span></span><br><span class="line">			 PageBean&lt;Product&gt; pageBean = productService.findAll(pageNo,pageSize);</span><br><span class="line"></span><br><span class="line">			String jsonObj = JSONObject.toJSONString(pageBean);</span><br><span class="line">			<span class="comment">//设置浏览器默认打开字符集方式</span></span><br><span class="line">			response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">			response.getWriter().write(jsonObj);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="comment">// 向服务器发送错误的信息提示</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ProductService-java代码-业务层"><a href="#ProductService-java代码-业务层" class="headerlink" title="ProductService.java代码(业务层)"></a>ProductService.java代码(业务层)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.itheima.dao.ProductDao;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.PageBean;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Product;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// public List&lt;Product&gt; findAll(int pageNo, int pageSize) throws</span></span><br><span class="line">	<span class="comment">// SQLException &#123;</span></span><br><span class="line">	<span class="comment">// ProductDao dao = new ProductDao();</span></span><br><span class="line">	<span class="comment">// return dao.findAll(pageNo, pageSize);</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> PageBean&lt;Product&gt; <span class="title">findAll</span><span class="params">(<span class="keyword">int</span> pageNo, <span class="keyword">int</span> pageSize)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">		ProductDao dao = <span class="keyword">new</span> ProductDao();</span><br><span class="line">		List&lt;Product&gt; list = dao.findAll(pageNo, pageSize);<span class="comment">// 查询的分页的产品信息</span></span><br><span class="line"></span><br><span class="line">		PageBean&lt;Product&gt; pageBean = <span class="keyword">new</span> PageBean&lt;Product&gt;();</span><br><span class="line">		pageBean.setPageNo(pageNo);</span><br><span class="line">		pageBean.setContent(list);</span><br><span class="line">		pageBean.setPageSize(pageSize);</span><br><span class="line">		<span class="comment">// 查询总条数select count(*) from product,ScalarHandler单值封装</span></span><br><span class="line">		<span class="keyword">int</span> totalCount = dao.findCount();</span><br><span class="line">		<span class="keyword">int</span> totalPage = (<span class="keyword">int</span>) Math.ceil((totalCount * <span class="number">1.0</span> / pageSize));<span class="comment">//向上取整</span></span><br><span class="line">		pageBean.setTotalCount(totalCount);</span><br><span class="line">		pageBean.setTotalPage(totalPage);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> pageBean;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ProductDao-java代码-dao层"><a href="#ProductDao-java代码-dao层" class="headerlink" title="ProductDao.java代码(dao层)"></a>ProductDao.java代码(dao层)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbutils.QueryRunner;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbutils.handlers.BeanListHandler;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbutils.handlers.ScalarHandler;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Product;</span><br><span class="line"><span class="keyword">import</span> com.itheima.utils.JDBCUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;Product&gt; <span class="title">findAll</span><span class="params">(<span class="keyword">int</span> pageNo, <span class="keyword">int</span> pageSize)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">		QueryRunner qr = <span class="keyword">new</span> QueryRunner(JDBCUtils.getDataSource());</span><br><span class="line">		<span class="keyword">return</span> qr.query(<span class="string">"select * from product limit ?,?"</span>, <span class="keyword">new</span> BeanListHandler&lt;Product&gt;(Product.class),</span><br><span class="line">				(pageNo - <span class="number">1</span>) * <span class="number">5</span>, pageSize);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findCount</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">		QueryRunner qr = <span class="keyword">new</span> QueryRunner(JDBCUtils.getDataSource());</span><br><span class="line">		Long l = (Long) qr.query(<span class="string">"select count(*) from product"</span>, <span class="keyword">new</span> ScalarHandler());</span><br><span class="line">		<span class="keyword">return</span> l.intValue();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实体层-PageBean-java"><a href="#实体层-PageBean-java" class="headerlink" title="实体层 PageBean.java"></a>实体层 PageBean.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.domain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageBean</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> pageNo;<span class="comment">//当前页码</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> pageSize;<span class="comment">//每页显示条数</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> totalPage;<span class="comment">//总页数</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> totalCount;<span class="comment">//总条数</span></span><br><span class="line">	<span class="keyword">private</span> List&lt;T&gt; content;<span class="comment">//当前页显示的数据</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPageNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> pageNo;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPageNo</span><span class="params">(<span class="keyword">int</span> pageNo)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.pageNo = pageNo;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPageSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> pageSize;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPageSize</span><span class="params">(<span class="keyword">int</span> pageSize)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.pageSize = pageSize;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTotalPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> totalPage;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTotalPage</span><span class="params">(<span class="keyword">int</span> totalPage)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.totalPage = totalPage;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTotalCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> totalCount;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTotalCount</span><span class="params">(<span class="keyword">int</span> totalCount)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.totalCount = totalCount;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;T&gt; <span class="title">getContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> content;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContent</span><span class="params">(List&lt;T&gt; content)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.content = content;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实体层-Product-java"><a href="#实体层-Product-java" class="headerlink" title="实体层 Product.java"></a>实体层 Product.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.domain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCount</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.count = count;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> price;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(<span class="keyword">double</span> price)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.price = price;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="工具类JDBCUtils-java"><a href="#工具类JDBCUtils-java" class="headerlink" title="工具类JDBCUtils.java"></a>工具类JDBCUtils.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ComboPooledDataSource ds = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataSource <span class="title">getDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> ds;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> ds.getCnnection();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jar包"><a href="#jar包" class="headerlink" title="jar包"></a>jar包</h3><p><img src="/2019/06/28/jQuery(day22)/1560666741390.png" alt="1560666741390"></p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liminghui</p>
+              <p class="site-description motion-element" itemprop="description">网页描述</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liminghui321.github.io/" title="Title" target="_blank">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ajax跨域问题"><span class="nav-number">1.</span> <span class="nav-text">Ajax跨域问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域介绍"><span class="nav-number">1.1.</span> <span class="nav-text">跨域介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是跨域"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域解决方案"><span class="nav-number">1.1.2.</span> <span class="nav-text">跨域解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery解决跨域操作"><span class="nav-number">1.2.</span> <span class="nav-text">jQuery解决跨域操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax解决跨域问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">$.ajax解决跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jquery中如何使用jsonp完成跨域问题"><span class="nav-number">1.2.2.</span> <span class="nav-text">Jquery中如何使用jsonp完成跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getJSON解决跨域问题"><span class="nav-number">1.2.3.</span> <span class="nav-text">$.getJSON解决跨域问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery案例-分页操作"><span class="nav-number">2.</span> <span class="nav-text">jQuery案例-分页操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分页介绍"><span class="nav-number">2.0.1.</span> <span class="nav-text">分页介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分页的种类"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">分页的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页基本原理"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">分页基本原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVAEE三层架构"><span class="nav-number">2.0.2.</span> <span class="nav-text">JAVAEE三层架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootstrap分布组件使用介绍"><span class="nav-number">2.0.3.</span> <span class="nav-text">Bootstrap分布组件使用介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.0.4.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完成前期准备工作"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">完成前期准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#相关的jar包的导入"><span class="nav-number">2.0.4.1.1.</span> <span class="nav-text">相关的jar包的导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建服务器端的结构"><span class="nav-number">2.0.4.1.2.</span> <span class="nav-text">创建服务器端的结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建实体类Product"><span class="nav-number">2.0.4.1.3.</span> <span class="nav-text">创建实体类Product</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#需要c3p0连接池"><span class="nav-number">2.0.4.1.4.</span> <span class="nav-text">需要c3p0连接池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成所有产品的查询操作"><span class="nav-number">2.0.5.</span> <span class="nav-text">完成所有产品的查询操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步：创建产品页面，向服务器发送请求（获取所有产品信息）"><span class="nav-number">2.0.5.1.</span> <span class="nav-text">第一步：创建产品页面，向服务器发送请求（获取所有产品信息）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步-创建一个servlet来接收请求，获取所有的产品信息"><span class="nav-number">2.0.5.2.</span> <span class="nav-text">第二步:创建一个servlet来接收请求，获取所有的产品信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步-创建业务层ProductService"><span class="nav-number">2.0.5.3.</span> <span class="nav-text">第三步:创建业务层ProductService</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步：创建持久化层ProductDAO"><span class="nav-number">2.0.5.4.</span> <span class="nav-text">第四步：创建持久化层ProductDAO</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成产品的分页显示"><span class="nav-number">2.0.6.</span> <span class="nav-text">完成产品的分页显示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步-在浏览器端提供pageNo与pageSize-将它们做为参数传递到服务器"><span class="nav-number">2.0.6.1.</span> <span class="nav-text">第一步:在浏览器端提供pageNo与pageSize,将它们做为参数传递到服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步-服务器来处理分页"><span class="nav-number">2.0.6.2.</span> <span class="nav-text">第二步:服务器来处理分页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步-在浏览器端展示分页信息"><span class="nav-number">2.0.6.3.</span> <span class="nav-text">第三步 在浏览器端展示分页信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关于数据展示"><span class="nav-number">2.0.6.3.1.</span> <span class="nav-text">关于数据展示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于分页条码"><span class="nav-number">2.0.6.3.2.</span> <span class="nav-text">关于分页条码</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#a-处理当前页高亮显示"><span class="nav-number">2.0.6.3.2.1.</span> <span class="nav-text">a.处理当前页高亮显示</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#b-跳转到指定的页"><span class="nav-number">2.0.6.3.2.2.</span> <span class="nav-text">b.跳转到指定的页</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#c-处理上一页操作"><span class="nav-number">2.0.6.3.2.3.</span> <span class="nav-text">c.处理上一页操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#d-处理下一页操作"><span class="nav-number">2.0.6.3.2.4.</span> <span class="nav-text">d.处理下一页操作</span></a></li></ol></li></ol></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery扩展-了解"><span class="nav-number">3.</span> <span class="nav-text">jQuery扩展(了解)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#serialize与serializeArray"><span class="nav-number">3.1.</span> <span class="nav-text">serialize与serializeArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件机制与自定义插件"><span class="nav-number">3.2.</span> <span class="nav-text">插件机制与自定义插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-extend"><span class="nav-number">3.2.1.</span> <span class="nav-text">jQuery.extend();</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-fn-extend"><span class="nav-number">3.2.2.</span> <span class="nav-text">jQuery.fn.extend();</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分页展示数据—最终版代码"><span class="nav-number">4.</span> <span class="nav-text">分页展示数据—最终版代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#product-html代码"><span class="nav-number">4.0.1.</span> <span class="nav-text">product.html代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ProductServlet-java代码-web层"><span class="nav-number">4.0.2.</span> <span class="nav-text">ProductServlet.java代码(web层)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ProductService-java代码-业务层"><span class="nav-number">4.0.3.</span> <span class="nav-text">ProductService.java代码(业务层)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ProductDao-java代码-dao层"><span class="nav-number">4.0.4.</span> <span class="nav-text">ProductDao.java代码(dao层)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体层-PageBean-java"><span class="nav-number">4.0.5.</span> <span class="nav-text">实体层 PageBean.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体层-Product-java"><span class="nav-number">4.0.6.</span> <span class="nav-text">实体层 Product.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具类JDBCUtils-java"><span class="nav-number">4.0.7.</span> <span class="nav-text">工具类JDBCUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jar包"><span class="nav-number">4.0.8.</span> <span class="nav-text">jar包</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liminghui</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
