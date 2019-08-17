@@ -1115,6 +1115,7 @@ pre .javascript .function {
   color: #fff;
   background: #222;
   border-bottom: none;
+  color: #ffb6c1 !important;
 }
 .brand:hover {
   color: #fff;
@@ -1823,7 +1824,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d095a1;
+  background: #a1b8ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2990,4 +2991,11 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background-image: url("/images/background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
 }
