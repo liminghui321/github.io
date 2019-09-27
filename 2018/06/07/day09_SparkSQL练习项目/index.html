@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SparkSQL,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SparkSQL(三)  - 出租车利用率分析Table of Contents  1. 业务 2. 流程分析 3. 数据读取 5. 数据清洗 6. 行政区信息 6.1. 需求介绍 6.2. 工具介绍 6.3. 具体实现   7. 会话统计  导读 本项目是 SparkSQL 阶段的练习项目, 主要目的是夯实同学们对于 SparkSQL 的理解和使用 数据集 2013年纽约市出租车乘车记录 需求">
+<meta name="keywords" content="SparkSQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SparkSQL(三)">
+<meta property="og:url" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/index.html">
+<meta property="og:site_name" content="liminghui&#39;s blog">
+<meta property="og:description" content="SparkSQL(三)  - 出租车利用率分析Table of Contents  1. 业务 2. 流程分析 3. 数据读取 5. 数据清洗 6. 行政区信息 6.1. 需求介绍 6.2. 工具介绍 6.3. 具体实现   7. 会话统计  导读 本项目是 SparkSQL 阶段的练习项目, 主要目的是夯实同学们对于 SparkSQL 的理解和使用 数据集 2013年纽约市出租车乘车记录 需求">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190602150555.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190602153339.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190603015655.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190603113500.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190812104021.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190812104113.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/51px-SFA_Point.svg.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/51px-SFA_LineString.svg.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/51px-SFA_LineString.svg.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/51px-SFA_Polygon_with_hole.svg.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190603155616.png">
+<meta property="og:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190603161629.png">
+<meta property="og:updated_time" content="2019-09-27T14:24:24.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SparkSQL(三)">
+<meta name="twitter:description" content="SparkSQL(三)  - 出租车利用率分析Table of Contents  1. 业务 2. 流程分析 3. 数据读取 5. 数据清洗 6. 行政区信息 6.1. 需求介绍 6.2. 工具介绍 6.3. 具体实现   7. 会话统计  导读 本项目是 SparkSQL 阶段的练习项目, 主要目的是夯实同学们对于 SparkSQL 的理解和使用 数据集 2013年纽约市出租车乘车记录 需求">
+<meta name="twitter:image" content="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/20190602150555.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://liminghui321.github.io/2018/06/07/day09_SparkSQL练习项目/">
+
+
+
+
+
+  <title>SparkSQL(三) | liminghui's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liminghui's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不积跬步，无以至千里。<br> 　　不积小流，无以成江河。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+<script>
+    
+    window.onload = function(){
+        var path = 'https://liminghui321.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">SparkSQL(三)</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="SparkSQL-三-出租车利用率分析"><a href="#SparkSQL-三-出租车利用率分析" class="headerlink" title="SparkSQL(三)  - 出租车利用率分析"></a>SparkSQL(三)  - 出租车利用率分析</h1><p>Table of Contents</p>
+<ul>
+<li><a href="#_1_业务">1. 业务</a></li>
+<li><a href="#_2_流程分析">2. 流程分析</a></li>
+<li><a href="#_3_数据读取">3. 数据读取</a></li>
+<li><a href="#_5_数据清洗">5. 数据清洗</a></li>
+<li><a href="#_6_行政区信息">6. 行政区信息</a><ul>
+<li><a href="#_6_1_需求介绍">6.1. 需求介绍</a></li>
+<li><a href="#_6_2_工具介绍">6.2. 工具介绍</a></li>
+<li><a href="#_6_3_具体实现">6.3. 具体实现</a></li>
+</ul>
+</li>
+<li><a href="#_7_会话统计">7. 会话统计</a></li>
+</ul>
+<p>导读</p>
+<p>本项目是 SparkSQL 阶段的练习项目, 主要目的是夯实同学们对于 SparkSQL 的理解和使用</p>
+<p>数据集</p>
+<p>2013年纽约市出租车乘车记录</p>
+<p>需求</p>
+<p>统计出租车利用率, 到某个目的地后, 出租车等待下一个客人的间隔</p>
+<h2 id="1-业务"><a href="#1-业务" class="headerlink" title="1. 业务"></a>1. 业务</h2><p>导读</p>
+<ol>
+<li><p>数据集介绍</p>
+</li>
+<li><p>业务场景介绍</p>
+</li>
+<li><p>和其它业务的关联</p>
+</li>
+<li><p>通过项目能学到什么</p>
+</li>
+</ol>
+<p>数据集结构</p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">示例</th>
+<th align="left">示意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>hack_license</code></td>
+<td align="left"><code>BA96DE419E711691B9445D6A6307C170</code></td>
+<td align="left">执照号, 可以唯一标识一辆出租车</td>
+</tr>
+<tr>
+<td align="left"><code>pickup_datetime</code></td>
+<td align="left"><code>2013-01-01 15:11:48</code></td>
+<td align="left">上车时间</td>
+</tr>
+<tr>
+<td align="left"><code>dropoff_datetime</code></td>
+<td align="left"><code>2013-01-01 15:18:10</code></td>
+<td align="left">下车时间</td>
+</tr>
+<tr>
+<td align="left"><code>pickup_longitude</code></td>
+<td align="left"><code>-73.978165</code></td>
+<td align="left">上车点</td>
+</tr>
+<tr>
+<td align="left"><code>pickup_latitude</code></td>
+<td align="left"><code>40.757977</code></td>
+<td align="left">上车点</td>
+</tr>
+<tr>
+<td align="left"><code>dropoff_longitude</code></td>
+<td align="left"><code>-73.989838</code></td>
+<td align="left">下车点</td>
+</tr>
+<tr>
+<td align="left"><code>dropoff_latitude</code></td>
+<td align="left"><code>40.751171</code></td>
+<td align="left">下车点</td>
+</tr>
+</tbody></table>
+<p>其中有三个点需要注意</p>
+<ul>
+<li><p><code>hack_license</code> 是出租车执照, 可以唯一标识一辆出租车</p>
+</li>
+<li><p><code>pickup_datetime</code> 和 <code>dropoff_datetime</code> 分别是上车时间和下车时间, 通过这个时间, 可以获知行车时间</p>
+</li>
+<li><p><code>pickup_longitude</code> 和 <code>dropoff_longitude</code> 是经度, 经度所代表的是横轴, 也就是 X 轴</p>
+</li>
+<li><p><code>pickup_latitude</code> 和 <code>dropoff_latitude</code> 是纬度, 纬度所代表的是纵轴, 也就是 Y 轴</p>
+</li>
+</ul>
+<p>业务场景</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在网约车出现之前, 出行很大一部分要靠出租车和公共交通, 所以经常会见到一些情况, 比如说从东直门打车, 告诉师傅要去昌平, 师傅可能拒载. 这种情况所凸显的是一个出租车调度的难题, 所以需要先通过数据来看到问题, 后解决问题.</span><br><span class="line"></span><br><span class="line">所以要统计出租车利用率, 也就是有乘客乘坐的时间, 和无乘客空跑的时间比例. 这是一个理解出租车的重要指标, 影响利用率的一个因素就是目的地, 比如说, 去昌平, 可能出租车师傅不确定自己是否要空放回来, 而去国贸, 下车几分钟内, 一定能有新的顾客上车.</span><br><span class="line"></span><br><span class="line">而统计利用率的时候, 需要用到时间数据和空间数据来进行计算, 对于时间计算来说, SparkSQL 提供了很多工具和函数可以使用, 而空间计算仍然是一个比较专业的场景, 需要使用到第三方库.</span><br><span class="line"></span><br><span class="line">我们的需求是, 在上述的数据集中, 根据时间算出等待时间, 根据地点落地到某个区, 算出某个区的平均等待时间, 也就是这个下车地点对于出租车利用率的影响.</span><br></pre></td></tr></table></figure>
+
+<p>技术点和其它技术的关系</p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. 数据清洗</span><br><span class="line">  </span><br><span class="line">     数据清洗在几乎所有类型的项目中都会遇到, 处理数据的类型, 处理空值等问题</span><br><span class="line">  </span><br><span class="line">  2. JSON 解析</span><br><span class="line">  </span><br><span class="line">     `JSON` 解析在大部分业务系统的数据分析中都会用到, 如何读取 JSON 数据, 如何把 JSON 数据变为可以使用的对象数据</span><br><span class="line">  </span><br><span class="line">  3. 地理位置信息处理</span><br><span class="line">  </span><br><span class="line">     地理位置信息的处理是一个比较专业的场景, 在一些租车网站, 或者像滴滴, `Uber` 之类的出行服务上, 也经常会处理地理位置信息</span><br><span class="line">  </span><br><span class="line">  4. 探索性数据分析</span><br><span class="line">  </span><br><span class="line">     从拿到一个数据集, 明确需求以后, 如何逐步了解数据集, 如何从数据集中探索对应的内容等, 是一个数据工程师的基本素质</span><br><span class="line">  </span><br><span class="line">  5. 会话分析</span><br><span class="line">  </span><br><span class="line">     会话分析用于识别同一个用户的多个操作之间的关联, 是分析系统常见的分析模式, 在电商和搜索引擎中非常常见</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<p>在这个小节中希望大家掌握的知识</p>
+<ol>
+<li><p><code>SparkSQL</code> 中对于类型的处理</p>
+</li>
+<li><p><code>Scala</code> 中常见的 <code>JSON</code> 解析工具</p>
+</li>
+<li><p><code>GeoJson</code> 的使用</p>
+</li>
+</ol>
+<h2 id="2-流程分析"><a href="#2-流程分析" class="headerlink" title="2. 流程分析"></a>2. 流程分析</h2><p>导读</p>
+<ol>
+<li><p>分析的步骤和角度</p>
+</li>
+<li><p>流程</p>
+</li>
+</ol>
+<p>分析的视角</p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">1. 理解数据集</span><br><span class="line">  </span><br><span class="line">     首先要理解数据集, 要回答自己一些问题</span><br><span class="line">  </span><br><span class="line">     - 这个数据集是否以行作为单位, 是否是 `DataFrame` 可以处理的, 大部分情况下都是</span><br><span class="line">     - 这个数据集每行记录所代表的实体对象是什么, 例如: 出租车的载客记录</span><br><span class="line">     - 表达这个实体对象的最核心字段是什么, 例如: 上下车地点和时间, 唯一标识一辆车的 `License`</span><br><span class="line">  </span><br><span class="line">  2. 理解需求和结果集</span><br><span class="line">  </span><br><span class="line">     - 小学的时候, 有一次考试考的比较差, 老师在帮我分析的时候, 告诉我, 你下次要读懂题意, 再去大题, 这样不会浪费时间, 于是这个信念贯穿了我这些年的工作.</span><br><span class="line">     - 按照我对开发工作的理解, 在一开始的阶段进行一个大概的思考和面向对象的设计, 并不会浪费时间, 即使这些设计可能会占用一些时间.</span><br><span class="line">     - 对代码的追求也不会浪费时间, 把代码写好, 会减少阅读成本, 沟通成本.</span><br><span class="line">     - 对测试的追求也不会浪费时间, 因为在进行回归测试的时候, 可以尽可能的减少修改对已有代码的冲击.</span><br><span class="line">  </span><br><span class="line">     所以第一点, 理解需求再动手, 绝对不会浪费时间. 第二点, 在数据分析的任务中, 如何无法理解需求, 可能根本无从动手.</span><br><span class="line">  </span><br><span class="line">     - 我们的需求是: **出租车在某个地点的平均等待客人时间**</span><br><span class="line">     - 简单来说, 结果集中应该有的列: **地点, 平均等待时间**</span><br><span class="line">  </span><br><span class="line">  3. 反推每一个步骤</span><br><span class="line">  </span><br><span class="line">     结果集中, 应该有的字段有两个, 一个是地点, 一个是等待时间</span><br><span class="line">  </span><br><span class="line">     地点如何获知? 其实就是乘客的下车点, 但是是一个坐标, 如何得到其在哪个区? 等待时间如何获知? 其实就是上一个乘客下车, 到下一个乘客上车之间的时间, 通过这两个时间的差值便可获知</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<p><strong>步骤分析</strong></p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. 读取数据集</span><br><span class="line">  </span><br><span class="line">     数据集很大, 所以我截取了一小部分, 大概百分之一左右, 如果大家感兴趣的话, 可以将完整数据集放在集群中, 使用集群来计算 &quot;大数据&quot;</span><br><span class="line">  </span><br><span class="line">  2. 清洗</span><br><span class="line">  </span><br><span class="line">     数据集当中的某些列名可能使用起来不方便, 或者数据集当中某些列的值类型可能不对, 或者数据集中有可能存在缺失值, 这些都是要清洗的动机, 和理由</span><br><span class="line">  </span><br><span class="line">  3. 增加区域列</span><br><span class="line">  </span><br><span class="line">     由于最终要统计的结果是按照区域作为单位, 而不是一个具体的目的地点, 所以要在数据集中增加列中放置区域信息</span><br><span class="line">  </span><br><span class="line">     1. 既然是放置行政区名字, 应该现有行政区以及其边界的信息</span><br><span class="line">     2. 通过上下车的坐标点, 可以判断是否存在于某个行政区中</span><br><span class="line">  </span><br><span class="line">     这些判断坐标点是否属于某个区域, 这些信息, 就是专业的领域了</span><br><span class="line">  </span><br><span class="line">  4. 按照区域, 统计司机两次营运记录之间的时间差</span><br><span class="line">  </span><br><span class="line">     数据集中存在很多出租车师傅的数据, 所以如何将某个师傅的记录发往一个分区, 在这个分区上完成会话分析呢? 这也是一个需要理解的点</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<h2 id="3-数据读取"><a href="#3-数据读取" class="headerlink" title="3. 数据读取"></a>3. 数据读取</h2><p>导读</p>
+<ol>
+<li><p>工程搭建</p>
+</li>
+<li><p>数据读取</p>
+</li>
+</ol>
+<p>工程搭建</p>
+<ol>
+<li><p>创建 Maven 工程</p>
+</li>
+<li><p>导入 Maven 配置</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;cn.itcast&lt;/groupId&gt;
+    &lt;artifactId&gt;taxi&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1&lt;/version&gt;
+
+    &lt;properties&gt;
+        &lt;scala.version&gt;2.11.8&lt;/scala.version&gt;
+        &lt;spark.version&gt;2.2.0&lt;/spark.version&gt;
+        &lt;hadoop.version&gt;2.7.5&lt;/hadoop.version&gt;
+        &lt;slf4j.version&gt;1.7.16&lt;/slf4j.version&gt;
+        &lt;log4j.version&gt;1.2.17&lt;/log4j.version&gt;
+        &lt;mysql.version&gt;5.1.35&lt;/mysql.version&gt;
+        &lt;esri.version&gt;2.2.2&lt;/esri.version&gt;
+        &lt;json4s.version&gt;3.6.6&lt;/json4s.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- Scala 库 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+            &lt;artifactId&gt;scala-library&lt;/artifactId&gt;
+            &lt;version&gt;${scala.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.scala-lang.modules&lt;/groupId&gt;
+            &lt;artifactId&gt;scala-xml_2.11&lt;/artifactId&gt;
+            &lt;version&gt;1.0.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spark 系列包 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+            &lt;artifactId&gt;spark-core_2.11&lt;/artifactId&gt;
+            &lt;version&gt;${spark.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+            &lt;artifactId&gt;spark-sql_2.11&lt;/artifactId&gt;
+            &lt;version&gt;${spark.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+            &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;
+            &lt;version&gt;${hadoop.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- 地理位置处理库 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.esri.geometry&lt;/groupId&gt;
+            &lt;artifactId&gt;esri-geometry-api&lt;/artifactId&gt;
+            &lt;version&gt;${esri.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- JSON 解析库 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.json4s&lt;/groupId&gt;
+            &lt;artifactId&gt;json4s-native_2.11&lt;/artifactId&gt;
+            &lt;version&gt;${json4s.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.json4s&lt;/groupId&gt;
+            &lt;artifactId&gt;json4s-jackson_2.11&lt;/artifactId&gt;
+            &lt;version&gt;${json4s.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- 日志相关 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;jcl-over-slf4j&lt;/artifactId&gt;
+            &lt;version&gt;${slf4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+            &lt;version&gt;${slf4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+            &lt;version&gt;${slf4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;${log4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;sourceDirectory&gt;src/main/scala&lt;/sourceDirectory&gt;
+
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.0&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;source&gt;1.8&lt;/source&gt;
+                    &lt;target&gt;1.8&lt;/target&gt;
+                    &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+
+            &lt;plugin&gt;
+                &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;
+                &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.2.0&lt;/version&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;compile&lt;/goal&gt;
+                            &lt;goal&gt;testCompile&lt;/goal&gt;
+                        &lt;/goals&gt;
+                        &lt;configuration&gt;
+                            &lt;args&gt;
+                                &lt;arg&gt;-dependencyfile&lt;/arg&gt;
+                                &lt;arg&gt;${project.build.directory}/.scala_dependencies&lt;/arg&gt;
+                            &lt;/args&gt;
+                        &lt;/configuration&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+
+    &lt;/build&gt;
+&lt;/project&gt;</code></pre></li>
+<li><p>创建 Scala 源码目录 <code>src/main/scala</code></p>
+<p>并且设置这个目录为 <code>Source Root</code></p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/20190602150555.png" alt="20190602150555"></p>
+</li>
+</ol>
+<p>创建文件, 数据读取</p>
+<p><code>Step 1</code>: 创建文件</p>
+<p>创建 Spark Application 主类 <code>cn.itcast.taxi.TaxiAnalysisRunner</code></p>
+<pre><code>package cn.itcast.taxi
+
+object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+
+  }
+}</code></pre><p><code>Step 2</code>: 数据读取</p>
+<p>数据读取之前要做两件事</p>
+<ol>
+<li><p>初始化环境, 导入必备的一些包</p>
+</li>
+<li><p>在工程根目录中创建 <code>dataset</code> 文件夹, 并拷贝数据集进去</p>
+</li>
+</ol>
+<p>代码如下</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    // 1. 创建 SparkSession
+    val spark = SparkSession.builder()
+      .master(&quot;local[6]&quot;)
+      .appName(&quot;taxi&quot;)
+      .getOrCreate()
+
+    // 2. 导入函数和隐式转换
+    import spark.implicits._
+    import org.apache.spark.sql.functions._
+
+    // 3. 读取文件
+    val taxiRaw = spark.read
+      .option(&quot;header&quot;, value = true)
+      .csv(&quot;dataset/half_trip.csv&quot;)
+
+    taxiRaw.show()
+    taxiRaw.printSchema()
+  }
+}</code></pre><p>运行结果如下</p>
+<pre><code>root
+ |-- medallion: string (nullable = true)
+ |-- hack_license: string (nullable = true)
+ |-- vendor_id: string (nullable = true)
+ |-- rate_code: string (nullable = true)
+ |-- store_and_fwd_flag: string (nullable = true)
+ |-- pickup_datetime: string (nullable = true)
+ |-- dropoff_datetime: string (nullable = true)
+ |-- passenger_count: string (nullable = true)
+ |-- trip_time_in_secs: string (nullable = true)
+ |-- trip_distance: string (nullable = true)
+ |-- pickup_longitude: string (nullable = true)
+ |-- pickup_latitude: string (nullable = true)
+ |-- dropoff_longitude: string (nullable = true)
+ |-- dropoff_latitude: string (nullable = true)</code></pre><p><img src="/2018/06/07/day09_SparkSQL练习项目/20190602153339.png" alt="20190602153339"></p>
+<p>下一步</p>
+<ol>
+<li><p>剪去多余列</p>
+<p>现在数据集中包含了一些多余的列, 在后续的计算中并不会使用到, 如果让这些列参与计算的话, 会影响整体性能, 浪费集群资源</p>
+</li>
+<li><p>类型转换</p>
+<p>可以看到, 现在的数据集中, 所有列类型都是 <code>String</code>, 而在一些统计和运算中, 不能使用 <code>String</code> 来进行, 所以要将这些数据转为对应的类型</p>
+</li>
+</ol>
+<h2 id="5-数据清洗"><a href="#5-数据清洗" class="headerlink" title="5. 数据清洗"></a>5. 数据清洗</h2><p>导读</p>
+<ol>
+<li><p>将 <code>Row</code> 对象转为 <code>Trip</code></p>
+</li>
+<li><p>处理转换过程中的报错</p>
+</li>
+</ol>
+<p>数据转换</p>
+<p>通过 <code>DataFrameReader</code> 读取出来的数据集是 <code>DataFrame</code>, 而 <code>DataFrame</code> 中保存的是 <code>Row</code> 对象, 但是后续我们在进行处理的时候可能要使用到一些有类型的转换, 也需要每一列数据对应自己的数据类型, 所以, 需要将 <code>Row</code> 所代表的弱类型对象转为 <code>Trip</code> 这样的强类型对象, 而 <code>Trip</code> 对象则是一个样例类, 用于代表一个出租车的行程</p>
+<p><code>Step 1</code>: 创建 <code>Trip</code> 样例类</p>
+<p><code>Trip</code> 是一个强类型的样例类, 一个 <code>Trip</code> 对象代表一个出租车行程, 使用 <code>Trip</code> 可以对应数据集中的一条记录</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    // 此处省略 Main 方法中内容
+  }
+
+}
+
+/**
+  * 代表一个行程, 是集合中的一条记录
+  * @param license 出租车执照号
+  * @param pickUpTime 上车时间
+  * @param dropOffTime 下车时间
+  * @param pickUpX 上车地点的经度
+  * @param pickUpY 上车地点的纬度
+  * @param dropOffX 下车地点的经度
+  * @param dropOffY 下车地点的纬度
+  */
+case class Trip(
+  license: String,
+  pickUpTime: Long,
+  dropOffTime: Long,
+  pickUpX: Double,
+  pickUpY: Double,
+  dropOffX: Double,
+  dropOffY: Double
+)</code></pre><p><code>Step 2</code>: 将 <code>Row</code> 对象转为 <code>Trip</code> 对象, 从而将 <code>DataFrame</code> 转为 <code>Dataset[Trip]</code></p>
+<p>首先应该创建一个新方法来进行这种转换, 毕竟是一个比较复杂的转换操作, 不能怠慢</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    // ... 省略数据读取
+
+    // 4. 数据转换和清洗
+    val taxiParsed = taxiRaw.rdd.map(parse)
+  }
+
+  /**
+    * 将 Row 对象转为 Trip 对象, 从而将 DataFrame 转为 Dataset[Trip] 方便后续操作
+    * @param row DataFrame 中的 Row 对象
+    * @return 代表数据集中一条记录的 Trip 对象
+    */
+  def parse(row: Row): Trip = {
+
+  }
+}
+
+case class Trip(...)</code></pre><p><code>Step 3</code>: 创建 <code>Row</code> 对象的包装类型</p>
+<p>因为在针对 <code>Row</code> 类型对象进行数据转换时, 需要对一列是否为空进行判断和处理, 在 <code>Scala</code> 中为空的处理进行一些支持和封装, 叫做 <code>Option</code>, 所以在读取 <code>Row</code> 类型对象的时候, 要返回 <code>Option</code> 对象, 通过一个包装类, 可以轻松做到这件事</p>
+<p>创建一个类 <code>RichRow</code> 用以包装 <code>Row</code> 类型对象, 从而实现 <code>getAs</code> 的时候返回 <code>Option</code> 对象</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    // ...
+
+    // 4. 数据转换和清洗
+    val taxiParsed = taxiRaw.rdd.map(parse)
+  }
+
+  def parse(row: Row): Trip = {...}
+
+}
+
+case class Trip(...)</code></pre><p>​    
+​    class RichRow(row: Row) {<br>​    
+​      def getAs[T](field: String): Option[T] = {<br>​        if (row.isNullAt(row.fieldIndex(field)) || StringUtils.isBlank(row.getAs<a href="field">String</a>)) {<br>​          None<br>​        } else {<br>​          Some(row.getAs<a href="field">T</a>)
+​        }<br>​      }<br>​    }</p>
+<p><code>Step 4</code>: 转换</p>
+<p>流程已经存在, 并且也已经为空值处理做了支持, 现在就可以进行转换了</p>
+<p>首先根据数据集的情况会发现, 有如下几种类型的信息需要处理</p>
+<ul>
+<li><p>字符串类型</p>
+<p>执照号就是字符串类型, 对于字符串类型, 只需要判断空, 不需要处理, 如果是空字符串, 加入数据集的应该是一个 <code>null</code></p>
+</li>
+<li><p>时间类型</p>
+<p>上下车时间就是时间类型, 对于时间类型需要做两个处理</p>
+<ul>
+<li><p>转为时间戳, 比较容易处理</p>
+</li>
+<li><p>如果时间非法或者为空, 则返回 <code>0L</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>Double</code> 类型</p>
+<p>上下车的位置信息就是 <code>Double</code> 类型, <code>Double</code> 类型的数据在数据集中以 <code>String</code> 的形式存在, 所以需要将 <code>String</code> 类型转为 <code>Double</code> 类型</p>
+</li>
+</ul>
+<p>总结来看, 有两类数据需要特殊处理, 一类是时间类型, 一类是 <code>Double</code> 类型, 所以需要编写两个处理数据的帮助方法, 后在 <code>parse</code> 方法中收集为 <code>Trip</code> 类型对象</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    // ...
+
+    // 4. 数据转换和清洗
+    val taxiParsed = taxiRaw.rdd.map(parse)
+  }
+
+  def parse(row: Row): Trip = {
+    // 通过使用转换方法依次转换各个字段数据
+    val row = new RichRow(row)
+    val license = row.getAs[String](&quot;hack_license&quot;).orNull
+    val pickUpTime = parseTime(row, &quot;pickup_datetime&quot;)
+    val dropOffTime = parseTime(row, &quot;dropoff_datetime&quot;)
+    val pickUpX = parseLocation(row, &quot;pickup_longitude&quot;)
+    val pickUpY = parseLocation(row, &quot;pickup_latitude&quot;)
+    val dropOffX = parseLocation(row, &quot;dropoff_longitude&quot;)
+    val dropOffY = parseLocation(row, &quot;dropoff_latitude&quot;)
+
+    // 创建 Trip 对象返回
+    Trip(license, pickUpTime, dropOffTime, pickUpX, pickUpY, dropOffX, dropOffY)
+  }
+
+  /**
+    * 将时间类型数据转为时间戳, 方便后续的处理
+    * @param row 行数据, 类型为 RichRow, 以便于处理空值
+    * @param field 要处理的时间字段所在的位置
+    * @return 返回 Long 型的时间戳
+    */
+  def parseTime(row: RichRow, field: String): Long = {
+    val pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;
+    val formatter = new SimpleDateFormat(pattern, Locale.ENGLISH)
+
+    val timeOption = row.getAs[String](field)
+    timeOption.map( time =&gt; formatter.parse(time).getTime )
+      .getOrElse(0L)
+  }
+
+  /**
+    * 将字符串标识的 Double 数据转为 Double 类型对象
+    * @param row 行数据, 类型为 RichRow, 以便于处理空值
+    * @param field 要处理的 Double 字段所在的位置
+    * @return 返回 Double 型的时间戳
+    */
+  def parseLocation(row: RichRow, field: String): Double = {
+    row.getAs[String](field).map( loc =&gt; loc.toDouble ).getOrElse(0.0D)
+  }
+}
+
+case class Trip(..)
+
+class RichRow(row: Row) {...}</code></pre><p>异常处理</p>
+<p>在进行类型转换的时候, 是一个非常容易错误的点, 需要进行单独的处理</p>
+<p><code>Step 1</code>: 思路</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/20190603015655.png" alt="20190603015655"></p>
+<p><code>parse</code> 方法应该做的事情应该有两件</p>
+<ul>
+<li><p>捕获异常</p>
+<p>异常一定是要捕获的, 无论是否要抛给 <code>DataFrame</code>, 都要先捕获一下, 获知异常信息</p>
+<p>捕获要使用 <code>try … catch …</code> 代码块</p>
+</li>
+<li><p>返回结果</p>
+<p>返回结果应该分为两部分来进行说明</p>
+<ul>
+<li><p>正确, 正确则返回数据</p>
+</li>
+<li><p>错误, 则应该返回两类信息, 一 告知外面哪个数据出了错, 二 告知错误是什么</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>对于这种情况, 可以使用 <code>Scala</code> 中提供的一个类似于其它语言中多返回值的 <code>Either</code>. <code>Either</code> 分为两个情况, 一个是 <code>Left</code>, 一个是 <code>Right</code>, 左右两个结果所代表的意思可有由用户来指定</p>
+<pre><code>val process = (b: Double) =&gt; {       (1)
+  val a = 10.0
+  a / b
+}
+
+def safe(function: Double =&gt; Double, b: Double): Either[Double, (Double, Exception)] = {  (2)
+  try {
+    val result = function(b)         (3)
+    Left(result)
+  } catch {
+    case e: Exception =&gt; Right(b, e) (4)
+  }
+}
+
+val result = safe(process, 0)        (5)
+
+result match {                       (6)
+  case Left(r) =&gt; println(r)
+  case Right((b, e)) =&gt; println(b, e)
+}</code></pre><p><strong>1</strong></p>
+<p>一个函数, 接收一个参数, 根据参数进行除法运算</p>
+<p><strong>2</strong></p>
+<p>一个方法, 作用是让 <code>process</code> 函数调用起来更安全, 在其中 <code>catch</code> 错误, 报错后返回足够的信息 (报错时的参数和报错信息)</p>
+<p><strong>3</strong></p>
+<p>正常时返回 <code>Left</code>, 放入正确结果</p>
+<p><strong>4</strong></p>
+<p>异常时返回 <code>Right</code>, 放入报错时的参数, 和报错信息</p>
+<p><strong>5</strong></p>
+<p>外部调用</p>
+<p><strong>6</strong></p>
+<p>处理调用结果, 如果是 Right 的话, 则可以进行响应的异常处理和弥补</p>
+<p><code>Either</code> 和 <code>Option</code> 比较像, 都是返回不同的情况, 但是 <code>Either</code> 的 <code>Right</code> 可以返回多个值, 而 <code>None</code> 不行</p>
+<p>如果一个 <code>Either</code> 有两个结果的可能性, 一个是 <code>Left[L]</code>, 一个是 <code>Right[R]</code>, 则 <code>Either</code> 的范型是 <code>Either[L, R]</code></p>
+<p><code>Step 2</code>: 完成代码逻辑</p>
+<p>加入一个 Safe 方法, 更安全</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    // ...
+
+    // 4. 数据转换和清洗
+    val taxiParsed = taxiRaw.rdd.map(safe(parse))
+  }
+
+  /**
+    * 包裹转换逻辑, 并返回 Either
+    */
+  def safe[P, R](f: P =&gt; R): P =&gt; Either[R, (P, Exception)] = {
+    new Function[P, Either[R, (P, Exception)]] with Serializable {
+      override def apply(param: P): Either[R, (P, Exception)] = {
+        try {
+          Left(f(param))
+        } catch {
+          case e: Exception =&gt; Right((param, e))
+        }
+      }
+    }
+  }
+
+  def parse(row: Row): Trip = {...}
+
+  def parseTime(row: RichRow, field: String): Long = {...}
+
+  def parseLocation(row: RichRow, field: String): Double = {...}
+}
+
+case class Trip(..)
+
+class RichRow(row: Row) {...}</code></pre><p><code>Step 3</code>: 针对转换异常进行处理</p>
+<p>对于 <code>Either</code> 来说, 可以获取 <code>Left</code> 中的数据, 也可以获取 <code>Right</code> 中的数据, 只不过如果当 <code>Either</code> 是一个 Right 实例时候, 获取 <code>Left</code> 的值会报错</p>
+<p>所以, 针对于 <code>Dataset[Either]</code> 可以有如下步骤</p>
+<ol>
+<li><p>试运行, 观察是否报错</p>
+</li>
+<li><p>如果报错, 则打印信息解决报错</p>
+</li>
+<li><p>如果解决不了, 则通过 <code>filter</code> 过滤掉 <code>Right</code></p>
+</li>
+<li><p>如果没有报错, 则继续向下运行</p>
+</li>
+</ol>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    ...
+
+    // 4. 数据转换和清洗
+    val taxiParsed = taxiRaw.rdd.map(safe(parse))
+    val taxiGood = taxiParsed.map( either =&gt; either.left.get ).toDS()
+  }
+
+  ...
+}
+
+...</code></pre><p>很幸运, 在运行上面的代码时, 没有报错, 如果报错的话, 可以使用如下代码进行过滤</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    ...
+
+    // 4. 数据转换和清洗
+    val taxiParsed = taxiRaw.rdd.map(safe(parse))
+    val taxiGood = taxiParsed.filter( either =&gt; either.isLeft )
+      .map( either =&gt; either.left.get )
+      .toDS()
+  }
+
+  ...
+}
+
+...</code></pre><p>观察数据集的时间分布</p>
+<p>观察数据分布常用手段是直方图, 直方图反应的是数据的 <code>&quot;数量&quot;</code> 分布</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/20190603113500.png" alt="20190603113500"></p>
+<p>通过这个图可以看到其实就是乘客年龄的分布, 横轴是乘客的年龄, 纵轴是乘客年龄的频数分布</p>
+<p>因为我们这个项目中要对出租车利用率进行统计, 所以需要先看一看单次行程的时间分布情况, 从而去掉一些异常数据, 保证数据是准确的</p>
+<p>绘制直方图的 “图” 留在后续的 <code>DMP</code> 项目中再次介绍, 现在先准备好直方图所需要的数据集, 通过数据集来观察即可, 直方图需要的是两个部分的内容, 一个是数据本身, 另外一个是数据的分布, 也就是频数的分布, 步骤如下</p>
+<ol>
+<li><p>计算每条数据的时长, 但是单位要有变化, 按照分钟, 或者小时来作为时长单位</p>
+</li>
+<li><p>统计每个时长的数据量, 例如有 <code>500</code> 个行程是一小时内完成的, 有 <code>300</code> 个行程是 <code>1 - 2</code> 小时内完成</p>
+</li>
+</ol>
+<p>统计时间分布直方图</p>
+<p>使用 <code>UDF</code> 的优点和代价</p>
+<p><code>UDF</code> 是一个很好用的东西, 特别好用, 对整体的逻辑实现会变得更加简单可控, 但是有两个非常明显的缺点, 所以在使用的时候要注意, 虽然有这两个缺点, 但是只在必要的地方使用就没什么问题, 对于逻辑的实现依然是有很大帮助的</p>
+<ol>
+<li><p><code>UDF</code> 中, 对于空值的处理比较麻烦</p>
+<p>例如一个 <code>UDF</code> 接收两个参数, 是 <code>Scala</code> 中的 <code>Int</code> 类型和 <code>Double</code> 类型, 那么, 在传入 <code>UDF</code> 参数的时候, 如果有数据为 <code>null</code>, 就会出现转换异常</p>
+</li>
+<li><p>使用 <code>UDF</code> 的时候, 优化器可能无法对其进行优化</p>
+<p><code>UDF</code> 对于 <code>Catalyst</code> 是不透明的, <code>Catalyst</code> 不可获知 <code>UDF</code> 中的逻辑, 但是普通的 <code>Function</code> 对于 <code>Catalyst</code> 是透明的, <code>Catalyst</code> 可以对其进行优化</p>
+</li>
+</ol>
+<p><code>Step 1</code>: 编写 <code>UDF</code>, 将行程时长由毫秒单位改为小时单位</p>
+<p>定义 <code>UDF</code>, 在 <code>UDF</code> 中做两件事</p>
+<ol>
+<li><p>计算行程时长</p>
+</li>
+<li><p>将时长由毫秒转为分钟</p>
+</li>
+</ol>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    ...
+
+    // 5. 过滤行程无效的数据
+    val hours = (pickUp: Long, dropOff: Long) =&gt; {
+      val duration = dropOff - pickUp
+      TimeUnit.HOURS.convert(, TimeUnit.MILLISECONDS)
+    }
+    val hoursUDF = udf(hours)
+  }
+
+  ...
+}</code></pre><p><code>Step 2:</code> 统计时长分布</p>
+<ol>
+<li><p>第一步应该按照行程时长进行分组</p>
+</li>
+<li><p>求得每个分组的个数</p>
+</li>
+<li><p>最后按照时长排序并输出结果</p>
+</li>
+</ol>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    ...
+
+    // 5. 过滤行程无效的数据
+    val hours = (pickUp: Long, dropOff: Long) =&gt; {
+      val duration = dropOff - pickUp
+      TimeUnit.MINUTES.convert(, TimeUnit.MILLISECONDS)
+    }
+    val hoursUDF = udf(hours)
+
+    taxiGood.groupBy(hoursUDF($&quot;pickUpTime&quot;, $&quot;dropOffTime&quot;).as(&quot;duration&quot;))
+      .count()
+      .sort(&quot;duration&quot;)
+      .show()
+  }
+
+  ...
+}</code></pre><p>会发现, 大部分时长都集中在 <code>1 - 19</code> 分钟内</p>
+<pre><code>+--------+-----+
+|duration|count|
++--------+-----+
+|       0|   86|
+|       1|  140|
+|       2|  383|
+|       3|  636|
+|       4|  759|
+|       5|  838|
+|       6|  791|
+|       7|  761|
+|       8|  688|
+|       9|  625|
+|      10|  537|
+|      11|  499|
+|      12|  395|
+|      13|  357|
+|      14|  353|
+|      15|  264|
+|      16|  252|
+|      17|  197|
+|      18|  181|
+|      19|  136|
++--------+-----+</code></pre><p><code>Step 3:</code> 注册函数, 在 SQL 表达式中过滤数据</p>
+<p>大部分时长都集中在 <code>1 - 19</code> 分钟内, 所以这个范围外的数据就可以去掉了, 如果同学使用完整的数据集, 会发现还有一些负的时长, 好像是回到未来的场景一样, 对于这种非法的数据, 也要过滤掉, 并且还要分析原因</p>
+<pre><code>object TaxiAnalysisRunner {
+
+  def main(args: Array[String]): Unit = {
+    ...
+
+    // 5. 过滤行程无效的数据
+    val hours = (pickUp: Long, dropOff: Long) =&gt; {
+      val duration = dropOff - pickUp
+      TimeUnit.MINUTES.convert(, TimeUnit.MILLISECONDS)
+    }
+    val hoursUDF = udf(hours)
+
+    taxiGood.groupBy(hoursUDF($&quot;pickUpTime&quot;, $&quot;dropOffTime&quot;).as(&quot;duration&quot;))
+      .count()
+      .sort(&quot;duration&quot;)
+      .show()
+
+    spark.udf.register(&quot;hours&quot;, hours)
+    val taxiClean = taxiGood.where(&quot;hours(pickUpTime, dropOffTime) BETWEEN 0 AND 3&quot;)
+    taxiClean.show()
+  }
+
+  ...
+}</code></pre><h2 id="6-行政区信息"><a href="#6-行政区信息" class="headerlink" title="6. 行政区信息"></a>6. 行政区信息</h2><p>目标和步骤</p>
+<p>目标</p>
+<p>能够通过 <code>GeoJSON</code> 判断一个点是否在一个区域内, 能够使用 <code>JSON4S</code> 解析 <code>JSON</code> 数据</p>
+<p>步骤</p>
+<ol>
+<li><p>需求介绍</p>
+</li>
+<li><p>工具介绍</p>
+</li>
+<li><p>解析 <code>JSON</code></p>
+</li>
+<li><p>读取 <code>Geometry</code></p>
+</li>
+</ol>
+<p>总结</p>
+<ul>
+<li><p>整体流程</p>
+<ol>
+<li><p>JSON4S 介绍</p>
+</li>
+<li><p>ESRI 介绍</p>
+</li>
+<li><p>编写函数实现 <code>经纬度 → Geometry</code> 转换</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>后续可以使用函数来进行转换, 并且求得时间差</li>
+</ul>
+<h3 id="6-1-需求介绍"><a href="#6-1-需求介绍" class="headerlink" title="6.1. 需求介绍"></a>6.1. 需求介绍</h3><p>目标和步骤</p>
+<p>目标</p>
+<p>理解表示地理位置常用的 GeoJSON</p>
+<p>步骤</p>
+<ol>
+<li><p>思路整理</p>
+</li>
+<li><p><code>GeoJSON</code> 是什么</p>
+</li>
+<li><p><code>GeoJSON</code> 的使用</p>
+</li>
+</ol>
+<p>思路整理</p>
+<ul>
+<li><p>需求</p>
+<p>项目的任务是统计出租车在不同行政区的平均等待时间, 所以源数据集和经过计算希望得到的新数据集大致如下</p>
+<ul>
+<li><p>源数据集</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/20190812104021.png" alt="20190812104021"></p>
+</li>
+<li><p>目标数据集</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/20190812104113.png" alt="20190812104113"></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>目标数据集分析</p>
+<p>目标数据集中有三列, <code>borough</code>, <code>avg(seconds)</code>, <code>stddev_samp(seconds)</code></p>
+<ul>
+<li><p><code>borough</code> 表示目的地行政区的名称</p>
+</li>
+<li><p><code>avg(seconds)</code> 和 <code>stddev_samp(seconds)</code> 是 <code>seconds</code> 的聚合, <code>seconds</code> 是下车时间和下一次上车时间之间的差值, 代表等待时间</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>所以有两列数据是现在数据集中没有
+
+*   `borough` 要根据数据集中的经纬度, 求出其行政区的名字
+
+*   `seconds` 要根据数据集中上下车时间, 求出差值</code></pre><ul>
+<li><p>步骤</p>
+<ol>
+<li><p>求出 <code>borough</code></p>
+<ol>
+<li><p>读取行政区位置信息</p>
+</li>
+<li><p>搜索每一条数据的下车经纬度所在的行政区</p>
+</li>
+<li><p>在数据集中添加行政区列</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>2.  求出 `seconds`
+
+3.  根据 `borough` 计算平均等待时间, 是一个聚合操作</code></pre><p>GeoJSON 是什么</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li><p><code>GeoJSON</code> 是一种基于 <code>JSON</code> 的开源标准格式, 用来表示地理位置信息</p>
+</li>
+<li><p>其中定了很多对象, 表示不同的地址位置单位</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>如何表示地理位置</p>
+<p>​    </p>
+<p>类型</p>
+<p>例子</p>
+<p>点</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/51px-SFA_Point.svg.png" alt="51px SFA Point.svg"></p>
+<pre><code>{
+    &quot;type&quot;: &quot;Point&quot;,
+    &quot;coordinates&quot;: [30, 10]
+}</code></pre><p>线段</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/51px-SFA_LineString.svg.png" alt="51px SFA LineString.svg"></p>
+<pre><code>{
+    &quot;type&quot;: &quot;Point&quot;,
+    &quot;coordinates&quot;: [30, 10]
+}</code></pre><p>多边形</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/51px-SFA_LineString.svg.png" alt="51px SFA LineString.svg"></p>
+<pre><code>{
+    &quot;type&quot;: &quot;Point&quot;,
+    &quot;coordinates&quot;: [30, 10]
+}</code></pre><p><img src="/2018/06/07/day09_SparkSQL练习项目/51px-SFA_Polygon_with_hole.svg.png" alt="51px SFA Polygon with hole.svg"></p>
+<pre><code>{
+    &quot;type&quot;: &quot;Polygon&quot;,
+    &quot;coordinates&quot;: [
+        [[35, 10], [45, 45], [15, 40], [10, 20], [35, 10]],
+        [[20, 30], [35, 35], [30, 20], [20, 30]]
+    ]
+}</code></pre></li>
+<li><p>数据集</p>
+<ul>
+<li><p>行政区范围可以使用 <code>GeoJSON</code> 中的多边形来表示</p>
+</li>
+<li><p>课程中为大家提供了一份表示了纽约的各个行政区范围的数据集, 叫做 <code>nyc-borough-boundaries-polygon.geojson</code></p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/20190603155616.png" alt="20190603155616"></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用步骤</p>
+<ol>
+<li><p>创建一个类型 <code>Feature</code>, 对应 <code>JSON</code> 文件中的格式</p>
+</li>
+<li><p>通过解析 <code>JSON</code>, 创建 <code>Feature</code> 对象</p>
+</li>
+<li><p>通过 <code>Feature</code> 对象创建 <code>GeoJSON</code> 表示一个地理位置的 <code>Geometry</code> 对象</p>
+</li>
+<li><p>通过 <code>Geometry</code> 对象判断一个经纬度是否在其范围内</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>总结</p>
+<ul>
+<li><p>思路</p>
+<ol>
+<li><p>从需求出发, 设计结果集</p>
+</li>
+<li><p>推导结果集所欠缺的字段</p>
+</li>
+<li><p>补齐欠缺的字段, 生成结果集, 需求完成</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>后续整体上要做的事情</p>
+<ul>
+<li><p>需求是查看出租车在不同行政区的等待客人的时间</p>
+</li>
+<li><p>需要补充两个点, 一是出租车下客点的行政区名称, 二是等待时间</p>
+</li>
+<li><p>本章节聚焦于行政区的信息补充</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>学习步骤</p>
+<ol>
+<li><p>介绍 <code>JSON</code> 解析的工具</p>
+</li>
+<li><p>介绍读取 <code>GeoJSON</code> 的工具</p>
+</li>
+<li><p><code>JSON</code> 解析</p>
+</li>
+<li><p>读取 <code>GeoJSON</code></p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="6-2-工具介绍"><a href="#6-2-工具介绍" class="headerlink" title="6.2. 工具介绍"></a>6.2. 工具介绍</h3><p>目标和步骤</p>
+<p>目标</p>
+<p>理解 <code>JSON</code> 解析和 <code>Geometry</code> 解析所需要的工具, 后续使用这些工具补充行政区信息</p>
+<p>步骤</p>
+<ol>
+<li><p><code>JSON4S</code></p>
+</li>
+<li><p><code>ESRI Geometry</code></p>
+</li>
+</ol>
+<p>JSON4S 介绍</p>
+<ul>
+<li><p>介绍</p>
+<p>一般在 <code>Java</code> 中, 常使用如下三个工具解析 <code>JSON</code></p>
+<ul>
+<li><p><code>Gson</code></p>
+<p><code>Google</code> 开源的 <code>JSON</code> 解析工具, 比较人性化, 易于使用, 但是性能不如 <code>Jackson</code>, 也不如 <code>Jackson</code> 有积淀</p>
+</li>
+<li><p><code>Jackson</code></p>
+<p><code>Jackson</code> 是功能最完整的 <code>JSON</code> 解析工具, 也是最老牌的 <code>JSON</code> 解析工具, 性能也足够好, 但是 <code>API</code> 在一开始支持的比较少, 用起来稍微有点繁琐</p>
+</li>
+<li><p><code>FastJson</code></p>
+<p>阿里巴巴的 <code>JSON</code> 开源解析工具, 以快著称, 但是某些方面用起来稍微有点反直觉</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>什么是 <code>JSON</code> 解析</p>
+<p><img src="/2018/06/07/day09_SparkSQL练习项目/20190603161629.png" alt="20190603161629"></p>
+<ul>
+<li><p>读取 <code>JSON</code> 数据的时候, 读出来的是一个有格式的字符串, 将这个字符串转换为对象的过程就叫做解析</p>
+</li>
+<li><p>可以使用 <code>JSON4S</code> 来解析 <code>JSON</code>, <code>JSON4S</code> 是一个其它解析工具的 <code>Scala</code> 封装以适应 <code>Scala</code> 的对象转换</p>
+</li>
+<li><p><code>JSON4S</code> 支持 <code>Jackson</code> 作为底层的解析工具</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Step 1: 导入 <code>Maven</code> 依赖</p>
+<pre><code>&lt;!-- JSON4S --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.json4s&lt;/groupId&gt;
+    &lt;artifactId&gt;json4s-native_2.11&lt;/artifactId&gt;
+    &lt;version&gt;${json4s.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- JSON4S 的 Jackson 集成库 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.json4s&lt;/groupId&gt;
+    &lt;artifactId&gt;json4s-jackson_2.11&lt;/artifactId&gt;
+    &lt;version&gt;${json4s.version}&lt;/version&gt;
+&lt;/dependency&gt;</code></pre></li>
+<li><p>Step 2: 解析 <code>JSON</code></p>
+<p>步骤</p>
+<ol>
+<li><p>解析 <code>JSON</code> 对象</p>
+</li>
+<li><p>序列化 <code>JSON</code> 对象</p>
+</li>
+<li><p>使用 <code>Jackson</code> 反序列化 <code>Scala</code> 对象</p>
+</li>
+<li><p>使用 <code>Jackson</code> 序列化 <code>Scala</code> 对象</p>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>代码
+
+    import org.json4s._
+    import org.json4s.jackson.JsonMethods._
+    import org.json4s.jackson.Serialization.{read, write}
+
+    case class Product(name: String, price: Double)
+
+    val product =
+      &quot;&quot;&quot;
+        |{&quot;name&quot;:&quot;Toy&quot;,&quot;price&quot;:35.35}
+      &quot;&quot;&quot;.stripMargin
+
+    // 可以解析 JSON 为对象
+    val obj: Product = parse(product).extra[Product]
+
+    // 可以将对象序列化为 JSON
+    val str: String = compact(render(Product(&quot;电视&quot;, 10.5)))
+
+    // 使用序列化 API 之前, 要先导入代表转换规则的 formats 对象隐式转换
+    implicit val formats = Serialization.formats(NoTypeHints)
+
+    // 可以使用序列化的方式来将 JSON 字符串反序列化为对象
+    val obj1 = read[Person](product)
+
+    // 可以使用序列化的方式将对象序列化为 JSON 字符串
+    val str1 = write(Product(&quot;电视&quot;, 10.5))</code></pre><p>GeoJSON 读取工具的介绍</p>
+<ul>
+<li><p>介绍</p>
+<ul>
+<li><p>读取 <code>GeoJSON</code> 的工具有很多, 但是大部分都过于复杂, 有一些只能 <code>Java</code> 中用</p>
+</li>
+<li><p>有一个较为简单, 也没有使用底层 <code>C</code> 语言开发的解析 <code>GeoJSON</code> 的类库叫做 <code>ESRI Geometry</code>, <code>Scala</code> 中也可以支持</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用</p>
+<p><code>ESRI Geometry</code> 的使用比较的简单, 大致就如下这样调用即可</p>
+<pre><code>val mg = GeometryEngine.geometryFromGeoJson(jsonStr, 0, Geometry.Type.Unknown) (1)
+val geometry = mg.getGeometry (2)
+
+GeometryEngine.contains(geometry, other, csr) (3)</code></pre><p><strong>1</strong></p>
+<p>读取 <code>JSON</code> 生成 <code>Geometry</code> 对象</p>
+<p><strong>2</strong></p>
+<p>重点: 一个 <code>Geometry</code> 对象就表示一个 <code>GeoJSON</code> 支持的对象, 可能是一个点, 也可能是一个多边形</p>
+<p><strong>3</strong></p>
+<p>判断一个 <code>Geometry</code> 中是否包含另外一个 <code>Geometry</code></p>
+</li>
+</ul>
+<p>总结</p>
+<ul>
+<li><p><code>JSON</code> 解析</p>
+<ul>
+<li><p><code>FastJSON</code> 和 <code>Gson</code> 直接在 <code>Scala</code> 中使用会出现问题, 因为 <code>Scala</code> 的对象体系和 <code>Java</code> 略有不同</p>
+</li>
+<li><p>最为适合 <code>Scala</code> 的方式是使用 <code>JSON4S</code> 作为上层 <code>API</code>, <code>Jackson</code> 作为底层提供 <code>JSON</code> 解析能力, 共同实现 <code>JSON</code> 解析</p>
+</li>
+<li><p>其使用方式非常简单, 两行即可解析</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>implicit val formats = Serialization.formats(NoTypeHints)
+val obj = read[Person](product)</code></pre><ul>
+<li><p><code>GeoJSON</code> 的解析</p>
+<ul>
+<li>有一个很适合 Scala 的 GeoJSON 解析工具, 叫做 <code>ESRI Geometry</code>, 其可以将 GeoJSON 字符串转为 Geometry 对象, 易于使用</li>
+</ul>
+</li>
+</ul>
+<pre><code>GeometryEngine.geometryFromGeoJson(jsonStr, 0, Geometry.Type.Unknown)</code></pre><ul>
+<li><p>后续工作</p>
+<ol>
+<li><p>读取行政区的数据集, 解析 <code>JSON</code> 格式, 将 <code>JSON</code> 格式的字符串转为对象</p>
+</li>
+<li><p>使用 <code>ESRI</code> 的 <code>GeometryEngine</code> 读取行政区的 <code>Geometry</code> 对象的 <code>JSON</code> 字符串, 生成 <code>Geometry</code> 对象</p>
+</li>
+<li><p>使用上车点和下车点的坐标创建 <code>Point</code> 对象 ( <code>Geometry</code> 的子类)</p>
+</li>
+<li><p>判断 <code>Point</code> 是否在行政区的 <code>Geometry</code> 的范围内 (行政区的 <code>Geometry</code> 其实本质上是子类 <code>Polygon</code> 的对象)</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="6-3-具体实现"><a href="#6-3-具体实现" class="headerlink" title="6.3. 具体实现"></a>6.3. 具体实现</h3><p>目标和步骤</p>
+<p>目标</p>
+<p>通过 <code>JSON4S</code> 和 <code>ESRI</code> 配合解析提供的 <code>GeoJSON</code> 数据集, 获取纽约的每个行政区的范围</p>
+<p>步骤</p>
+<ol>
+<li><p>解析 <code>JSON</code></p>
+</li>
+<li><p>使用 <code>ESRI</code> 生成表示行政区的一组 <code>Geometry</code> 对象</p>
+</li>
+</ol>
+<p>解析 JSON</p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>对照 <code>JSON</code> 中的格式, 创建解析的目标类</p>
+</li>
+<li><p>解析 <code>JSON</code> 数据转为目标类的对象</p>
+</li>
+<li><p>读取数据集, 执行解析</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Step 1: 创建目标类</p>
+<ul>
+<li><p><code>GeoJSON</code></p>
+<pre><code>{
+    &quot;type&quot;: &quot;FeatureCollection&quot;,
+    &quot;features&quot;: [ (1)
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;id&quot;: 0,
+      &quot;properties&quot;: {
+        &quot;boroughCode&quot;: 5,
+        &quot;borough&quot;: &quot;Staten Island&quot;,
+        &quot;@id&quot;: &quot;http:\/\/nyc.pediacities.com\/Resource\/Borough\/Staten_Island&quot;
+      },
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Polygon&quot;,
+        &quot;coordinates&quot;: [
+          [
+            [-74.050508064032471, 40.566422034160816],
+            [-74.049983525625748, 40.566395924928273]
+          ]
+        ]
+      }
+    }
+  ]
+}</code></pre><p><strong>1</strong></p>
+<p><code>features</code> 是一个数组, 其中每一个 <code>Feature</code> 代表一个行政区</p>
+</li>
+<li><p>目标类</p>
+<pre><code>case class FeatureCollection(
+  features: List[Feature]
+)
+
+case class Feature(
+  id: Int,
+  properties: Map[String, String],
+  geometry: JObject
+)
+
+case class FeatureProperties(boroughCode: Int, borough: String)</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Step 2: 将 <code>JSON</code> 字符串解析为目标类对象</p>
+<p>创建工具类实现功能</p>
+<pre><code>object FeatureExtraction {
+
+  def parseJson(json: String): FeatureCollection = {
+    implicit val format: AnyRef with Formats = Serialization.formats(NoTypeHints)
+    val featureCollection = read[FeatureCollection](json)
+    featureCollection
+  }
+}</code></pre></li>
+<li><p>Step 3: 读取数据集, 转换数据</p>
+<pre><code>val geoJson = Source.fromFile(&quot;dataset/nyc-borough-boundaries-polygon.geojson&quot;).mkString
+val features = FeatureExtraction.parseJson(geoJson)</code></pre></li>
+</ul>
+<p>解析 GeoJSON</p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li>转换 <code>JSON</code> 为 <code>Geometry</code> 对象</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>表示行政区的 JSON 段在哪</p>
+<pre><code>{
+    &quot;type&quot;: &quot;FeatureCollection&quot;,
+    &quot;features&quot;: [
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;id&quot;: 0,
+      &quot;properties&quot;: {
+        &quot;boroughCode&quot;: 5,
+        &quot;borough&quot;: &quot;Staten Island&quot;,
+        &quot;@id&quot;: &quot;http:\/\/nyc.pediacities.com\/Resource\/Borough\/Staten_Island&quot;
+      },
+      &quot;geometry&quot;: { (1)
+        &quot;type&quot;: &quot;Polygon&quot;,
+        &quot;coordinates&quot;: [
+          [
+            [-74.050508064032471, 40.566422034160816],
+            [-74.049983525625748, 40.566395924928273]
+          ]
+        ]
+      }
+    }
+  ]
+}</code></pre><p><strong>1</strong></p>
+<p><code>geometry</code> 段即是 <code>Geometry</code> 对象的 <code>JSON</code> 表示</p>
+</li>
+<li><p>通过 <code>ESRI</code> 解析此段</p>
+<pre><code>case class Feature(
+  id: Int,
+  properties: Map[String, String],
+  geometry: JObject             (1)
+) {
+
+  def getGeometry: Geometry = { (2)
+  import org.json4s.jackson.JsonMethods._
+    GeometryEngine.geoJsonToGeometry(compact(render(geometry)), 0, Geometry.Type.Unknown).getGeometry
+  }
+}</code></pre><p><strong>1</strong></p>
+<p><code>geometry</code> 对象需要使用 <code>ESRI</code> 解析并生成, 所以此处并没有使用具体的对象类型, 而是使用 <code>JObject</code> 表示一个 <code>JsonObject</code>, 并没有具体的解析为某个对象, 节省资源</p>
+<p><strong>2</strong></p>
+<p>将 <code>JSON</code> 转为 <code>Geometry</code> 对象</p>
+</li>
+</ul>
+<p>在出租车 DataFrame 中增加行政区信息</p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>将 <code>Geometry</code> 数据集按照区域大小排序</p>
+</li>
+<li><p>广播 <code>Geometry</code> 信息, 发给每一个 <code>Executor</code></p>
+</li>
+<li><p>创建 <code>UDF</code>, 通过经纬度获取行政区信息</p>
+</li>
+<li><p>统计行政区信息</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Step 1: 排序 <code>Geometry</code></p>
+<ul>
+<li>动机: 后续需要逐个遍历 <code>Geometry</code> 对象, 取得每条出租车数据所在的行政区, 大的行政区排在前面效率更好一些</li>
+</ul>
+</li>
+</ul>
+<pre><code>val areaSortedFeatures = features.features.sortBy(feature =&gt; {
+    (feature.properties(&quot;boroughCode&quot;), - feature.getGeometry.calculateArea2D())
+  })</code></pre><ul>
+<li><p>Step 2: 发送广播</p>
+<ul>
+<li>动机: <code>Geometry</code> 对象数组相对来说是一个小数据集, 后续需要使用 <code>Spark</code> 来进行计算, 将 <code>Geometry</code> 分发给每一个 <code>Executor</code> 会显著减少 <code>IO</code> 通量</li>
+</ul>
+</li>
+</ul>
+<pre><code>val featuresBc = spark.sparkContext.broadcast(areaSortedFeatures)</code></pre><ul>
+<li><p>Step 3: 创建 <code>UDF</code></p>
+<ul>
+<li>动机: 创建 UDF, 接收每个出租车数据的下车经纬度, 转为行政区信息, 以便后续实现功能</li>
+</ul>
+</li>
+</ul>
+<pre><code>val boroughLookUp = (x: Double, y: Double) =&gt; {
+  val features: Option[Feature] = featuresBc.value.find(feature =&gt; {
+    GeometryEngine.contains(feature.getGeometry, new Point(x, y), SpatialReference.create(4326))
+  })
+  features.map(feature =&gt; {
+    feature.properties(&quot;borough&quot;)
+  }).getOrElse(&quot;NA&quot;)
+}
+
+val boroughUDF = udf(boroughLookUp)</code></pre><ul>
+<li><p>Step 4: 测试转换结果, 统计每个行政区的出租车数据数量</p>
+<ul>
+<li>动机: 写完功能最好先看看, 运行一下</li>
+</ul>
+</li>
+</ul>
+<pre><code>taxiClean.groupBy(boroughUDF(&apos;dropOffX, &apos;dropOffY))
+  .count()
+  .show()</code></pre><p>总结</p>
+<ul>
+<li><p>具体的实现分为两个大步骤</p>
+<ol>
+<li><p>解析 <code>JSON</code> 生成 <code>Geometry</code> 数据</p>
+</li>
+<li><p>通过 <code>Geometry</code> 数据, 取得每一条出租车数据的行政区信息</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p><code>Geometry</code> 数据的生成又有如下步骤</p>
+<ol>
+<li><p>使用 <code>JSON4S</code> 解析行政区区域信息的数据集</p>
+</li>
+<li><p>取得其中每一个行政区信息的 <code>Geometry</code> 区域信息, 转为 <code>ESRI</code> 的 <code>Geometry</code> 对象</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>查询经纬度信息, 获取其所在的区域, 有如下步骤</p>
+<ol>
+<li><p>遍历 <code>Geometry</code> 数组, 搜索经纬度所表示的 <code>Point</code> 对象在哪个区域内</p>
+</li>
+<li><p>返回区域的名称</p>
+<ul>
+<li>使用 <code>UDF</code> 的目的是为了统计数据集, 后续会通过函数直接完成功能</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="7-会话统计"><a href="#7-会话统计" class="headerlink" title="7. 会话统计"></a>7. 会话统计</h2><p>目标和步骤</p>
+<p>目标</p>
+<ul>
+<li><p>统计每个行政区的所有行程, 查看每个行政区平均等候客人的时间</p>
+</li>
+<li><p>掌握会话统计的方式方法</p>
+</li>
+</ul>
+<p>步骤</p>
+<ol>
+<li><p>会话统计的概念</p>
+</li>
+<li><p>功能实现</p>
+</li>
+</ol>
+<p>会话统计的概念</p>
+<ul>
+<li><p>需求分析</p>
+<ul>
+<li><p>需求</p>
+<p>统计每个行政区的平均等客时间</p>
+</li>
+<li><p>需求可以拆分为如下几个步骤</p>
+<ol>
+<li><p>按照行政区分组</p>
+</li>
+<li><p>在每一个行政区中, 找到同一个出租车司机的先后两次订单, 本质就是再次针对司机的证件号再次分组</p>
+</li>
+<li><p>求出这两次订单的下车时间和上车时间只差, 便是等待客人的时间</p>
+</li>
+<li><p>针对一个行政区, 求得这个时间的平均数</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>*   问题: 分组效率太低
+
+    分组的效率相对较低
+
+    *   分组是 `Shuffle`
+
+    *   两次分组, 包括后续的计算, 相对比较复杂
+
+
+*   解决方案: 分区后在分区中排序
+
+    1.  按照 `License` 重新分区, 如此一来, 所有相同的司机的数据就会在同一个分区中
+
+    2.  计算分区中连续两条数据的时间差
+
+        ![20190813003239](day09_SparkSQL练习项目/20190813003239.png)
+
+
+    上述的计算存在一个问题, 一个分组会有多个司机的数据, 如何划分每个司机的数据边界? 其实可以先过滤一下, 计算时只保留同一个司机的数据
+
+*   无论是刚才的多次分组, 还是后续的分区, 都是要找到每个司机的会话, 通过会话来完成功能, 也叫做会话分析</code></pre><p>功能实现</p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>过滤掉没有经纬度的数据</p>
+</li>
+<li><p>按照 <code>License</code> 重新分区并按照 <code>License</code> 和 <code>pickUpTime</code> 排序</p>
+</li>
+<li><p>求得每个司机的下车和下次上车的时间差</p>
+</li>
+<li><p>求得每个行政区得统计数据</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Step 1: 过滤没有经纬度的数据</p>
+<pre><code>val taxiDone = taxiClean.where(&quot;dropOffX != 0 and dropOffY != 0 and pickUpX != 0 and pickUpY != 0&quot;)</code></pre></li>
+<li><p>Step 2: 划分会话</p>
+<pre><code>val sessions = taxiDone.repartition(&apos;license)
+  .sortWithinPartitions(&apos;license, &apos;pickUpTime)</code></pre></li>
+<li><p>Step 3: 求得时间差</p>
+<ol>
+<li><p>处理每个分区, 通过 <code>Scala</code> 的 <code>API</code> 找到相邻的数据</p>
+<pre><code>sessions.mapPartitions(trips =&gt; {
+  val viter = trips.sliding(2)
+})</code></pre></li>
+<li><p>过滤司机不同的相邻数据</p>
+<pre><code>sessions.mapPartitions(trips =&gt; {
+  val viter = trips.sliding(2)
+    .filter(_.size == 2)
+    .filter(p =&gt; p.head.license == p.last.license)
+})</code></pre></li>
+<li><p>求得时间差</p>
+<pre><code>def boroughDuration(t1: Trip, t2: Trip): (String, Long) = {
+  val borough = boroughLookUp(t1.dropOffX, t1.dropOffY)
+  val duration = (t2.pickUpTime - t1.dropOffTime) / 1000
+  (borough, duration)
+}
+
+val boroughDurations = sessions.mapPartitions(trips =&gt; {
+  val viter = trips.sliding(2)
+    .filter(_.size == 2)
+    .filter(p =&gt; p.head.license == p.last.license)
+  viter.map(p =&gt; boroughDuration(p.head, p.last))
+}).toDF(&quot;borough&quot;, &quot;seconds&quot;)</code></pre></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Step 4: 统计数据</p>
+<pre><code>boroughDurations.where(&quot;seconds &gt; 0&quot;)
+  .groupBy(&quot;borough&quot;)
+  .agg(avg(&quot;seconds&quot;), stddev(&quot;seconds&quot;))
+  .show()</code></pre></li>
+</ul>
+<p>总结</p>
+<ul>
+<li><p>其实会话分析的难点就是理解需求</p>
+<ul>
+<li><p>需求是找到每个行政区的待客时间, 就是按照行政区分组</p>
+</li>
+<li><p>需求是找到待客时间, 就是按照司机进行分组, 并且还要按照时间进行排序, 才可找到一个司机相邻的两条数据</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>但是分组和统计的效率较低</p>
+<ul>
+<li><p>可以把相同司机的所有形成发往一个分区</p>
+</li>
+<li><p>然后按照司机的 <code>License</code> 和上车时间综合排序</p>
+</li>
+<li><p>这样就可以找到同一个司机的两次行程之间的差值</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Last updated 2019-08-13 01:13:53 +0800</p>
+<p>  hljs.initHighlighting()</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566023037548&di=a1c00c249ae508c8e523f7175e75559f&imgtype=0&src=http%3A%2F%2Ftpic.home.news.cn%2FxhForum%2Fxhdisk003%2FM00%2F45%2F19%2FwKhJClbdMU0EAAAAAAAAAAAAAAA282.gif" alt="liminghui">
+            
+              <p class="site-author-name" itemprop="name">liminghui</p>
+              <p class="site-description motion-element" itemprop="description">网页描述</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liminghui321" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liminghui321.github.io/" title="Title" target="_blank">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SparkSQL-三-出租车利用率分析"><span class="nav-number">1.</span> <span class="nav-text">SparkSQL(三)  - 出租车利用率分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-业务"><span class="nav-number">1.1.</span> <span class="nav-text">1. 业务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-流程分析"><span class="nav-number">1.2.</span> <span class="nav-text">2. 流程分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据读取"><span class="nav-number">1.3.</span> <span class="nav-text">3. 数据读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数据清洗"><span class="nav-number">1.4.</span> <span class="nav-text">5. 数据清洗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-行政区信息"><span class="nav-number">1.5.</span> <span class="nav-text">6. 行政区信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-需求介绍"><span class="nav-number">1.5.1.</span> <span class="nav-text">6.1. 需求介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-工具介绍"><span class="nav-number">1.5.2.</span> <span class="nav-text">6.2. 工具介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-具体实现"><span class="nav-number">1.5.3.</span> <span class="nav-text">6.3. 具体实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-会话统计"><span class="nav-number">1.6.</span> <span class="nav-text">7. 会话统计</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liminghui</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">博客全站字数&#58;</span>
+    
+    <span title="博客全站字数">158.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">158.5k</span> 字
+    </span>
+</div>
+<!-- 新增访客统计代码 END-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+	
+<script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'mlnNNqlYvP2GlbKtJ1ov55IU-gzGzoHsz',
+        appKey: 'AT1jnX9EyuqR1Ac3cYIPm0iA',
+        placeholder: '欢迎交流讨论...',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("mlnNNqlYvP2GlbKtJ1ov55IU-gzGzoHsz", "AT1jnX9EyuqR1Ac3cYIPm0iA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":220,"height":440},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
