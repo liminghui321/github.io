@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="javaweb_day23(linux)学习Linux目标:掌握linux常用命令，会安装开发中使用软件，例如mysql,jdk…. Linux介绍Unix是一个强大的多用户、多任务操作系统。于1969年在AT&amp;amp;T的贝尔实验室开发。UNIX的商标权由国际开放标准组织（The Open Group）所拥有。UNIX操作系统是商业版，需要收费，价格比Microsoft Windows正版要贵一">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaweb_day23(linux)">
+<meta property="og:url" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/index.html">
+<meta property="og:site_name" content="liminghui&#39;s blog">
+<meta property="og:description" content="javaweb_day23(linux)学习Linux目标:掌握linux常用命令，会安装开发中使用软件，例如mysql,jdk…. Linux介绍Unix是一个强大的多用户、多任务操作系统。于1969年在AT&amp;amp;T的贝尔实验室开发。UNIX的商标权由国际开放标准组织（The Open Group）所拥有。UNIX操作系统是商业版，需要收费，价格比Microsoft Windows正版要贵一">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image1.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image2.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image3.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image4.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image5.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image6.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image7.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image8.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image9.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image10.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image11.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image12.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image13.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image14.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image15.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image16.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image17.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image18.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image19.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image20.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image21.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image22.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image23.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image24.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image25.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image26.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image27.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image28.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image29.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image30.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image31.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image32.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image33.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image34.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image35.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image36.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image37.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image38.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image39.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image40.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image41.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image42.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image43.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image44.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image45.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image46.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image47.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image48.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image49.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image50.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image51.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image52.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image53.png">
+<meta property="og:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image54.png">
+<meta property="og:updated_time" content="2019-06-27T16:18:26.279Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaweb_day23(linux)">
+<meta name="twitter:description" content="javaweb_day23(linux)学习Linux目标:掌握linux常用命令，会安装开发中使用软件，例如mysql,jdk…. Linux介绍Unix是一个强大的多用户、多任务操作系统。于1969年在AT&amp;amp;T的贝尔实验室开发。UNIX的商标权由国际开放标准组织（The Open Group）所拥有。UNIX操作系统是商业版，需要收费，价格比Microsoft Windows正版要贵一">
+<meta name="twitter:image" content="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/image1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://liminghui321.github.io/2019/06/28/javaweb_二十三(linux)/">
+
+
+
+
+
+  <title>javaweb_day23(linux) | liminghui's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liminghui's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不积跬步，无以至千里。<br> 　　不积小流，无以成江河。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+<script>
+    
+    window.onload = function(){
+        var path = 'https://liminghui321.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">javaweb_day23(linux)</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="javaweb-day23-linux"><a href="#javaweb-day23-linux" class="headerlink" title="javaweb_day23(linux)"></a>javaweb_day23(linux)</h1><p>学习Linux目标:掌握linux常用命令，会安装开发中使用软件，例如mysql,jdk….</p>
+<h2 id="Linux介绍"><a href="#Linux介绍" class="headerlink" title="Linux介绍"></a>Linux介绍</h2><p>Unix是一个强大的多用户、多任务操作系统。于1969年在AT&amp;T的贝尔实验室开发。UNIX的商标权由国际开放标准组织（The Open Group）所拥有。UNIX操作系统是商业版，需要收费，价格比Microsoft Windows正版要贵一些。</p>
+<p>Linux可安装在各种计算机硬件设备中，比如手机、平板电脑、路由器、台式计算机</p>
+<p>Linux系统的应用</p>
+<p>服务器系统Web应用服务器、数据库服务器、接口服务器、DNS、FTP等等；</p>
+<p>嵌入式系统路由器、防火墙、手机、PDA、IP 分享器、交换器、家电用品的微电脑控制器等等，</p>
+<p>高性能运算、计算密集型应用Linux有强大的运算能力。</p>
+<p>桌面应用系统</p>
+<p>移动手持系统</p>
+<p>Linux版本</p>
+<p>常用的ubuntu centos fedora redhat</p>
+<h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><p>我们在虚拟机上来安装Linux</p>
+<p>VMWare它是一个收费虚拟软件。</p>
+<p>对于VMWare安装清楚的可以参考资料中的文档 &lt;&lt;虚拟软件vmware安装&gt;&gt;</p>
+<p>问题:怎样安装linux系统(centos6.5)</p>
+<p>参考《CentOS6详细安装文档.doc》</p>
+<p>前提:需要一个<img src="/2019/06/28/javaweb_二十三(linux)/image1.png" alt>{width=”2.6458333333333335in” height=”0.2916666666666667in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image2.png" alt>{width=”5.052083333333333in” height=”3.8229166666666665in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image3.png" alt>{width=”5.145833333333333in” height=”2.2708333333333335in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image4.png" alt>{width=”5.072916666666667in” height=”1.5729166666666667in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image5.png" alt>{width=”5.09375in” height=”3.2083333333333335in”}</p>
+<p>我们需要指定iso文件的位置</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image6.png" alt>{width=”5.768055555555556in” height=”2.349948600174978in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image7.png" alt>{width=”5.768055555555556in” height=”2.9073939195100613in”}</p>
+<p>选择第一项，安装全新操作系统或升级现有操作系统</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image8.png" alt="11">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>第13步：Tab键进行选择，选择Skip，退出检测</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image9.png" alt="12">{width=”5.763888888888889in” height=”3.207638888888889in”}</p>
+<p>第14步：点击Next</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image10.png" alt="13">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>第15步：选择语言，这里选择的是中文简体</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image11.png" alt="14">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>第16步：选择键盘样式</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image12.png" alt="15">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>第17步：选择存储设备</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image13.png" alt="16">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>如果以前安装过虚拟机，会出现这个警告，选择是，忽略所有数据</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image14.png" alt="17">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image15.png" alt>{width=”5.768055555555556in” height=”3.6951607611548556in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image16.png" alt="19">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>设置时区，勾选使用UTC时间</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image17.png" alt="20">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>第21步：输入根用户（root）的密码</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image18.png" alt="21">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image19.png" alt>{width=”5.768055555555556in” height=”2.865334645669291in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image20.png" alt="28">{width=”5.763888888888889in” height=”4.320833333333334in”}</p>
+<p>登录时，使用的用户是root,录入密码时不会显示</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image21.png" alt>{width=”4.28125in” height=”0.7604166666666666in”}</p>
+<h2 id="Linux远程访问"><a href="#Linux远程访问" class="headerlink" title="Linux远程访问"></a>Linux远程访问</h2><p>使用CRT</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image22.png" alt>{width=”4.145833333333333in” height=”3.6770833333333335in”}</p>
+<p>需要录入linux的ip地址及用户名密码</p>
+<p>查看ip地址ifconfig</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image23.png" alt>{width=”5.768055555555556in” height=”2.7611898512685915in”}</p>
+<p>注意事项:</p>
+<ol>
+<li><p>关于linux安装时失败问题，有可能是硬件虚拟化没有打开，需要在bios中开启虚拟化。通过 <img src="/2019/06/28/javaweb_二十三(linux)/image24.png" alt>{width=”1.90625in” height=”0.3125in”}可以查看</p>
+</li>
+<li><p>关于CRT安装与破解(参考图片)</p>
+</li>
+</ol>
+<h2 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h2><p>Linux系统它是文件系统。</p>
+<p>它的根目录 是”/“,是以树型结构来管理。</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image25.png" alt>{width=”2.9166666666666665in” height=”0.3229166666666667in”}</p>
+<p>Root用户登录后，显示时有一个~,它其实代表的就是root目录</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image26.png" alt>{width=”5.465277777777778in” height=”3.3941918197725283in”}</p>
+<p>我们可以将我们自己的文件安装在任意位置。</p>
+<h2 id="Linux常用命令-重点"><a href="#Linux常用命令-重点" class="headerlink" title="Linux常用命令(重点)"></a>Linux常用命令(重点)</h2><h3 id="切换目录命令cd"><a href="#切换目录命令cd" class="headerlink" title="切换目录命令cd"></a>切换目录命令cd</h3><p>cd app 切换到app目录cd .. 切换到上一层目录cd / 切换到系统根目录cd ~ 切换到用户主目录cd - 切换到上一个所在目录</p>
+<h3 id="列出文件列表-ls-ll"><a href="#列出文件列表-ls-ll" class="headerlink" title="列出文件列表 ls ll"></a>列出文件列表 ls ll</h3><p>ls(list)是一个非常有用的命令，用来显示当前目录下的内容。配合参数的使用，能以不同的方式显示目录内容。ls –help 可以帮助我们查看帮助信息</p>
+<p>ls -a 显示所有文件或目录（包含隐藏的文件）</p>
+<p>* ls -l 缩写成ll</p>
+<p>在linux中以 . 开头的文件都是隐藏的文件</p>
+<h3 id="创建与删除目录"><a href="#创建与删除目录" class="headerlink" title="创建与删除目录"></a>创建与删除目录</h3><p>mkdir(make directory)命令可用来创建子目录。mkdir app  在当前目录下创建app目录mkdir –p app2/test  级联创建aap2以及test目</p>
+<p>rmdir(remove directory)命令可用来删除”空”的子目录：rmdir app  删除app目录</p>
+<h3 id="浏览文件"><a href="#浏览文件" class="headerlink" title="浏览文件"></a>浏览文件</h3><p>cat操作</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image27.png" alt>{width=”2.9479166666666665in” height=”0.3229166666666667in”}</p>
+<p>more与less用法类似</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image28.png" alt>{width=”1.7395833333333333in” height=”0.22916666666666666in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image29.png" alt>{width=”1.8645833333333333in” height=”0.17708333333333334in”}</p>
+<p>tail</p>
+<p>tail命令是在实际使用过程中使用非常多的一个命令，它的功能是：用于显示文件后几行的内容。</p>
+<p>用法:</p>
+<p>tail -10 /etc/passwd 查看后10行数据</p>
+<p>tail -f catalina.log 动态查看日志(*****)</p>
+<p>ctrl+c 结束查看</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p>cp是copy操作</p>
+<p>mv它是move相当于剪切</p>
+<p>cp(copy)命令可以将文件从一处复制到另一处。一般在使用cp命令时将一个文件复制成另一个文件或复制到某目录时，需要指定源文件名与目标文件名或目录。</p>
+<p>cp a.txt b.txt 将a.txt复制为b.txt文件</p>
+<p>cp a.txt ../ 将a.txt文件复制到上一层目录中</p>
+<p>mv 移动或者重命名</p>
+<p>mv a.txt ../ 将a.txt文件移动到上一层目录中</p>
+<p>mv a.txt b.txt 将a.txt文件重命名为b.txt</p>
+<p>rm它可以帮助我们删除文件与目录</p>
+<p>rm 删除文件</p>
+<p>用法：rm [选项]... 文件...</p>
+<p>rm a.txt 删除a.txt文件</p>
+<p>删除需要用户确认，y/n</p>
+<p>rm 删除不询问</p>
+<p>rm -f a.txt 不询问，直接删除</p>
+<p>rm 删除目录</p>
+<p>rm -r a 递归删除 可以删除文件夹(会询问)</p>
+<p>不询问递归删除（慎用）</p>
+<p>rm -rf a 不询问递归删除 可以删除文件夹(不会询问)</p>
+<p>rm -rf * 删除所有文件</p>
+<p>rm -rf /* 自杀</p>
+<h3 id="打包压缩与解压"><a href="#打包压缩与解压" class="headerlink" title="打包压缩与解压"></a>打包压缩与解压</h3><p>tar命令位于/bin目录下，它能够将用户所指定的文件或目录打包成一个文件，但不做压缩。一般Linux上常用的压缩方式是选用tar将许多文件打包成一个文件，再以gzip压缩命令压缩成xxx.tar.gz(或称为xxx.tgz)的文件。</p>
+<p>常用参数：</p>
+<p>-c：创建一个新tar文件</p>
+<p>-v：显示运行过程的信息</p>
+<p>-f：指定文件名</p>
+<p>-z：调用gzip压缩命令进行压缩</p>
+<p>-t：查看压缩文件的内容</p>
+<p>-x：解开tar文件</p>
+<p>打包：</p>
+<p>tar –cvf xxx.tar ./*</p>
+<p>打包并且压缩：</p>
+<p>tar –zcvf xxx.tar.gz ./*</p>
+<p>解压</p>
+<p>tar –xvf xxx.tar</p>
+<p>tar -xvf xxx.tar.gz -C /usr/aaa</p>
+<h3 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h3><p>查找符合条件的文件find</p>
+<p>查找文件中符合条件的字符串grep</p>
+<p>find指令用于查找符合条件的文件</p>
+<p>示例：</p>
+<p>find / -name “ins*“ 查找文件名称是以ins开头的文件</p>
+<p>find / -name “ins*“ –ls</p>
+<p>find / –user itcast –ls 查找用户itcast的文件</p>
+<p>find / –user itcast –type d –ls 查找用户itcast的目录</p>
+<p>find /-perm -777 –type d-ls 查找权限是777的文件</p>
+<p>查找文件里符合条件的字符串。</p>
+<p>用法: grep [选项]... PATTERN [FILE]...</p>
+<p>示例：</p>
+<p>grep lang anaconda-ks.cfg 在文件中查找lang</p>
+<p>grep lang anaconda-ks.cfg –color 高亮显示</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image30.png" alt>{width=”4.695833333333334in” height=”0.2in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image31.png" alt>{width=”5.009027777777778in” height=”0.2in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image32.png" alt>{width=”5.382638888888889in” height=”0.1909722222222222in”}</p>
+<h3 id="其它常用命令"><a href="#其它常用命令" class="headerlink" title="其它常用命令"></a>其它常用命令</h3><p>【pwd】</p>
+<p>显示当前所在目录</p>
+<p>【touch】</p>
+<p>创建一个空文件</p>
+<p>* touch a.txt</p>
+<p>【ll -h】</p>
+<p>友好显示文件大小</p>
+<p>【wget】</p>
+<p>下载资料</p>
+<p>* wget <a href="http://nginx.org/download/nginx-1.9.12.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.9.12.tar.gz</a></p>
+<h2 id="VI与VIM编辑器"><a href="#VI与VIM编辑器" class="headerlink" title="VI与VIM编辑器"></a>VI与VIM编辑器</h2><p>有三种模式 命令行 插入 底行</p>
+<p>通过 vi（vim） 文件名 就可以对文件进行操作</p>
+<p>当操作时，开始是命令行模式 按I o a 切换到插入模式</p>
+<p>按esc 可以在重新切换到命令行模式</p>
+<p>在命令行模式下按 “:” 就可以切换到底行模式。</p>
+<p>在命令行模式下可以使用一些快捷键</p>
+<p>在Linux下一般使用vi编辑器来编辑文件。vi既可以查看文件也可以编辑文件。三种模式：命令行、插入、底行模式。</p>
+<p>切换到命令行模式：按Esc键；</p>
+<p>切换到插入模式：按 i 、o、a键；</p>
+<p>i 在当前位置前插入</p>
+<p>I 在当前行首插入</p>
+<p>a 在当前位置后插入</p>
+<p>A 在当前行尾插入</p>
+<p>o 在当前行之后插入一行</p>
+<p>O 在当前行之前插入一行</p>
+<p>切换到底行模式：按 :（冒号）；更多详细用法，查询文档《Vim命令合集.docx》和《vi使用方法详细介绍.docx》</p>
+<p>打开文件：vim file</p>
+<p>退出：esc :q</p>
+<p>修改文件：输入i进入插入模式</p>
+<p>保存并退出：esc:wq</p>
+<p>不保存退出：esc:q!</p>
+<p>三种进入插入模式：</p>
+<p>i:在当前的光标所在处插入</p>
+<p>o:在当前光标所在的行的下一行插入</p>
+<p>a:在光标所在的下一个字符插入</p>
+<p>快捷键：</p>
+<p>dd – 快速删除一行</p>
+<p>yy - 复制当前行</p>
+<p>nyy - 从当前行向后复制几行</p>
+<p>p - 粘贴</p>
+<p>R – 替换</p>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>&gt; 重定向输出，覆盖原有内容；&gt;&gt; 重定向输出，又追加功能；示例：</p>
+<p>cat /etc/passwd &gt; a.txt 将输出定向到a.txt中</p>
+<p>cat /etc/passwd &gt;&gt; a.txt 输出并且追加</p>
+<p>ifconfig &gt; ifconfig.txt</p>
+<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>管道是Linux命令中重要的一个概念，其作用是将一个命令的输出用作另一个命令的输入。示例</p>
+<p>ls --help | more 分页查询帮助信息</p>
+<p>ps –ef | grep java 查询名称中包含java的进程</p>
+<p>ifconfig | more</p>
+<p>cat index.html | more</p>
+<p>ps –ef | grep aio</p>
+<h3 id="amp-amp-命令执行控制"><a href="#amp-amp-命令执行控制" class="headerlink" title="&amp;&amp;命令执行控制"></a>&amp;&amp;命令执行控制</h3><p>命令之间使用 &amp;&amp; 连接，实现逻辑与的功能。</p>
+<p>只有在 &amp;&amp; 左边的命令返回真（命令返回值 $? == 0），&amp;&amp; 右边的命令才会被执行。 </p>
+<p>只要有一个命令返回假（命令返回值 $? == 1），后面的命令就不会被执行。</p>
+<p>mkdir test &amp;&amp; cd test</p>
+<h3 id="系统常用命令"><a href="#系统常用命令" class="headerlink" title="系统常用命令"></a>系统常用命令</h3><p>date 显示或设置系统时间</p>
+<p>date 显示当前系统时间</p>
+<p>date -s “2014-01-01 10:10:10” 设置系统时间df 显示磁盘信息</p>
+<p>df –h 友好显示大小free 显示内存状态</p>
+<p>free –m 以mb单位显示内存组昂头top 显示，管理执行中的程序</p>
+<p>clear 清屏幕</p>
+<p>ps 正在运行的某个进程的状态</p>
+<p>ps –ef 查看所有进程</p>
+<p>ps –ef | grep ssh 查找某一进程kill 杀掉某一进程</p>
+<p>kill 2868 杀掉2868编号的进程</p>
+<p>kill -9 2868 强制杀死进程</p>
+<p>du 显示目录或文件的大小。</p>
+<p>du –h 显示当前目录的大小</p>
+<p>who 显示目前登入系统的用户信息。</p>
+<p>uname 显示系统信息。</p>
+<p>uname -a 显示本机详细信息。依次为：内核名称(类别)，主机名，内核版本号，内核版本，内核编译日期，硬件名，处理器类型，硬件平台类型，操作系统名称</p>
+<h2 id="Linux下用户与组管理"><a href="#Linux下用户与组管理" class="headerlink" title="Linux下用户与组管理"></a>Linux下用户与组管理</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><p>useradd 添加一个用户</p>
+<p>useradd test 添加test用户</p>
+<p>useradd test -d /home/t1 指定用户home目录</p>
+<p>passwd 设置、修改密码</p>
+<p>passwd test 为test用户设置密码</p>
+<p>切换登录：</p>
+<p>ssh -l test -p 22 192.168.19.128</p>
+<p>su – 用户名</p>
+<p>userdel 删除一个用户</p>
+<p>userdel test 删除test用户(不会删除home目录)</p>
+<p>userdel –r test 删除用户以及home目录</p>
+<h3 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h3><p>当在创建一个新用户user时，若没有指定他所属于的组，就建立一个和该用户同名的私有组</p>
+<p>创建用户时也可以指定所在组</p>
+<p>groupadd 创建组</p>
+<p>groupadd public 创建一个名为public的组</p>
+<p>useradd u1 –g public 创建用户指定组groupdel 删除组，如果该组有用户成员，必须先删除用户才能删除组。</p>
+<p>groupdel public</p>
+<h3 id="id，su命令"><a href="#id，su命令" class="headerlink" title="id，su命令"></a>id，su命令</h3><p>【id命令】</p>
+<p>功能：查看一个用户的UID和GID用法：id [选项]... [用户名]</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image33.png" alt>{width=”6.0in” height=”0.4in”}</p>
+<p>直接使用id</p>
+<p>直接使用id 用户名</p>
+<p>【su命令】</p>
+<p>功能：切换用户。用法：su [选项]... [-] [用户 [参数]... ]示例：</p>
+<p>su u1 切换到u1用户</p>
+<p>su - u1 切换到u1用户，并且将环境也切换到u1用户的环境（推荐使用）</p>
+<p>【账户文件】</p>
+<p>/etc/passwd 用户文件/etc/shadow 密码文件/etc/group 组信息文件</p>
+<p>【用户文件】</p>
+<p>root:x:0:0:root:/root:/bin/bash账号名称： 在系统中是唯一的用户密码： 此字段存放加密口令用户标识码(User ID)： 系统内部用它来标示用户组标识码(Group ID)： 系统内部用它来标识用户属性用户相关信息： 例如用户全名等用户目录： 用户登录系统后所进入的目录用户环境: 用户工作的环境</p>
+<p>【密码文件】</p>
+<p>shadow文件中每条记录用冒号间隔的9个字段组成.用户名：用户登录到系统时使用的名字，而且是惟一的口令： 存放加密的口令最后一次修改时间: 标识从某一时刻起到用户最后一次修改时间最大时间间隔: 口令保持有效的最大天数，即多少天后必须修改口令最小时间间隔： 再次修改口令之间的最小天数警告时间：从系统开始警告到口令正式失效的天数不活动时间： 口令过期少天后，该账号被禁用失效时间：指示口令失效的绝对天数(从1970年1月1日开始计算)标志：未使用</p>
+<p>【组文件】</p>
+<p>root:x:0:组名：用户所属组组口令：一般不用GID：组ID用户列表：属于该组的所有用户</p>
+<h2 id="文件权限管理"><a href="#文件权限管理" class="headerlink" title="文件权限管理"></a>文件权限管理</h2><h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p><img src="/2019/06/28/javaweb_二十三(linux)/image34.png" alt>{width=”5.095833333333333in” height=”2.173611111111111in”}</p>
+<hr>
+<p>  <strong>属主（user）</strong>   <strong>属组（group）</strong>   <strong>其他用户</strong><br>  r                  w                   x              r   w   x   r   w   x<br>  4                  2                   1              4   2   1   4   2   1</p>
+<hr>
+<p>r:对文件是指可读取内容 对目录是可以ls</p>
+<p>w:对文件是指可修改文件内容，对目录 是指可以在其中创建或删除子节点(目录或文件)</p>
+<p>x:对文件是指是否可以运行这个文件，对目录是指是否可以cd进入这个目录</p>
+<h3 id="Linux三种文件类型："><a href="#Linux三种文件类型：" class="headerlink" title="Linux三种文件类型："></a>Linux三种文件类型：</h3><p>普通文件： 包括文本文件、数据文件、可执行的二进制程序文件等。</p>
+<p>目录文件： Linux系统把目录看成是一种特殊的文件，利用它构成文件系统的树型结构。</p>
+<p>设备文件： Linux系统把每一个设备都看成是一个文件</p>
+<h3 id="文件类型标识"><a href="#文件类型标识" class="headerlink" title="文件类型标识"></a>文件类型标识</h3><p>普通文件（-）目录（d）符号链接（l）</p>
+<p>* 进入etc可以查看，相当于快捷方式字符设备文件（c）块设备文件（s）套接字（s）命名管道（p）</p>
+<h3 id="文件权限管理："><a href="#文件权限管理：" class="headerlink" title="文件权限管理："></a>文件权限管理：</h3><p>chmod 变更文件或目录的权限。</p>
+<p>chmod 755 a.txt</p>
+<p>chmod u=rwx,g=rx,o=rx a.txt</p>
+<p>chmod 000 a.txt / chmod 777 a.txtchown 变更文件或目录改文件所属用户和组</p>
+<p>chown u1:public aa ：变更当前的目录或文件的所属用户和组</p>
+<p>chown -R u1:public aa ：变更目录中的所有的子目录及文件的所属用户和组</p>
+<p>例如: aa 属于 root 用户 root组 假设aa下面有一个a.txt文件 root用户 root 组</p>
+<p>chown u1:public aa aa属于u1用户 public组 a.txt root用户 root组</p>
+<p>chown -R u1:public aa aa属于u1用户 public组 a.txt u1用户 public组</p>
+<p>文件的权限:</p>
+<p>R,W,X---------------(4,2,1)</p>
+<p>文件权限的更改</p>
+<p>Chmod 777 a.txt;</p>
+<p>chmod u=rwx,g=rx,o=rx a.txt</p>
+<p>文件所属用户或者组的一个更改</p>
+<h2 id="常用网络操作"><a href="#常用网络操作" class="headerlink" title="常用网络操作"></a>常用网络操作</h2><h3 id="主机名配置"><a href="#主机名配置" class="headerlink" title="主机名配置"></a>主机名配置</h3><p>hostname 查看主机名</p>
+<p>hostname xxx 修改主机名 重启后无效</p>
+<p>如果想要永久生效，可以修改/etc/sysconfig/network文件</p>
+<h3 id="IP地址配置"><a href="#IP地址配置" class="headerlink" title="IP地址配置"></a>IP地址配置</h3><p>Setup设置ip地址</p>
+<p>ifconfig 查看(修改)ip地址(重启后无效)</p>
+<p>ifconfig eth0 192.168.12.22 修改ip地址</p>
+<p>如果想要永久生效</p>
+<p>修改 /etc/sysconfig/network-scripts/ifcfg-eth0文件</p>
+<h3 id="域名映射"><a href="#域名映射" class="headerlink" title="域名映射"></a>域名映射</h3><p>/etc/hosts文件用于在通过主机名进行访问时做ip地址解析之用</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image35.png" alt>{width=”5.768055555555556in” height=”0.586819772528434in”}</p>
+<p>192.168.42.43 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></p>
+<h3 id="网络服务管理"><a href="#网络服务管理" class="headerlink" title="网络服务管理"></a>网络服务管理</h3><p>service network status 查看指定服务的状态</p>
+<p>service network stop 停止指定服务</p>
+<p>service network start 启动指定服务</p>
+<p>service network restart 重启指定服务</p>
+<p>service ---status–all 查看系统中所有后台服务</p>
+<p>netstat –nltp 查看系统中网络进程的端口监听情况</p>
+<p>防火墙设置</p>
+<p>防火墙根据配置文件/etc/sysconfig/iptables来控制本机的”出”、”入”网络访问行为。</p>
+<p>service iptables status 查看防火墙状态</p>
+<p>service iptables stop 关闭防火墙</p>
+<p>service iptables start 启动防火墙</p>
+<p>chkconfig iptables off 禁止防火墙自启</p>
+<h2 id="Linux上软件安装介绍"><a href="#Linux上软件安装介绍" class="headerlink" title="Linux上软件安装介绍"></a>Linux上软件安装介绍</h2><ul>
+<li>Linux上的软件安装有以下几种常见方式介绍</li>
+</ul>
+<ol>
+<li>二进制发布包</li>
+</ol>
+<blockquote>
+<p>软件已经针对具体平台编译打包发布，只要解压，修改配置即可</p>
+</blockquote>
+<ol start="2">
+<li>RPM包</li>
+</ol>
+<blockquote>
+<p>软件已经按照redhat的包管理工具规范RPM进行打包发布，需要获取到相应的软件RPM发布包，然后用RPM命令进行安装</p>
+</blockquote>
+<ol start="3">
+<li>Yum在线安装</li>
+</ol>
+<blockquote>
+<p>软件已经以RPM规范打包，但发布在了网络上的一些服务器上，可用yum在线安装服务器上的rpm软件，并且会自动解决软件安装过程中的库依赖问题</p>
+</blockquote>
+<ol start="4">
+<li>源码编译安装</li>
+</ol>
+<blockquote>
+<p>软件以源码工程的形式发布，需要获取到源码工程后用相应开发工具进行编译打包部署。</p>
+</blockquote>
+<ul>
+<li>上传与下载工具介绍</li>
+</ul>
+<ol>
+<li>FileZilla</li>
+</ol>
+<blockquote>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image36.png" alt>{width=”2.0625in” height=”0.2916666666666667in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image37.png" alt>{width=”5.768055555555556in” height=”2.2918678915135606in”}</p>
+</blockquote>
+<ol start="2">
+<li>lrzsz</li>
+</ol>
+<blockquote>
+<p>我们可以使用yum安装方式安装 yum install lrzsz</p>
+<p>Yum remove lrzsz</p>
+<p>注意：必须有网络</p>
+<p>可以在crt中设置上传与下载目录</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image38.png" alt>{width=”5.572916666666667in” height=”3.71875in”}</p>
+<p>上传：</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image39.png" alt>{width=”5.768055555555556in” height=”1.3939468503937007in”}</p>
+<p>下载</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image40.png" alt>{width=”5.1875in” height=”1.3333333333333333in”}</p>
+</blockquote>
+<h3 id="在Linux上安装JDK"><a href="#在Linux上安装JDK" class="headerlink" title="在Linux上安装JDK:"></a>在Linux上安装JDK:</h3><p>【步骤一】：上传JDK到Linux的服务器.</p>
+<p>* 上传JDK</p>
+<p>* 卸载open-JDK</p>
+<p>java –version</p>
+<p>rpm -qa | grep java</p>
+<p>rpm -e --nodeps java-1.6.0-openjdk-1.6.0.35-1.13.7.1.el6_6.i686</p>
+<p>rpm -e --nodeps java-1.7.0-openjdk-1.7.0.79-2.5.5.4.el6.i686</p>
+<p>【步骤二】：在Linux服务器上安装JDK.</p>
+<p>* 通常将软件安装到/usr/local</p>
+<p>* 直接解压就可以</p>
+<p>tar –xvf jdk.tar.gz -C 目标路径</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image41.png" alt>{width=”4.322916666666667in” height=”0.20833333333333334in”}</p>
+<p>【步骤三】：配置JDK的环境变量.</p>
+<p>配置环境变量：</p>
+<p>① vi /etc/profile</p>
+<p>② 在末尾行添加</p>
+<p>#set java environment</p>
+<p>JAVA_HOME=/usr/local/jdk/jdk1.7.0_71</p>
+<p>CLASSPATH=.:$JAVA_HOME/lib.tools.jar</p>
+<p>PATH=$JAVA_HOME/bin:$PATH</p>
+<p>export JAVA_HOME CLASSPATH PATH</p>
+<p>保存退出</p>
+<p>③source /etc/profile 使更改的配置立即生效</p>
+<p>总结:</p>
+<ol>
+<li><p>进入local目录 cd /usr/local</p>
+</li>
+<li><p>上传你需要安装的jdk压缩文件(注意jdk要和centOS版本一致)</p>
+</li>
+<li><p>查询当前centos系统中默认的jdk(rpm -qa | grep java)</p>
+</li>
+<li><p>删除系统中默认的jdk (rpm -e –nodeps 查询到的jdk文件)</p>
+</li>
+<li><p>在local目录下创建一个jdk文件夹,然后把jdk压缩文件解压到jdk文件夹里面</p>
+</li>
+<li><p>配置JDK的环境变量(vi /etc/profile)</p>
+</li>
+</ol>
+<p>在末尾行添加</p>
+<p>#set java environment</p>
+<p>JAVA_HOME=jdk安装的绝对路径</p>
+<p>CLASSPATH=.:$JAVA_HOME/lib.tools.jar</p>
+<p>PATH=$JAVA_HOME/bin:$PATH</p>
+<p>export JAVA_HOME CLASSPATH PATH</p>
+<ol start="7">
+<li>source /etc/profile 使更改的配置立即生效</li>
+</ol>
+<h3 id="在Linux上安装Mysql"><a href="#在Linux上安装Mysql" class="headerlink" title="在Linux上安装Mysql:"></a>在Linux上安装Mysql:</h3><p>【步骤一】：将mysql的安装文件上传到Linux的服务器.</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image42.png" alt>{width=”4.854166666666667in” height=”0.84375in”}</p>
+<p>将mysql的tar解压</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image43.png" alt>{width=”5.305970034995625in” height=”1.126865704286964in”}</p>
+<p>将系统自带的mysql卸载</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image44.png" alt>{width=”3.6666666666666665in” height=”0.2916666666666667in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image45.png" alt>{width=”4.177083333333333in” height=”0.14583333333333334in”}</p>
+<p>【步骤二】：安装MYSQL服务端</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image46.png" alt>{width=”4.0in” height=”0.1875in”}</p>
+<p>下面的提示是告诉我们root用户的密码第一次是随机生成的，它保存在/root/.mysql_secret中，第一次登录需要修改root密码</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image47.png" alt>{width=”5.216418416447944in” height=”2.0in”}</p>
+<p>【步骤三】：安装MYSQL客户端</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image48.png" alt>{width=”3.9895833333333335in” height=”0.1875in”}</p>
+<p>查看生成的root密码</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image49.png" alt>{width=”5.768055555555556in” height=”0.28105971128608925in”}</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image50.png" alt>{width=”5.768055555555556in” height=”0.4005599300087489in”}</p>
+<p>报错:原因是没有启动mysql服务</p>
+<p>需要开启mysql服务</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image51.png" alt>{width=”4.083333333333333in” height=”0.34375in”}</p>
+<p>执行下面操作报错，原因是第一次操作mysql必须修改root用户的密码</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image52.png" alt>{width=”5.768055555555556in” height=”0.3638418635170604in”}</p>
+<p>设置root用户的密码</p>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image53.png" alt>{width=”2.6979166666666665in” height=”0.22916666666666666in”}</p>
+<ol>
+<li><p>上传mysql安装压缩文件到local目录</p>
+</li>
+<li><p>创建一个mysql目录</p>
+</li>
+<li><p>把mysql的压缩文件解压到mysql目录中</p>
+</li>
+<li><p>将系统自带的mysql卸载</p>
+</li>
+<li><p>安装mysql的服务器(可能有些同学的系统缺少依赖)</p>
+</li>
+<li><p>安装mysql的客户端</p>
+</li>
+<li><p>开启mysql服务</p>
+</li>
+<li><p>登录mysql mysql -uroot -p原始密码(保存在/root/.mysql_secret)</p>
+</li>
+<li><p>使用mysql必须修改root用户的密码</p>
+</li>
+<li><p>正常使用了</p>
+</li>
+</ol>
+<ul>
+<li><strong>Mysql服务加入到系统服务并自动启动操作：</strong></li>
+</ul>
+<p>chkconfig --add mysql</p>
+<p>自动启动：</p>
+<p>chkconfig mysql on</p>
+<p>查询列表：</p>
+<p>chkconfig</p>
+<ul>
+<li><p>关于mysql远程访问设置</p>
+</li>
+<li><p>grant all privileges on *.* to &#39;root&#39; @&#39;%&#39; identified by &#39;root&#39;;</p>
+</li>
+<li><p>flush privileges;</p>
+</li>
+</ul>
+<p><img src="/2019/06/28/javaweb_二十三(linux)/image54.png" alt>{width=”5.768055555555556in” height=”0.8278226159230097in”}</p>
+<p>在linux中很多软件的端口都被”防火墙”限止，我们需要将防火墙关闭</p>
+<p>防火墙打开3306端口</p>
+<p>/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save</p>
+<p>/etc/init.d/iptables status</p>
+<p>学习阶段我们也可以直接将防火墙关闭</p>
+<p>service iptables stop;</p>
+<h3 id="在Linux上安装tomcat"><a href="#在Linux上安装tomcat" class="headerlink" title="在Linux上安装tomcat:"></a>在Linux上安装tomcat:</h3><p>1.Tomcat上传到linux上</p>
+<p>2.将上传的tomcat解压</p>
+<p>3.在tomcat/bin目录下执行 ./startup.sh（注意防火墙）</p>
+<p>4.查看目标 tomcat/logs/catalina.out</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566023037548&di=a1c00c249ae508c8e523f7175e75559f&imgtype=0&src=http%3A%2F%2Ftpic.home.news.cn%2FxhForum%2Fxhdisk003%2FM00%2F45%2F19%2FwKhJClbdMU0EAAAAAAAAAAAAAAA282.gif" alt="liminghui">
+            
+              <p class="site-author-name" itemprop="name">liminghui</p>
+              <p class="site-description motion-element" itemprop="description">网页描述</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liminghui321" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liminghui321.github.io/" title="Title" target="_blank">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javaweb-day23-linux"><span class="nav-number">1.</span> <span class="nav-text">javaweb_day23(linux)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Linux介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux安装"><span class="nav-number">1.2.</span> <span class="nav-text">Linux安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux远程访问"><span class="nav-number">1.3.</span> <span class="nav-text">Linux远程访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux目录结构"><span class="nav-number">1.4.</span> <span class="nav-text">Linux目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令-重点"><span class="nav-number">1.5.</span> <span class="nav-text">Linux常用命令(重点)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#切换目录命令cd"><span class="nav-number">1.5.1.</span> <span class="nav-text">切换目录命令cd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列出文件列表-ls-ll"><span class="nav-number">1.5.2.</span> <span class="nav-text">列出文件列表 ls ll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建与删除目录"><span class="nav-number">1.5.3.</span> <span class="nav-text">创建与删除目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览文件"><span class="nav-number">1.5.4.</span> <span class="nav-text">浏览文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">1.5.5.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包压缩与解压"><span class="nav-number">1.5.6.</span> <span class="nav-text">打包压缩与解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件查找"><span class="nav-number">1.5.7.</span> <span class="nav-text">文件查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它常用命令"><span class="nav-number">1.5.8.</span> <span class="nav-text">其它常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VI与VIM编辑器"><span class="nav-number">1.6.</span> <span class="nav-text">VI与VIM编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向"><span class="nav-number">1.6.1.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">1.6.2.</span> <span class="nav-text">管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-amp-命令执行控制"><span class="nav-number">1.6.3.</span> <span class="nav-text">&amp;&amp;命令执行控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统常用命令"><span class="nav-number">1.6.4.</span> <span class="nav-text">系统常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下用户与组管理"><span class="nav-number">1.7.</span> <span class="nav-text">Linux下用户与组管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理"><span class="nav-number">1.7.1.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组管理"><span class="nav-number">1.7.2.</span> <span class="nav-text">组管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id，su命令"><span class="nav-number">1.7.3.</span> <span class="nav-text">id，su命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件权限管理"><span class="nav-number">1.8.</span> <span class="nav-text">文件权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限"><span class="nav-number">1.8.1.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux三种文件类型："><span class="nav-number">1.8.2.</span> <span class="nav-text">Linux三种文件类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件类型标识"><span class="nav-number">1.8.3.</span> <span class="nav-text">文件类型标识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限管理："><span class="nav-number">1.8.4.</span> <span class="nav-text">文件权限管理：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用网络操作"><span class="nav-number">1.9.</span> <span class="nav-text">常用网络操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主机名配置"><span class="nav-number">1.9.1.</span> <span class="nav-text">主机名配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址配置"><span class="nav-number">1.9.2.</span> <span class="nav-text">IP地址配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名映射"><span class="nav-number">1.9.3.</span> <span class="nav-text">域名映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络服务管理"><span class="nav-number">1.9.4.</span> <span class="nav-text">网络服务管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux上软件安装介绍"><span class="nav-number">1.10.</span> <span class="nav-text">Linux上软件安装介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在Linux上安装JDK"><span class="nav-number">1.10.1.</span> <span class="nav-text">在Linux上安装JDK:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Linux上安装Mysql"><span class="nav-number">1.10.2.</span> <span class="nav-text">在Linux上安装Mysql:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Linux上安装tomcat"><span class="nav-number">1.10.3.</span> <span class="nav-text">在Linux上安装tomcat:</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liminghui</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">博客全站字数&#58;</span>
+    
+    <span title="博客全站字数">80.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">80.7k</span> 字
+    </span>
+</div>
+<!-- 新增访客统计代码 END-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+	
+<script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'mlnNNqlYvP2GlbKtJ1ov55IU-gzGzoHsz',
+        appKey: 'AT1jnX9EyuqR1Ac3cYIPm0iA',
+        placeholder: '欢迎交流讨论...',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("mlnNNqlYvP2GlbKtJ1ov55IU-gzGzoHsz", "AT1jnX9EyuqR1Ac3cYIPm0iA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":220,"height":440},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
